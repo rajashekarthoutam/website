@@ -1,7 +1,7 @@
 /**
- * RAJA SHEKAR THOUTAM - PORTFOLIO & ENGINEERING SHOWCASE LOGIC
- * Includes interactive BESS Simulator, PCB Inspector, CLI Terminal Drawer,
- * GitHub API Fetcher, Cloudflare Edge Status, Particle Node Canvas, and Modal System.
+ * THOUTAM RAJASHEKAR - PORTFOLIO & ENGINEERING SHOWCASE LOGIC
+ * Includes interactive FPGA LFSR Simulator, Car Safety Sensor Matrix,
+ * Retro CLI Terminal, Resume Modal Viewer, and Particle Canvas.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,11 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initTypingEffect();
   initNavbarScroll();
   initProjectFilters();
-  initBessSimulator();
-  initPcbInspector();
+  initFpgaLfsrSimulator();
+  initCarSafetyMatrix();
   initTerminalDrawer();
-  initGithubFeed();
-  initCloudflareStatus();
   initContactForm();
   initModals();
 });
@@ -64,7 +62,6 @@ function initParticleCanvas() {
       ctx.fillStyle = p.color + '0.7)';
       ctx.fill();
 
-      // Connect nearby particles
       for (let j = i + 1; j < particles.length; j++) {
         let p2 = particles[j];
         let dx = p.x - p2.x;
@@ -94,10 +91,10 @@ function initTypingEffect() {
   if (!target) return;
 
   const roles = [
-    'Hardware & Embedded Systems Engineer',
-    'Smart Energy & BESS Simulator Architect',
-    'High-Speed PCB Design & Firmware Developer',
-    'Linux Kernel & Systems Specialist'
+    'Hardware & Embedded Systems Specialist',
+    'Tang Nano 20K FPGA & Verilog Logic Designer',
+    'Medha Servo Drives Assembly & HV Testing Tech',
+    'Hardware Roots of Trust Specialist'
   ];
 
   let roleIdx = 0;
@@ -118,7 +115,7 @@ function initTypingEffect() {
     }
 
     if (!isDeleting && charIdx === currentRole.length) {
-      typingSpeed = 2200; // Pause at top
+      typingSpeed = 2200;
       isDeleting = true;
     } else if (isDeleting && charIdx === 0) {
       isDeleting = false;
@@ -148,7 +145,6 @@ function initNavbarScroll() {
       navbar.classList.remove('scrolled');
     }
 
-    // Scroll spy
     let current = '';
     sections.forEach(section => {
       const sectionTop = section.offsetTop - 120;
@@ -200,205 +196,84 @@ function initProjectFilters() {
 }
 
 /* ==========================================
-   5. INTERACTIVE BESS SIMULATOR WIDGET
+   5. INTERACTIVE TANG NANO FPGA LFSR SIMULATOR
    ========================================== */
-function initBessSimulator() {
-  const socSlider = document.getElementById('soc-slider');
-  const solarSlider = document.getElementById('solar-slider');
-  const loadSlider = document.getElementById('load-slider');
+function initFpgaLfsrSimulator() {
+  const btnStep = document.getElementById('btn-step-fsm');
+  const hexEl = document.getElementById('lfsr-hex');
+  const binEl = document.getElementById('lfsr-bin');
+  const tapEl = document.getElementById('lfsr-tap');
+  const stateTag = document.getElementById('fsm-state-tag');
 
-  const socVal = document.getElementById('soc-val');
-  const solarVal = document.getElementById('solar-val');
-  const loadVal = document.getElementById('load-val');
-  const gridVal = document.getElementById('grid-val');
+  if (!btnStep) return;
 
-  const bessStatus = document.getElementById('bess-status-tag');
-  const canvas = document.getElementById('bess-graph-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
+  let lfsrReg = 0xACE1; // 16-bit seed (44257)
 
-  const historyLength = 40;
-  const bessData = new Array(historyLength).fill(50);
-  const gridData = new Array(historyLength).fill(10);
+  btnStep.addEventListener('click', () => {
+    // 16-bit LFSR taps: bits 15, 13, 12, 10
+    const bit15 = (lfsrReg >> 15) & 1;
+    const bit13 = (lfsrReg >> 13) & 1;
+    const bit12 = (lfsrReg >> 12) & 1;
+    const bit10 = (lfsrReg >> 10) & 1;
 
-  function updateSimulation() {
-    const soc = parseInt(socSlider.value);
-    const solar = parseFloat(solarSlider.value);
-    const load = parseFloat(loadSlider.value);
+    const feedbackBit = bit15 ^ bit13 ^ bit12 ^ bit10;
 
-    socVal.textContent = `${soc}%`;
-    solarVal.textContent = `${solar.toFixed(1)} kW`;
-    loadVal.textContent = `${load.toFixed(1)} kW`;
+    lfsrReg = ((lfsrReg << 1) & 0xFFFF) | feedbackBit;
 
-    // Energy balance: Net = Solar - Load
-    const netDemand = load - solar; // positive = deficit, negative = surplus
-    let bessPower = 0;
-    let gridPower = 0;
-    let statusText = 'BALANCED';
+    const hexStr = `16'h${lfsrReg.toString(16).toUpperCase().padStart(4, '0')}`;
+    const binStr = lfsrReg.toString(2).padStart(16, '0');
 
-    if (netDemand > 0) { // Need extra power
-      if (soc > 15) {
-        bessPower = Math.min(netDemand, 15); // BESS discharge max 15kW
-        gridPower = netDemand - bessPower;
-        statusText = `DISCHARGING (${bessPower.toFixed(1)} kW)`;
-      } else {
-        gridPower = netDemand;
-        statusText = 'GRID IMPORT (BESS LOW)';
-      }
-    } else if (netDemand < 0) { // Excess solar
-      const surplus = Math.abs(netDemand);
-      if (soc < 98) {
-        bessPower = -Math.min(surplus, 15); // BESS charging
-        gridPower = surplus - Math.abs(bessPower); // Feed remaining to grid
-        statusText = `CHARGING (${Math.abs(bessPower).toFixed(1)} kW)`;
-      } else {
-        gridPower = -surplus;
-        statusText = 'GRID EXPORT (FULL)';
-      }
-    }
-
-    gridVal.textContent = `${gridPower.toFixed(1)} kW`;
-    if (bessStatus) bessStatus.textContent = statusText;
-
-    // Shift chart data
-    bessData.shift();
-    bessData.push(bessPower);
-
-    gridData.shift();
-    gridData.push(gridPower);
-
-    drawChart();
-  }
-
-  function drawChart() {
-    const w = canvas.width = canvas.parentElement.clientWidth;
-    const h = canvas.height = canvas.parentElement.clientHeight;
-
-    ctx.clearRect(0, 0, w, h);
-
-    // Draw baseline
-    ctx.strokeStyle = 'rgba(255,255,255,0.1)';
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    ctx.moveTo(0, h / 2);
-    ctx.lineTo(w, h / 2);
-    ctx.stroke();
-
-    const step = w / (historyLength - 1);
-
-    // Draw BESS Power Curve (Cyan)
-    ctx.beginPath();
-    ctx.strokeStyle = '#00f2fe';
-    ctx.lineWidth = 2.5;
-    for (let i = 0; i < historyLength; i++) {
-      const x = i * step;
-      // Map -15 to +15 kW onto height
-      const y = (h / 2) - (bessData[i] / 20) * (h / 2);
-      if (i === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
-    }
-    ctx.stroke();
-
-    // Draw Grid Power Curve (Purple)
-    ctx.beginPath();
-    ctx.strokeStyle = '#7928ca';
-    ctx.lineWidth = 1.5;
-    ctx.setLineDash([4, 4]);
-    for (let i = 0; i < historyLength; i++) {
-      const x = i * step;
-      const y = (h / 2) - (gridData[i] / 20) * (h / 2);
-      if (i === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
-    }
-    ctx.stroke();
-    ctx.setLineDash([]);
-  }
-
-  if (socSlider && solarSlider && loadSlider) {
-    socSlider.addEventListener('input', updateSimulation);
-    solarSlider.addEventListener('input', updateSimulation);
-    loadSlider.addEventListener('input', updateSimulation);
-    updateSimulation();
-  }
+    hexEl.textContent = hexStr;
+    binEl.textContent = binStr;
+    tapEl.textContent = `XOR Bit = ${feedbackBit}`;
+    if (stateTag) stateTag.textContent = `FSM PULSED (${hexStr})`;
+  });
 }
 
 /* ==========================================
-   6. INTERACTIVE PCB LAYER INSPECTOR
+   6. CAR SAFETY SENSOR MATRIX WIDGET
    ========================================== */
-function initPcbInspector() {
-  const container = document.getElementById('pcb-layer-canvas');
-  if (!container) return;
+function initCarSafetyMatrix() {
+  const distSlider = document.getElementById('dist-slider');
+  const alcoholSlider = document.getElementById('alcohol-slider');
+  const tempSlider = document.getElementById('temp-slider');
 
-  const layerBtns = document.querySelectorAll('.layer-btn');
-  let activeLayers = { signal: true, power: true, ground: true, silk: true };
+  const distVal = document.getElementById('dist-val');
+  const alcoholVal = document.getElementById('alcohol-val');
+  const tempVal = document.getElementById('temp-val');
+  const alarmTag = document.getElementById('car-alarm-tag');
 
-  const canvas = document.createElement('canvas');
-  container.appendChild(canvas);
-  const ctx = canvas.getContext('2d');
+  if (!distSlider || !alcoholSlider || !tempSlider) return;
 
-  function renderPcb() {
-    const w = canvas.width = container.clientWidth;
-    const h = canvas.height = container.clientHeight;
+  function evaluateMatrix() {
+    const dist = parseInt(distSlider.value);
+    const alcohol = parseInt(alcoholSlider.value);
+    const temp = parseInt(tempSlider.value);
 
-    ctx.fillStyle = '#060a12';
-    ctx.fillRect(0, 0, w, h);
+    distVal.textContent = `${dist} cm ${dist <= 30 ? '⚠️ (OBSTACLE DANGER)' : ''}`;
+    alcoholVal.textContent = `${alcohol} ${alcohol > 300 ? '🚨 (ALCOHOL DETECTED)' : '(Safe)'}`;
+    tempVal.textContent = `${temp} °C ${temp > 90 ? '🔥 (ENGINE OVERHEAT)' : ''}`;
 
-    // Ground Plane Layer
-    if (activeLayers.ground) {
-      ctx.fillStyle = 'rgba(15, 30, 50, 0.6)';
-      ctx.fillRect(20, 20, w - 40, h - 40);
-    }
+    let hazards = [];
+    if (dist <= 30) hazards.push('OBSTACLE');
+    if (alcohol > 300) hazards.push('ALCOHOL');
+    if (temp > 90) hazards.push('OVERHEAT');
 
-    // Power Plane Layer
-    if (activeLayers.power) {
-      ctx.strokeStyle = 'rgba(255, 171, 0, 0.4)';
-      ctx.lineWidth = 6;
-      ctx.strokeRect(35, 35, w - 70, h - 70);
-    }
-
-    // Signal Traces Layer
-    if (activeLayers.signal) {
-      ctx.strokeStyle = '#00f2fe';
-      ctx.lineWidth = 2.5;
-
-      // Draw trace bus
-      const startX = 50;
-      const startY = h / 2;
-
-      for (let i = -3; i <= 3; i++) {
-        ctx.beginPath();
-        ctx.moveTo(startX, startY + i * 12);
-        ctx.lineTo(startX + 120, startY + i * 12);
-        ctx.lineTo(startX + 180, startY + i * 12 + 30);
-        ctx.lineTo(w - 60, startY + i * 12 + 30);
-        ctx.stroke();
-      }
-    }
-
-    // Silkscreen Layer
-    if (activeLayers.silk) {
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
-      ctx.lineWidth = 1.5;
-      ctx.strokeRect(w / 2 - 40, h / 2 - 40, 80, 80);
-
-      ctx.fillStyle = '#fff';
-      ctx.font = '10px Fira Code';
-      ctx.fillText('MCU_U1 (Cortex-M4)', w / 2 - 38, h / 2 - 46);
-      ctx.fillText('REV 2.4 - RAJASHEKAR', 40, h - 28);
+    if (hazards.length > 0) {
+      alarmTag.textContent = `🚨 ALARM: ${hazards.join(' + ')}`;
+      alarmTag.style.color = '#ff0080';
+      alarmTag.style.borderColor = '#ff0080';
+    } else {
+      alarmTag.textContent = `STATUS: ALL SYSTEMS NORMAL`;
+      alarmTag.style.color = 'var(--accent-emerald)';
+      alarmTag.style.borderColor = 'var(--accent-emerald)';
     }
   }
 
-  layerBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const layer = btn.getAttribute('data-layer');
-      btn.classList.toggle('active');
-      activeLayers[layer] = btn.classList.contains('active');
-      renderPcb();
-    });
-  });
-
-  window.addEventListener('resize', renderPcb);
-  renderPcb();
+  distSlider.addEventListener('input', evaluateMatrix);
+  alcoholSlider.addEventListener('input', evaluateMatrix);
+  tempSlider.addEventListener('input', evaluateMatrix);
+  evaluateMatrix();
 }
 
 /* ==========================================
@@ -417,15 +292,14 @@ function initTerminalDrawer() {
   if (closeBtn) closeBtn.addEventListener('click', () => drawer.classList.remove('open'));
 
   const commands = {
-    help: 'Available commands: [help, bio, skills, projects, bess, github, cloudflare, contact, clear]',
-    bio: 'Rajashekar Thoutam - Embedded & Systems Engineer specializing in IoT, BESS simulators, and hardware design.',
-    skills: 'Core Tech: C/C++, Embedded RTOS, Python, KiCad PCB, MQTT/CAN, Linux Kernel, Cloudflare Workers/Pages.',
-    projects: 'Projects: 1. Smart BESS Telemetry Simulator 2. Multilayer PCB High-Speed Suite 3. Linux SOF/Driver Diagnostic Tool.',
-    bess: 'Smart Battery Energy Storage Simulator - Telemetry dashboard for solar & grid microgrids.',
-    github: 'GitHub Profile: https://github.com/rajashekarthoutam',
-    cloudflare: 'Deployed via Cloudflare Pages edge network with SSL & global CDN acceleration.',
-    contact: 'Email: rajashekar.thoutam.dev@gmail.com | GitHub: rajashekarthoutam',
-    matrix: 'Entering matrix mode... 01001000 01000101 01001100 01001100 01001111'
+    help: 'Commands: [help, bio, fpga, medha, projects, education, contact, clear, resume]',
+    bio: 'Thoutam Rajashekar - ECE Undergraduate @ JBREC Hyderabad. Hardware, FPGA & Embedded Systems Specialist.',
+    fpga: 'Tang Nano 20K FPGA with Gowin EDA & Vivado. Built 16-bit LFSR rolling code engine in Verilog HDL.',
+    medha: 'Medha Servo Drives Apprentice: Assembled industrial locomotive Traction Converters (LTC), HV testing & OFC routing.',
+    projects: '1. Dual-Hardware FPGA Secure Lock 2. Multi-Modal Car Safety System 3. V2G Smart Energy 4. Containerized Mesh Server.',
+    education: 'B.Tech ECE @ JBREC (7.93 CGPA) | Diploma ECE @ GPT Masabtank | Electrician Certification @ Shakthi ITI.',
+    contact: 'Email: rajashekar.thoutam.dev@gmail.com | Location: Hyderabad, India | GitHub: rajashekarthoutam',
+    resume: 'Thoutam Rajashekar Resume: B.Tech ECE | Tang Nano FPGA | Medha Servo Drives | PIC16 | ESP-NOW'
   };
 
   input.addEventListener('keydown', (e) => {
@@ -444,10 +318,8 @@ function initTerminalDrawer() {
 
       if (commands[cmd]) {
         appendLine(commands[cmd], 'output');
-      } else if (cmd.startsWith('sudo hire')) {
-        appendLine('Access Granted! Sending interview invite to rajashekar...', 'highlight');
       } else {
-        appendLine(`Command not found: "${cmd}". Type "help" for list of commands.`, 'output');
+        appendLine(`Command not recognized: "${cmd}". Type "help" for list of commands.`, 'output');
       }
 
       body.scrollTop = body.scrollHeight;
@@ -463,79 +335,7 @@ function initTerminalDrawer() {
 }
 
 /* ==========================================
-   8. LIVE GITHUB FEED (API FETCH)
-   ========================================== */
-async function initGithubFeed() {
-  const repoContainer = document.getElementById('github-repos-list');
-  if (!repoContainer) return;
-
-  const username = 'rajashekarthoutam';
-
-  try {
-    const res = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=4`);
-    if (!res.ok) throw new Error('API Rate Limit or Offline');
-    const repos = await res.json();
-
-    repoContainer.innerHTML = '';
-    repos.forEach(repo => {
-      const item = document.createElement('div');
-      item.className = 'repo-item';
-      item.innerHTML = `
-        <div>
-          <a href="${repo.html_url}" target="_blank" rel="noopener" class="repo-name">${repo.name}</a>
-          <div class="repo-desc">${repo.description || 'Hardware & Embedded System codebase'}</div>
-        </div>
-        <div class="repo-meta">
-          <span>★ ${repo.stargazers_count}</span>
-          <span>⚡ ${repo.language || 'C++'}</span>
-        </div>
-      `;
-      repoContainer.appendChild(item);
-    });
-  } catch (err) {
-    // Graceful fallback display
-    repoContainer.innerHTML = `
-      <div class="repo-item">
-        <div>
-          <a href="https://github.com/rajashekarthoutam/website" target="_blank" class="repo-name">website</a>
-          <div class="repo-desc">Official Portfolio & Engineering Showcase built for Cloudflare Pages</div>
-        </div>
-        <div class="repo-meta"><span>★ 1</span><span>HTML/JS</span></div>
-      </div>
-      <div class="repo-item">
-        <div>
-          <a href="https://github.com/rajashekarthoutam" target="_blank" class="repo-name">bess-simulator-core</a>
-          <div class="repo-desc">Smart Energy Battery Storage Telemetry & Microgrid Simulator</div>
-        </div>
-        <div class="repo-meta"><span>★ 4</span><span>Python/C++</span></div>
-      </div>
-    `;
-  }
-}
-
-/* ==========================================
-   9. CLOUDFLARE EDGE STATUS
-   ========================================== */
-function initCloudflareStatus() {
-  const pingEl = document.getElementById('cf-ping');
-  const nodeEl = document.getElementById('cf-node');
-
-  if (pingEl) {
-    // Dynamic simulated latency indicator
-    setInterval(() => {
-      const latency = Math.floor(Math.random() * 12) + 8; // 8ms - 20ms
-      pingEl.textContent = `${latency} ms`;
-    }, 3000);
-  }
-
-  if (nodeEl) {
-    const popList = ['HYD (Hyderabad)', 'BOM (Mumbai)', 'DEL (Delhi)', 'SIN (Singapore)', 'LHR (London)'];
-    nodeEl.textContent = popList[0];
-  }
-}
-
-/* ==========================================
-   10. CONTACT FORM
+   8. CONTACT FORM
    ========================================== */
 function initContactForm() {
   const form = document.getElementById('contact-form');
@@ -549,7 +349,7 @@ function initContactForm() {
     if (alertBox) {
       alertBox.style.display = 'block';
       alertBox.className = 'badge-status';
-      alertBox.innerHTML = '⚡ Thank you! Your message has been sent to Rajashekar Thoutam.';
+      alertBox.innerHTML = '⚡ Thank you! Your message has been sent to Thoutam Rajashekar.';
       form.reset();
 
       setTimeout(() => {
@@ -560,7 +360,7 @@ function initContactForm() {
 }
 
 /* ==========================================
-   11. MODALS
+   9. MODALS (PROJECT & RESUME VIEWER)
    ========================================== */
 function initModals() {
   const overlay = document.getElementById('modal-overlay');
@@ -569,46 +369,95 @@ function initModals() {
   const modalBody = document.getElementById('modal-body');
   const triggerBtns = document.querySelectorAll('[data-modal-target]');
 
+  const navResumeBtn = document.getElementById('btn-view-resume-nav');
+  const heroResumeBtn = document.getElementById('btn-open-resume-hero');
+
   if (!overlay) return;
 
   const modalDetails = {
-    bess: {
-      title: 'Smart BESS Energy Telemetry Simulator',
+    fpga_lock: {
+      title: 'Dual-Hardware Secure Locking System (FPGA & ESP32)',
       content: `
-        <p><strong>Overview:</strong> High-performance IoT microgrid battery energy storage simulator with real-time state-of-charge calculation, PV solar generation tracking, and grid peak shaving logic.</p>
+        <p><strong>Architecture Overview:</strong> An air-gapped security system that decouples wireless communication from hardware execution logic.</p>
         <br>
-        <p><strong>Technical Highlights:</strong></p>
-        <ul style="margin-left: 1.5rem; color: #94a3b8;">
-          <li>Real-time telemetry rendering using HTML5 Canvas API</li>
-          <li>Modbus TCP / MQTT telemetry protocol simulation</li>
-          <li>Dynamic grid stability calculation and export/import auto-balancing</li>
+        <p><strong>Key Technical Highlights:</strong></p>
+        <ul style="margin-left: 1.5rem; color: #94a3b8; line-height: 1.7;">
+          <li><strong>FPGA Core:</strong> Tang Nano 20K FPGA running a Verilog Finite State Machine (FSM) acting as the Hardware Root of Trust.</li>
+          <li><strong>Rolling Code Engine:</strong> 16-bit Linear Feedback Shift Register (LFSR) dynamic code generator producing hardware-isolated authentication keys.</li>
+          <li><strong>Simplex Pipeline:</strong> ESP32 executing router-less ESP-NOW protocol connected via a uni-directional (simplex) UART bus.</li>
+          <li><strong>Token Unit:</strong> Handheld secondary ESP32 display token for instant key confirmation.</li>
         </ul>
       `
     },
-    pcb: {
-      title: 'Multilayer High-Speed PCB Suite',
+    car_safety: {
+      title: 'Advanced Multi-Modal Vehicle Safety & Alert System',
       content: `
-        <p><strong>Overview:</strong> Industrial KiCad EDA PCB layout for ARM Cortex-M4 embedded control units with differential pair length matching and power plane split optimization.</p>
+        <p><strong>Overview:</strong> Arduino Uno based multi-sensor automotive safety integration processing real-time collision, sobriety, and thermal metrics.</p>
         <br>
-        <p><strong>Technical Highlights:</strong></p>
-        <ul style="margin-left: 1.5rem; color: #94a3b8;">
-          <li>4-layer impedance-controlled stackup</li>
-          <li>USB 2.0 High-Speed & CAN bus differential line routing</li>
-          <li>Low noise thermal relief and power plane stitching vias</li>
+        <p><strong>Sensor Specs & Thresholds:</strong></p>
+        <ul style="margin-left: 1.5rem; color: #94a3b8; line-height: 1.7;">
+          <li><strong>HC-SR04 Ultrasonic Sensors:</strong> 360-degree obstacle detection with a 30 cm danger threshold.</li>
+          <li><strong>MQ-3 Gas Sensor:</strong> Analog alcohol breathalyzer sampling with a 300 raw threshold trigger.</li>
+          <li><strong>Temperature Monitoring:</strong> Continuous engine thermal tracking to alert on overheat risks.</li>
+          <li><strong>Alert Matrix:</strong> Multi-modal warning featuring high-pitch piezoelectric buzzer alarms & LED visual indicator array.</li>
         </ul>
       `
     },
-    iot: {
-      title: 'IoT Microcontroller Edge Gateway',
+    v2g: {
+      title: 'Vehicle-to-Grid (V2G) Smart Energy Infrastructure',
       content: `
-        <p><strong>Overview:</strong> Embedded Linux & RTOS gateway node executing real-time sensor ingestion, MQTT broker telemetry relay, and Cloudflare Worker API edge synchronization.</p>
+        <p><strong>Major B.Tech Engineering Project:</strong> Focused on bidirectional power flow control between Electric Vehicles (EVs) and the local power grid.</p>
         <br>
-        <p><strong>Technical Highlights:</strong></p>
-        <ul style="margin-left: 1.5rem; color: #94a3b8;">
-          <li>Custom Linux driver setup & kernel SOF diagnostic tuning</li>
-          <li>Low latency MQTT telemetry payload serialization</li>
-          <li>Fail-safe OTA update dispatcher</li>
+        <ul style="margin-left: 1.5rem; color: #94a3b8; line-height: 1.7;">
+          <li>Smart EV Battery Management System (BMS) telemetry integration.</li>
+          <li>Grid synchronization protocols and power inverter pulse control algorithms.</li>
+          <li>Decentralized peak shaving and microgrid energy exchange.</li>
         </ul>
+      `
+    },
+    mesh: {
+      title: 'Containerized Home Messaging & Mesh Infrastructure',
+      content: `
+        <p><strong>Infrastructure Overview:</strong> Self-hosted offline-first messaging network.</p>
+        <br>
+        <ul style="margin-left: 1.5rem; color: #94a3b8; line-height: 1.7;">
+          <li><strong>Matrix Synapse:</strong> Containerized communication server deployed inside Docker.</li>
+          <li><strong>Tailscale Mesh:</strong> Encrypted P2P mesh network bridging remote hardware nodes without open public ports.</li>
+          <li>Deployed on Windows 11 native environment managed via Scoop.</li>
+        </ul>
+      `
+    },
+    resume: {
+      title: 'Thoutam Rajashekar - Technical Resume',
+      content: `
+        <div style="font-family: var(--font-main); color: #e2e8f0; line-height: 1.6;">
+          <h3 style="color: var(--accent-cyan);">THOUTAM RAJASHEKAR</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Hyderabad, Telangana, India | rajashekar.thoutam.dev@gmail.com | github.com/rajashekarthoutam</p>
+          <hr style="border-color: rgba(255,255,255,0.1); margin: 1rem 0;">
+
+          <h4 style="color: var(--accent-purple);">EDUCATION</h4>
+          <p><strong>B.Tech in ECE</strong> - Joginpally B R Engineering College (JBREC), Hyderabad | CGPA: 7.93 (JNTUH R23)</p>
+          <p><strong>Diploma in ECE</strong> - Government Polytechnic Masabtank (2021–2023)</p>
+          <p><strong>Electrician Certification</strong> - Shakthi ITI, Mancherial (2016–2018)</p>
+
+          <br>
+          <h4 style="color: var(--accent-purple);">INDUSTRIAL EXPERIENCE</h4>
+          <p><strong>Medha Servo Drives</strong> - Assembly & Testing Technician / Apprentice</p>
+          <ul style="margin-left: 1.2rem; font-size: 0.88rem; color: #94a3b8;">
+            <li>Assembled Traction Converters (LTC) for locomotives & routed Optical Fiber Cables (OFC).</li>
+            <li>Executed high-voltage (HV) testing, torque calibration, and multimeter verification.</li>
+          </ul>
+
+          <br>
+          <p><strong>Microchip Technology</strong> - Virtual Embedded Systems Intern</p>
+          <ul style="margin-left: 1.2rem; font-size: 0.88rem; color: #94a3b8;">
+            <li>Programmed PIC16 microcontrollers in MPLAB X IDE and implemented BLE applications.</li>
+          </ul>
+
+          <br>
+          <h4 style="color: var(--accent-purple);">HARDWARE & SKILLS</h4>
+          <p style="font-size: 0.9rem; color: #94a3b8;">Tang Nano 20K FPGA, Verilog HDL, Gowin EDA, Xilinx Vivado, KiCad, PIC16, ESP32 (ESP-NOW), Arduino Uno, Tailscale, Docker, Cloudflare Pages.</p>
+        </div>
       `
     }
   };
@@ -627,9 +476,18 @@ function initModals() {
     });
   });
 
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => overlay.classList.remove('active'));
-  }
+  const openResumeModal = (e) => {
+    if (e) e.preventDefault();
+    const data = modalDetails.resume;
+    modalTitle.textContent = data.title;
+    modalBody.innerHTML = data.content;
+    overlay.classList.add('active');
+  };
+
+  if (navResumeBtn) navResumeBtn.addEventListener('click', openResumeModal);
+  if (heroResumeBtn) heroResumeBtn.addEventListener('click', openResumeModal);
+
+  if (closeBtn) closeBtn.addEventListener('click', () => overlay.classList.remove('active'));
 
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) overlay.classList.remove('active');

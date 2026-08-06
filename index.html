@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rajashekar Thoutam | Embedded Systems & Smart Energy Engineer</title>
-  <meta name="description" content="Official portfolio and engineering showcase of Rajashekar Thoutam. Embedded Systems, BESS Simulators, High-Speed PCB Design, IoT, and Cloudflare Edge Deployments.">
-  <meta name="keywords" content="Rajashekar Thoutam, Embedded Systems, KiCad PCB, BESS Simulator, Smart Energy, IoT, Cloudflare Pages, Linux Kernel, Firmware">
-  <meta name="author" content="Rajashekar Thoutam">
+  <title>Thoutam Rajashekar | Hardware, FPGA & Embedded Systems Specialist</title>
+  <meta name="description" content="Official engineering portfolio of Thoutam Rajashekar - ECE Specialist in FPGA Logic, Tang Nano 20K Verilog, Microchip PIC16, Medha Servo Drives Industrial Assembly, and Hardware Roots of Trust.">
+  <meta name="keywords" content="Thoutam Rajashekar, Rajashekar Thoutam, FPGA, Verilog, Tang Nano 20K, Medha Servo Drives, KiCad, ECE, Embedded Systems, Hardware Root of Trust, ESP-NOW, Hyderabad">
+  <meta name="author" content="Thoutam Rajashekar">
 
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://website-rajashekarthoutam.pages.dev/">
-  <meta property="og:title" content="Rajashekar Thoutam | Engineering Portfolio">
-  <meta property="og:description" content="Hardware, Firmware & Smart Energy Systems Showcase. Deployed via Cloudflare Pages & GitHub.">
-  <meta property="og:image" content="assets/images/bess_simulator.png">
+  <meta property="og:url" content="https://website.rajashekarthoutam.workers.dev/">
+  <meta property="og:title" content="Thoutam Rajashekar | Hardware & Embedded Systems Portfolio">
+  <meta property="og:description" content="Bridging Physical Electronics, FPGA Logic, and Hardware Roots of Trust. ECE Undergraduate & Hardware Specialist.">
+  <meta property="og:image" content="assets/images/fpga_lock.png">
 
   <!-- Fonts & Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -21,15 +21,15 @@
 </head>
 <body>
 
-  <!-- Connected Particle Background Canvas -->
+  <!-- Connected Particle Canvas -->
   <canvas id="particles-canvas"></canvas>
 
   <!-- Navigation Bar -->
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
       <a href="#hero" class="brand-logo" id="nav-brand">
-        <div class="brand-icon">RT</div>
-        <span>Rajashekar<span class="gradient-text">.dev</span></span>
+        <div class="brand-icon">TR</div>
+        <span>Rajashekar<span class="gradient-text">.hw</span></span>
       </a>
 
       <ul class="nav-links" id="nav-links">
@@ -37,13 +37,16 @@
         <li><a href="#about" class="nav-link" id="nav-item-about">About</a></li>
         <li><a href="#skills" class="nav-link" id="nav-item-skills">Skills</a></li>
         <li><a href="#projects" class="nav-link" id="nav-item-projects">Projects</a></li>
-        <li><a href="#demos" class="nav-link" id="nav-item-demos">Live Demos</a></li>
-        <li><a href="#github" class="nav-link" id="nav-item-github">GitHub Feed</a></li>
+        <li><a href="#experience" class="nav-link" id="nav-item-experience">Experience & Education</a></li>
+        <li><a href="#interactive" class="nav-link" id="nav-item-interactive">Logic Lab</a></li>
         <li><a href="#contact" class="nav-link" id="nav-item-contact">Contact</a></li>
       </ul>
 
       <div class="nav-actions">
-        <button class="btn btn-terminal" id="terminal-fab" aria-label="Open Interactive CLI Terminal">
+        <button class="btn btn-outline" id="btn-view-resume-nav" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+          <i class="fa-solid fa-file-pdf"></i> Resume
+        </button>
+        <button class="btn btn-terminal" id="terminal-fab" aria-label="Open Interactive Hardware CLI">
           <i class="fa-solid fa-terminal"></i> CLI Terminal
         </button>
         <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
@@ -59,221 +62,280 @@
       <div class="hero-grid">
         <div class="hero-content">
           <div class="badge-status" id="hero-status-badge">
-            <span class="pulse-dot"></span> Available for Embedded & Hardware Engineering Projects
+            <span class="pulse-dot"></span> Hyderabad, India | ECE Specialist & Hardware Developer
           </div>
           <h1 class="hero-title">
-            Hi, I'm <span class="gradient-text">Rajashekar</span> Thoutam
+            Thoutam <span class="gradient-text">Rajashekar</span>
           </h1>
           <div class="hero-subtitle-wrapper">
-            <span class="typing-text" id="typing-text">Hardware & Embedded Systems Engineer</span>
+            <span class="typing-text" id="typing-text">Hardware & Embedded Systems Specialist</span>
           </div>
           <p class="hero-bio">
-            Engineering high-reliability embedded systems, battery energy storage (BESS) microgrid telemetry simulators, multilayer PCB designs, and edge-connected IoT devices backed by Linux and Cloudflare architecture.
+            "Bridging Physical Electronics, FPGA Logic, and Hardware Roots of Trust."
+          </p>
+          <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 2rem; line-height: 1.6;">
+            ECE Undergraduate at JBREC (JNTUH) with industrial experience at <strong>Medha Servo Drives</strong> (Traction Converter LTC Assembly & HV Testing), <strong>Microchip Technology</strong> (PIC16 & BLE), and <strong>Tang Nano 20K FPGA</strong> Verilog design.
           </p>
 
           <div class="hero-cta">
             <a href="#projects" class="btn btn-primary" id="btn-explore-projects">
-              <i class="fa-solid fa-microchip"></i> View Projects
+              <i class="fa-solid fa-microchip"></i> Explore Projects
             </a>
-            <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener" class="btn btn-outline" id="btn-github-profile">
-              <i class="fa-brands fa-github"></i> GitHub Profile
-            </a>
-            <a href="#contact" class="btn btn-outline" id="btn-get-in-touch">
+            <button class="btn btn-outline" id="btn-open-resume-hero">
+              <i class="fa-solid fa-file-lines"></i> View Resume
+            </button>
+            <a href="#contact" class="btn btn-outline" id="btn-contact-hero">
               <i class="fa-solid fa-paper-plane"></i> Contact Me
             </a>
           </div>
         </div>
 
+        <!-- Terminal Intro Window (UI Directive 1) -->
         <div class="hero-avatar-wrapper">
-          <div class="avatar-card">
-            <img src="assets/images/avatar.png" alt="Rajashekar Thoutam Avatar Emblem" class="avatar-img">
-            <div class="floating-badge badge-top-right">
-              <i class="fa-solid fa-bolt" style="color: var(--accent-cyan);"></i> BESS Telemetry
+          <div class="terminal-window-card">
+            <div class="terminal-header">
+              <div class="terminal-title">
+                <i class="fa-solid fa-code-branch" style="color: var(--accent-cyan);"></i> tang_nano_20k_fsm.v (Verilog HDL)
+              </div>
+              <div class="terminal-controls">
+                <span class="dot-btn dot-red"></span>
+                <span class="dot-btn dot-yellow"></span>
+                <span class="dot-btn dot-green"></span>
+              </div>
             </div>
-            <div class="floating-badge badge-bottom-left">
-              <i class="fa-solid fa-layer-group" style="color: var(--accent-purple);"></i> KiCad Multilayer PCB
+            <div class="terminal-body-code">
+<pre><code class="verilog-code"><span class="v-keyword">module</span> <span class="v-module">lfsr_16bit_root_of_trust</span> (
+    <span class="v-keyword">input</span>  wire clk_27mhz,
+    <span class="v-keyword">input</span>  wire rst_n,
+    <span class="v-keyword">input</span>  wire uart_rx_trigger,
+    <span class="v-keyword">output</span> reg  [15:0] rolling_code,
+    <span class="v-keyword">output</span> reg  lock_status
+);
+    <span class="v-comment">// Tang Nano 20K Hardware Root of Trust</span>
+    <span class="v-keyword">always</span> @(<span class="v-keyword">posedge</span> clk_27mhz <span class="v-keyword">or negedge</span> rst_n) <span class="v-keyword">begin</span>
+        <span class="v-keyword">if</span> (!rst_n)
+            rolling_code <= 16'hACE1;
+        <span class="v-keyword">else begin</span>
+            <span class="v-comment">// LFSR Polynomial: x^16 + x^14 + x^13 + x^11 + 1</span>
+            rolling_code <= {rolling_code[14:0], 
+                rolling_code[15] ^ rolling_code[13] ^ 
+                rolling_code[12] ^ rolling_code[10]};
+        <span class="v-keyword">end</span>
+    <span class="v-keyword">end</span>
+<span class="v-keyword">endmodule</span></code></pre>
+            </div>
+            <div class="code-footer-bar">
+              <span><i class="fa-solid fa-bolt" style="color: var(--accent-cyan);"></i> Gowin EDA / Tang Nano 20K</span>
+              <span style="font-family: var(--font-mono); color: var(--accent-emerald);">FSM VALIDATED</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Cloudflare Pages & GitHub Live Status Banner -->
+      <!-- Cloudflare & Deployment Status Banner -->
       <div class="deploy-status-bar" id="deploy-status-bar">
         <div class="status-item">
-          <i class="fa-solid fa-cloud" style="color: var(--accent-cyan);"></i>
-          <span class="status-label">Hosted on:</span>
-          <span class="status-value cf-logo">Cloudflare Pages</span>
+          <i class="fa-solid fa-location-dot" style="color: var(--accent-cyan);"></i>
+          <span class="status-label">Location:</span>
+          <span class="status-value">Hyderabad, Telangana, India</span>
+        </div>
+        <div class="status-item">
+          <i class="fa-solid fa-graduation-cap" style="color: var(--accent-purple);"></i>
+          <span class="status-label">Academics:</span>
+          <span class="status-value">B.Tech ECE @ JBREC (7.93 CGPA)</span>
         </div>
         <div class="status-item">
           <i class="fa-brands fa-github" style="color: #fff;"></i>
-          <span class="status-label">Source Repository:</span>
-          <span class="status-value">rajashekarthoutam/website</span>
+          <span class="status-label">GitHub:</span>
+          <span class="status-value">rajashekarthoutam</span>
         </div>
         <div class="status-item">
-          <i class="fa-solid fa-globe" style="color: var(--accent-emerald);"></i>
-          <span class="status-label">Edge Node:</span>
-          <span class="status-value" id="cf-node">HYD (Hyderabad)</span>
-        </div>
-        <div class="status-item">
-          <i class="fa-solid fa-gauge-high" style="color: var(--accent-amber);"></i>
-          <span class="status-label">Edge Latency:</span>
-          <span class="status-value" id="cf-ping">12 ms</span>
+          <i class="fa-solid fa-cloud" style="color: #f6821f;"></i>
+          <span class="status-label">Hosted on:</span>
+          <span class="status-value cf-logo">Cloudflare Edge</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- About Me Section -->
   <section class="section" id="about">
     <div class="container">
       <div class="section-header">
         <span class="section-subtitle">// Engineering Background</span>
-        <h2 class="section-title">Innovating at the Intersection of <span class="gradient-text">Hardware & Code</span></h2>
-        <p class="section-desc">Passionate about building robust physical and cyber systems with low latency, telemetry monitoring, and clean hardware execution.</p>
+        <h2 class="section-title">About <span class="gradient-text">Thoutam Rajashekar</span></h2>
+        <p class="section-desc">Electronics & Communication Engineering Specialist passionate about physical hardware, chip layout, and air-gapped system isolation.</p>
       </div>
 
       <div class="about-grid">
         <div class="glass-card about-text">
-          <h3 style="font-size: 1.5rem; margin-bottom: 1rem;" class="gradient-text">Bridging Hardware & Software</h3>
+          <h3 style="font-size: 1.5rem; margin-bottom: 1rem;" class="gradient-text">Hardware Roots & Physical Logic</h3>
           <p>
-            I specialize in designing complete hardware-to-software pipelines. From designing multi-layer PCBs in KiCad EDA to writing bare-metal C/C++ firmware and deploying edge cloud services on Cloudflare.
+            I am a passionate ECE undergraduate student with extensive hands-on experience spanning industrial manufacturing, physical hardware layout, FPGA logic synthesis, and embedded system design.
           </p>
           <p>
-            My recent flagship development includes a complete <strong>Smart BESS (Battery Energy Storage System) Simulator</strong> for smart homes and industrial microgrids, combining real-time battery chemistry telemetry, solar PV integration, and grid load-balancing algorithms.
+            Having completed rigorous industrial apprenticeship work at <strong>Medha Servo Drives</strong> assembling heavy-duty locomotive Traction Converters (LTC), high-voltage testing, and Optical Fiber Cable (OFC) routing, I value physical execution, precision equipment calibration, and gadget reverse-engineering over pure software abstraction.
+          </p>
+          <p>
+            My engineering philosophy centers on building <strong>Hardware Roots of Trust</strong>, air-gapped communication systems, localized AI integration, and lean offline-first computing environments.
           </p>
         </div>
 
         <div class="stats-grid">
           <div class="stat-card">
-            <div class="stat-number">100%</div>
-            <div class="stat-title">Open Source & Git</div>
+            <div class="stat-number">7.93</div>
+            <div class="stat-title">B.Tech CGPA (JNTUH R23)</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">4+</div>
-            <div class="stat-title">PCB Layers Stackup</div>
+            <div class="stat-number">20K</div>
+            <div class="stat-title">Tang Nano FPGA Logic</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">&lt;15ms</div>
-            <div class="stat-title">Cloudflare Edge Time</div>
+            <div class="stat-number">16-bit</div>
+            <div class="stat-title">LFSR Rolling Code Engine</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">24/7</div>
-            <div class="stat-title">BESS Microgrid Telemetry</div>
+            <div class="stat-number">50 km</div>
+            <div class="stat-title">Daily Commute & Discipline</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Skills Matrix Section -->
+  <!-- Core Skills Section -->
   <section class="section" id="skills">
     <div class="container">
       <div class="section-header">
-        <span class="section-subtitle">// Technical Capabilities</span>
-        <h2 class="section-title">Skills & <span class="gradient-text">Technology Stack</span></h2>
-        <p class="section-desc">A comprehensive matrix of hardware design software, embedded programming languages, protocols, and cloud platforms.</p>
+        <span class="section-subtitle">// Technical Matrix</span>
+        <h2 class="section-title">Core Skills & <span class="gradient-text">Technical Expertise</span></h2>
+        <p class="section-desc">Categorized breakdown of hardware design tools, embedded microcontrollers, industrial protocols, and system architecture.</p>
       </div>
 
       <div class="skills-grid">
+        <!-- Category 1: Hardware & Circuit Engineering -->
         <div class="glass-card">
           <div class="skill-category-title">
-            <i class="fa-solid fa-microchip skill-icon"></i> Embedded & Hardware
+            <i class="fa-solid fa-microchip skill-icon"></i> Hardware & VLSI Logic
           </div>
-          <div class="skill-list">
-            <div>
-              <div class="skill-item-header"><span>Embedded C / C++</span><span>95%</span></div>
-              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 95%;"></div></div>
-            </div>
-            <div>
-              <div class="skill-item-header"><span>KiCad EDA & PCB Layout</span><span>90%</span></div>
-              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 90%;"></div></div>
-            </div>
-            <div>
-              <div class="skill-item-header"><span>ARM Cortex-M & STM32</span><span>88%</span></div>
-              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 88%;"></div></div>
-            </div>
+          <div class="skill-list-tags">
+            <span class="skill-pill"><i class="fa-solid fa-code"></i> Verilog HDL</span>
+            <span class="skill-pill"><i class="fa-solid fa-microchip"></i> Tang Nano 20K / Gowin EDA</span>
+            <span class="skill-pill"><i class="fa-solid fa-diagram-project"></i> Xilinx Vivado</span>
+            <span class="skill-pill"><i class="fa-solid fa-wave-square"></i> FSM & LFSR Logic</span>
+            <span class="skill-pill"><i class="fa-solid fa-layer-group"></i> KiCad PCB Design</span>
+            <span class="skill-pill"><i class="fa-solid fa-cube"></i> OpenSCAD & CAD</span>
+            <span class="skill-pill"><i class="fa-solid fa-chart-line"></i> Octave & Simulation</span>
+            <span class="skill-pill"><i class="fa-solid fa-industry"></i> Traction Converter (LTC) Assembly</span>
+            <span class="skill-pill"><i class="fa-solid fa-bolt"></i> High-Voltage (HV) Testing</span>
+            <span class="skill-pill"><i class="fa-solid fa-network-wired"></i> Optical Fiber Cable (OFC) Routing</span>
           </div>
         </div>
 
+        <!-- Category 2: Embedded Systems & Protocols -->
         <div class="glass-card">
           <div class="skill-category-title">
-            <i class="fa-solid fa-network-wired skill-icon"></i> Protocols & Systems
+            <i class="fa-solid fa-network-wired skill-icon"></i> Embedded & Protocols
           </div>
-          <div class="skill-list">
-            <div>
-              <div class="skill-item-header"><span>MQTT / Modbus / CAN Bus</span><span>92%</span></div>
-              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 92%;"></div></div>
-            </div>
-            <div>
-              <div class="skill-item-header"><span>Linux Kernel & Drivers</span><span>85%</span></div>
-              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 85%;"></div></div>
-            </div>
-            <div>
-              <div class="skill-item-header"><span>Python Telemetry & Data</span><span>90%</span></div>
-              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 90%;"></div></div>
-            </div>
+          <div class="skill-list-tags">
+            <span class="skill-pill"><i class="fa-solid fa-gear"></i> Microchip PIC16 (MPLAB X)</span>
+            <span class="skill-pill"><i class="fa-solid fa-wifi"></i> ESP32 & ESP-NOW Protocol</span>
+            <span class="skill-pill"><i class="fa-solid fa-microchip"></i> ATmega328P (Arduino)</span>
+            <span class="skill-pill"><i class="fa-solid fa-shield-halved"></i> Hardware Root of Trust</span>
+            <span class="skill-pill"><i class="fa-solid fa-lock"></i> Air-Gapped Security Systems</span>
+            <span class="skill-pill"><i class="fa-solid fa-tower-cell"></i> UART / SPI / I2C</span>
+            <span class="skill-pill"><i class="fa-brands fa-bluetooth"></i> BLE (Bluetooth Low Energy)</span>
+            <span class="skill-pill"><i class="fa-solid fa-sliders"></i> Equipment Calibration</span>
           </div>
         </div>
 
+        <!-- Category 3: Systems, Infrastructure & Local AI -->
         <div class="glass-card">
           <div class="skill-category-title">
-            <i class="fa-solid fa-cloud skill-icon"></i> Web & Cloudflare
+            <i class="fa-solid fa-terminal skill-icon"></i> Infrastructure & Local AI
           </div>
-          <div class="skill-list">
-            <div>
-              <div class="skill-item-header"><span>Cloudflare Pages & Workers</span><span>94%</span></div>
-              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 94%;"></div></div>
-            </div>
-            <div>
-              <div class="skill-item-header"><span>HTML5 / CSS3 / Vanilla JS</span><span>92%</span></div>
-              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 92%;"></div></div>
-            </div>
-            <div>
-              <div class="skill-item-header"><span>GitHub Actions & CI/CD</span><span>88%</span></div>
-              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 88%;"></div></div>
-            </div>
+          <div class="skill-list-tags">
+            <span class="skill-pill"><i class="fa-brands fa-windows"></i> Windows 11 Native Architecture</span>
+            <span class="skill-pill"><i class="fa-solid fa-box-open"></i> Scoop Package Manager</span>
+            <span class="skill-pill"><i class="fa-solid fa-network-wired"></i> Tailscale Mesh Networks</span>
+            <span class="skill-pill"><i class="fa-brands fa-docker"></i> Docker & Matrix Synapse</span>
+            <span class="skill-pill"><i class="fa-solid fa-cloud"></i> Cloudflare Pages & Workers</span>
+            <span class="skill-pill"><i class="fa-solid fa-brain"></i> Quantized Local LLMs</span>
+            <span class="skill-pill"><i class="fa-solid fa-robot"></i> Intel OpenVINO</span>
+            <span class="skill-pill"><i class="fa-solid fa-terminal"></i> Terminal Agent Frameworks</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects Showcase Section -->
+  <!-- Featured Projects Section -->
   <section class="section" id="projects">
     <div class="container">
       <div class="section-header">
         <span class="section-subtitle">// Engineering Portfolio</span>
-        <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
-        <p class="section-desc">Explore projects ranging from smart grid battery simulators to multilayer high-speed circuit boards.</p>
+        <h2 class="section-title">Featured Technical <span class="gradient-text">Projects</span></h2>
+        <p class="section-desc">Hands-on hardware implementations, FPGA state machines, multi-modal sensor arrays, and mesh infrastructure.</p>
       </div>
 
       <!-- Filter Buttons -->
       <div class="projects-filter">
         <button class="filter-btn active" data-filter="all">All Projects</button>
-        <button class="filter-btn" data-filter="bess">BESS & Energy</button>
-        <button class="filter-btn" data-filter="pcb">PCB & Hardware</button>
-        <button class="filter-btn" data-filter="iot">IoT & Linux</button>
+        <button class="filter-btn" data-filter="fpga">FPGA / VLSI</button>
+        <button class="filter-btn" data-filter="embedded">Embedded</button>
+        <button class="filter-btn" data-filter="iot">IoT / Mesh</button>
+        <button class="filter-btn" data-filter="industrial">Industrial</button>
       </div>
 
       <div class="projects-grid">
-        <!-- Project 1: Smart BESS Simulator -->
-        <div class="glass-card project-card" data-category="bess iot">
+        <!-- Project 1: Dual-Hardware Secure Locking System (FPGA & ESP32) -->
+        <div class="glass-card project-card" data-category="fpga embedded iot">
           <div class="project-thumb-wrapper">
-            <img src="assets/images/bess_simulator.png" alt="Smart BESS Energy Storage Simulator" class="project-thumb">
-            <span class="project-tag">Energy & IoT</span>
+            <img src="assets/images/fpga_lock.png" alt="Dual-Hardware Secure Locking System (FPGA & ESP32)" class="project-thumb">
+            <span class="project-tag">FPGA & Root of Trust</span>
           </div>
           <div class="project-content">
-            <h3 class="project-title">Smart BESS Energy Storage Simulator</h3>
-            <p class="project-desc">Real-time battery energy storage simulator monitoring State-of-Charge (SoC), solar PV yield, thermal dynamics, and power flow optimization.</p>
+            <h3 class="project-title">Dual-Hardware Secure Locking System</h3>
+            <p class="project-desc">
+              Air-gapped security system decoupling wireless communication from hardware logic. Tang Nano 20K FPGA runs a Verilog FSM (Hardware Root of Trust) with a 16-bit LFSR rolling code engine linked to an ESP32 via a simplex UART pipeline.
+            </p>
             <div class="project-tech-stack">
-              <span class="tech-badge">Python</span>
-              <span class="tech-badge">C++</span>
-              <span class="tech-badge">MQTT</span>
-              <span class="tech-badge">WebSockets</span>
+              <span class="tech-badge">Tang Nano 20K FPGA</span>
+              <span class="tech-badge">Verilog HDL</span>
+              <span class="tech-badge">ESP-NOW</span>
+              <span class="tech-badge">16-bit LFSR</span>
             </div>
             <div class="project-actions">
-              <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem;" data-modal-target="bess">
-                <i class="fa-solid fa-circle-info"></i> Technical Details
+              <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem;" data-modal-target="fpga_lock">
+                <i class="fa-solid fa-diagram-project"></i> Architecture Specs
+              </button>
+              <a href="https://github.com/rajashekarthoutam" target="_blank" class="btn btn-terminal" style="padding: 0.5rem 1rem;">
+                <i class="fa-brands fa-github"></i> Repository
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Advanced Multi-Modal Vehicle Safety & Alert System -->
+        <div class="glass-card project-card" data-category="embedded industrial">
+          <div class="project-thumb-wrapper">
+            <img src="assets/images/car_safety.png" alt="Multi-Modal Vehicle Safety System" class="project-thumb">
+            <span class="project-tag">Arduino & Sensors</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Multi-Modal Vehicle Safety & Alert System</h3>
+            <p class="project-desc">
+              Arduino Uno processing multi-directional HC-SR04 ultrasonic sensors (30 cm threshold), MQ-3 alcohol sensor (>300 analog threshold for sobriety check), overheat temp monitor, and real-time LED array & piezo buzzer alerts.
+            </p>
+            <div class="project-tech-stack">
+              <span class="tech-badge">Arduino Uno</span>
+              <span class="tech-badge">HC-SR04 Ultrasonic</span>
+              <span class="tech-badge">MQ-3 Gas Sensor</span>
+              <span class="tech-badge">Multi-Modal Alert</span>
+            </div>
+            <div class="project-actions">
+              <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem;" data-modal-target="car_safety">
+                <i class="fa-solid fa-diagram-project"></i> Sensor Layout
               </button>
               <a href="https://github.com/rajashekarthoutam" target="_blank" class="btn btn-terminal" style="padding: 0.5rem 1rem;">
                 <i class="fa-brands fa-github"></i> Code
@@ -282,53 +344,57 @@
           </div>
         </div>
 
-        <!-- Project 2: High-Speed Multilayer PCB -->
-        <div class="glass-card project-card" data-category="pcb">
+        <!-- Project 3: Vehicle-to-Grid (V2G) Smart Energy Infrastructure -->
+        <div class="glass-card project-card" data-category="embedded industrial">
           <div class="project-thumb-wrapper">
-            <img src="assets/images/pcb_design.png" alt="Multilayer High-Speed PCB Layout" class="project-thumb">
-            <span class="project-tag">KiCad EDA</span>
+            <img src="assets/images/bess_simulator.png" alt="Vehicle-to-Grid (V2G) Infrastructure" class="project-thumb">
+            <span class="project-tag">Major Project</span>
           </div>
           <div class="project-content">
-            <h3 class="project-title">Multilayer High-Speed PCB Suite</h3>
-            <p class="project-desc">4-layer high-density interconnect PCB for ARM Cortex-M microcontrollers with matched differential line traces and power distribution networks.</p>
+            <h3 class="project-title">Vehicle-to-Grid (V2G) Smart Infrastructure</h3>
+            <p class="project-desc">
+              Major B.Tech engineering project focusing on bidirectional power flow control, smart EV Battery Management Systems (BMS), microgrid synchronization, and decentralized energy exchange protocols.
+            </p>
             <div class="project-tech-stack">
-              <span class="tech-badge">KiCad 8</span>
-              <span class="tech-badge">Impedance Control</span>
-              <span class="tech-badge">STM32</span>
-              <span class="tech-badge">Signal Integrity</span>
+              <span class="tech-badge">Smart BMS</span>
+              <span class="tech-badge">Bidirectional Power</span>
+              <span class="tech-badge">Microgrid Sync</span>
+              <span class="tech-badge">C++ / Python</span>
             </div>
             <div class="project-actions">
-              <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem;" data-modal-target="pcb">
-                <i class="fa-solid fa-circle-info"></i> Technical Details
+              <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem;" data-modal-target="v2g">
+                <i class="fa-solid fa-bolt"></i> V2G Overview
               </button>
               <a href="https://github.com/rajashekarthoutam" target="_blank" class="btn btn-terminal" style="padding: 0.5rem 1rem;">
-                <i class="fa-brands fa-github"></i> Schematics
+                <i class="fa-brands fa-github"></i> Details
               </a>
             </div>
           </div>
         </div>
 
-        <!-- Project 3: IoT Edge Gateway Node -->
+        <!-- Project 4: Containerized Home Messaging & Mesh Infrastructure -->
         <div class="glass-card project-card" data-category="iot">
           <div class="project-thumb-wrapper">
-            <img src="assets/images/embedded_iot.png" alt="IoT Microcontroller Edge Gateway" class="project-thumb">
-            <span class="project-tag">Embedded Linux</span>
+            <img src="assets/images/embedded_iot.png" alt="Containerized Home Mesh Infrastructure" class="project-thumb">
+            <span class="project-tag">Mesh Networking</span>
           </div>
           <div class="project-content">
-            <h3 class="project-title">IoT Microcontroller Edge Gateway</h3>
-            <p class="project-desc">Embedded gateway node connecting distributed sensor nodes via LoRaWAN/Wi-Fi and syncing telemetry with Cloudflare Workers APIs.</p>
+            <h3 class="project-title">Containerized Mesh Messaging Server</h3>
+            <p class="project-desc">
+              Self-hosted Matrix Synapse communication server deployed inside isolated cloud containers, securely bridged to local personal hardware nodes via Tailscale mesh networking.
+            </p>
             <div class="project-tech-stack">
-              <span class="tech-badge">Embedded Linux</span>
-              <span class="tech-badge">FreeRTOS</span>
-              <span class="tech-badge">Cloudflare Workers</span>
-              <span class="tech-badge">CAN Bus</span>
+              <span class="tech-badge">Matrix Synapse</span>
+              <span class="tech-badge">Tailscale</span>
+              <span class="tech-badge">Docker</span>
+              <span class="tech-badge">Windows 11 / Scoop</span>
             </div>
             <div class="project-actions">
-              <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem;" data-modal-target="iot">
-                <i class="fa-solid fa-circle-info"></i> Technical Details
+              <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem;" data-modal-target="mesh">
+                <i class="fa-solid fa-network-wired"></i> Mesh Topology
               </button>
               <a href="https://github.com/rajashekarthoutam" target="_blank" class="btn btn-terminal" style="padding: 0.5rem 1rem;">
-                <i class="fa-brands fa-github"></i> Repository
+                <i class="fa-brands fa-github"></i> Setup
               </a>
             </div>
           </div>
@@ -337,105 +403,207 @@
     </div>
   </section>
 
-  <!-- Live Demos & Widgets Section -->
-  <section class="section" id="demos">
+  <!-- Experience & Education Section -->
+  <section class="section" id="experience">
     <div class="container">
       <div class="section-header">
-        <span class="section-subtitle">// Interactive Hardware Widgets</span>
-        <h2 class="section-title">Live <span class="gradient-text">Demonstrators</span></h2>
-        <p class="section-desc">Test real-time microgrid battery algorithms and inspect multilayer PCB trace planes directly in your browser.</p>
+        <span class="section-subtitle">// Industrial Milestones</span>
+        <h2 class="section-title">Experience & <span class="gradient-text">Education</span></h2>
+        <p class="section-desc">Timeline of industrial apprenticeship work, embedded system internships, defense tech visits, and academic qualifications.</p>
+      </div>
+
+      <div class="timeline-container">
+        <!-- Experience 1: Medha Servo Drives -->
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="fa-solid fa-industry"></i></div>
+          <div class="timeline-content glass-card">
+            <div class="timeline-date">Medha Servo Drives | Industrial Apprentice / Assembly & Testing</div>
+            <h3 class="timeline-title">Assembly & Testing Technician / Apprentice</h3>
+            <p class="timeline-desc">
+              Assembled and wired industrial Traction Converters (LTC) for heavy-duty railway locomotives following technical drawings and connection sheets. Executed precision torque tightening, low-loss Optical Fiber Cable (OFC) routing, high-voltage (HV) safety validation checks, and equipment calibration for soldering stations and multimeters.
+            </p>
+          </div>
+        </div>
+
+        <!-- Experience 2: Microchip Technology -->
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="fa-solid fa-microchip"></i></div>
+          <div class="timeline-content glass-card">
+            <div class="timeline-date">Microchip Technology | Virtual Embedded Systems Intern</div>
+            <h3 class="timeline-title">Embedded Systems Intern</h3>
+            <p class="timeline-desc">
+              Programmed PIC16 microcontrollers using MPLAB X IDE. Designed and deployed Bluetooth Low Energy (BLE) peripheral interfaces, sensor sampling loops, and custom embedded firmware protocols.
+            </p>
+          </div>
+        </div>
+
+        <!-- Experience 3: Unistring Tech Solutions -->
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="fa-solid fa-radar"></i></div>
+          <div class="timeline-content glass-card">
+            <div class="timeline-date">Unistring Tech Solutions, Hyderabad | Defense Industrial Visit</div>
+            <h3 class="timeline-title">Defense Technology & Radar Systems Exposure</h3>
+            <p class="timeline-desc">
+              Examined commercial anti-drone security infrastructure, Active Electronically Scanned Array (AESA) radar hardware, RF spectrum detection, and high-frequency signal processing units.
+            </p>
+          </div>
+        </div>
+
+        <!-- Education 1: B.Tech ECE -->
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="timeline-content glass-card">
+            <div class="timeline-date">Joginpally B R Engineering College (JBREC), Hyderabad</div>
+            <h3 class="timeline-title">B.Tech in Electronics & Communication Engineering (ECE)</h3>
+            <p class="timeline-desc">
+              JNTUH R23 Regulation | <strong>Current CGPA: 7.93</strong>. Focused on VLSI design, Digital Signal Processing, Embedded Systems, microcontrollers, and FPGA logic.
+            </p>
+          </div>
+        </div>
+
+        <!-- Education 2: Diploma in ECE -->
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="fa-solid fa-award"></i></div>
+          <div class="timeline-content glass-card">
+            <div class="timeline-date">Government Polytechnic Masabtank (2021 – 2023)</div>
+            <h3 class="timeline-title">Diploma in Electronics & Communication Engineering</h3>
+            <p class="timeline-desc">
+              Foundational coursework in analog electronics, digital logic design, microprocessors, and circuit laboratory experiments.
+            </p>
+          </div>
+        </div>
+
+        <!-- Education 3: Electrician Certification -->
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="fa-solid fa-plug"></i></div>
+          <div class="timeline-content glass-card">
+            <div class="timeline-date">Shakthi ITI, Mancherial (Aug 2016 – Aug 2018)</div>
+            <h3 class="timeline-title">Electrician Vocational Certification</h3>
+            <p class="timeline-desc">
+              Practical grounding in industrial electrical wiring, single & 3-phase power distribution, motor control circuits, and safety protocols.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications & Affiliations -->
+  <section class="section" style="padding-top: 2rem;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">// Professional Qualifications</span>
+        <h2 class="section-title">Certifications & <span class="gradient-text">Affiliations</span></h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="glass-card">
+          <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--accent-cyan);">
+            <i class="fa-solid fa-id-card"></i> IEEE Memberships
+          </h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Active Student Member of <strong>IEEE</strong> and <strong>IEEE Circuits and Systems Society (CASS)</strong>.
+          </p>
+        </div>
+
+        <div class="glass-card">
+          <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--accent-emerald);">
+            <i class="fa-solid fa-certificate"></i> NPTEL / SWAYAM
+          </h3>
+          <ul style="color: var(--text-muted); font-size: 0.9rem; margin-left: 1.2rem; line-height: 1.6;">
+            <li><strong>Embedded System Design</strong> (12-Week NPTEL Certification)</li>
+            <li><strong>Electronic Systems Design:</strong> Hands-on Circuits & PCB Design</li>
+          </ul>
+        </div>
+
+        <div class="glass-card">
+          <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--accent-purple);">
+            <i class="fa-solid fa-users-gear"></i> Symposiums & Workshops
+          </h3>
+          <ul style="color: var(--text-muted); font-size: 0.9rem; margin-left: 1.2rem; line-height: 1.6;">
+            <li>IEEE Leadership Summit Participant</li>
+            <li>IIT Hyderabad Innovation Day</li>
+            <li>BITS Pilani Technical Symposium</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logic Lab & Interactive Inspector (UI Directive 4) -->
+  <section class="section" id="interactive">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">// Interactive Hardware Lab</span>
+        <h2 class="section-title">Logic Block & <span class="gradient-text">State Machine Inspector</span></h2>
+        <p class="section-desc">Examine live state machine transitions for the Tang Nano FPGA Lock and safety sensor logic thresholds.</p>
       </div>
 
       <div class="demo-widget-container">
-        <!-- Widget 1: Interactive BESS Telemetry Simulator -->
+        <!-- Interactive Inspector 1: Tang Nano 20K FPGA LFSR Lock -->
         <div class="widget-card">
           <div class="widget-header">
-            <h3 class="widget-title"><i class="fa-solid fa-battery-three-quarters" style="color: var(--accent-cyan);"></i> BESS Energy Flow Simulator</h3>
-            <span class="project-tag" id="bess-status-tag">BALANCED</span>
+            <h3 class="widget-title">
+              <i class="fa-solid fa-key" style="color: var(--accent-cyan);"></i> FPGA LFSR Rolling Code Generator
+            </h3>
+            <span class="project-tag" id="fsm-state-tag">STATE: IDLE (16'hACE1)</span>
           </div>
 
-          <div class="control-group">
-            <div class="control-label">
-              <span>Battery State of Charge (SoC):</span>
-              <span id="soc-val" style="color: var(--accent-cyan);">50%</span>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Simulate 1-clock pulse on Tang Nano 20K FPGA to generate next 16-bit LFSR rolling code:
+          </p>
+
+          <div style="background: #060a12; padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(0, 242, 254, 0.2); font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 1rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>Current Code (Hex):</span>
+              <span id="lfsr-hex" style="color: var(--accent-cyan); font-weight: 700;">16'hACE1</span>
             </div>
-            <input type="range" id="soc-slider" min="5" max="100" value="50" class="slider-input">
-          </div>
-
-          <div class="control-group">
-            <div class="control-label">
-              <span>Solar PV Generation (kW):</span>
-              <span id="solar-val" style="color: var(--accent-emerald);">6.5 kW</span>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>Binary Register:</span>
+              <span id="lfsr-bin" style="color: var(--accent-emerald);">1010110011100001</span>
             </div>
-            <input type="range" id="solar-slider" min="0" max="20" step="0.5" value="6.5" class="slider-input">
-          </div>
-
-          <div class="control-group">
-            <div class="control-label">
-              <span>Home Load Demand (kW):</span>
-              <span id="load-val" style="color: var(--accent-pink);">8.0 kW</span>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Feedback Tap (16^14^13^11):</span>
+              <span id="lfsr-tap" style="color: var(--accent-pink);">XOR Bit = 1</span>
             </div>
-            <input type="range" id="load-slider" min="0" max="25" step="0.5" value="8.0" class="slider-input">
           </div>
 
-          <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; display: flex; justify-content: space-between;">
-            <span>Net Grid Exchange: <strong id="grid-val" style="color: var(--accent-purple);">1.5 kW</strong></span>
-            <span>Scale: -20kW to +20kW</span>
-          </div>
-
-          <div class="bess-canvas-wrapper">
-            <canvas id="bess-graph-canvas"></canvas>
-          </div>
+          <button class="btn btn-primary" id="btn-step-fsm" style="width: 100%;">
+            <i class="fa-solid fa-rotate-right"></i> Clock Step (27 MHz FPGA Pulse)
+          </button>
         </div>
 
-        <!-- Widget 2: Interactive PCB Multi-Layer Inspector -->
+        <!-- Interactive Inspector 2: Car Safety Sensor Threshold Inspector -->
         <div class="widget-card">
           <div class="widget-header">
-            <h3 class="widget-title"><i class="fa-solid fa-layer-group" style="color: var(--accent-purple);"></i> PCB Layer Inspector</h3>
-            <span class="project-tag">Interactive CAD</span>
+            <h3 class="widget-title">
+              <i class="fa-solid fa-car-burst" style="color: var(--accent-pink);"></i> Vehicle Multi-Modal Safety Matrix
+            </h3>
+            <span class="project-tag" id="car-alarm-tag">STATUS: SAFE</span>
           </div>
 
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Toggle copper planes and signal trace layers to view KiCad layer stackup hierarchy:</p>
-
-          <div class="layer-toggle-btns">
-            <button class="layer-btn active" data-layer="signal">Signal (F.Cu)</button>
-            <button class="layer-btn active" data-layer="power">Power Plane (+3.3V)</button>
-            <button class="layer-btn active" data-layer="ground">Ground Plane (GND)</button>
-            <button class="layer-btn active" data-layer="silk">Silkscreen (F.SilkS)</button>
+          <div class="control-group">
+            <div class="control-label">
+              <span>HC-SR04 Obstacle Distance (cm):</span>
+              <span id="dist-val" style="color: var(--accent-cyan);">120 cm</span>
+            </div>
+            <input type="range" id="dist-slider" min="5" max="200" value="120" class="slider-input">
           </div>
 
-          <div class="pcb-layer-viewer" id="pcb-layer-canvas">
-            <!-- Canvas dynamically rendered by index.js -->
+          <div class="control-group">
+            <div class="control-label">
+              <span>MQ-3 Alcohol Level (Analog Raw):</span>
+              <span id="alcohol-val" style="color: var(--accent-amber);">140 (Safe)</span>
+            </div>
+            <input type="range" id="alcohol-slider" min="50" max="800" value="140" class="slider-input">
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- GitHub Live Feed Section -->
-  <section class="section" id="github">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">// GitHub Synchronization</span>
-        <h2 class="section-title">Live <span class="gradient-text">GitHub Feed</span></h2>
-        <p class="section-desc">Automated fetch of recent public repositories from @rajashekarthoutam.</p>
-      </div>
-
-      <div class="github-stats-container">
-        <div class="glass-card github-profile-card">
-          <i class="fa-brands fa-github" style="font-size: 3.5rem; color: var(--accent-cyan); margin-bottom: 1rem;"></i>
-          <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">@rajashekarthoutam</h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Hardware, Firmware & Systems Engineer</p>
-
-          <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener" class="btn btn-primary" style="width: 100%;">
-            <i class="fa-solid fa-external-link"></i> Open GitHub Profile
-          </a>
-        </div>
-
-        <div class="repo-list" id="github-repos-list">
-          <div style="text-align: center; color: var(--text-muted); padding: 2rem;">
-            <i class="fa-solid fa-spinner fa-spin" style="font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
-            <p>Fetching repositories from GitHub API...</p>
+          <div class="control-group">
+            <div class="control-label">
+              <span>Engine Temperature (°C):</span>
+              <span id="temp-val" style="color: var(--accent-emerald);">75 °C</span>
+            </div>
+            <input type="range" id="temp-slider" min="20" max="130" value="75" class="slider-input">
           </div>
         </div>
       </div>
@@ -448,15 +616,23 @@
       <div class="section-header">
         <span class="section-subtitle">// Connect & Collaborate</span>
         <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
-        <p class="section-desc">Have a hardware project, BESS inquiry, or embedded systems collaboration? Send a message below.</p>
+        <p class="section-desc">Based in Hyderabad, Telangana, India. Available for hardware engineering roles, FPGA logic design, and embedded system collaborations.</p>
       </div>
 
       <div class="contact-grid">
         <div class="glass-card">
           <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Contact Information</h3>
-          <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Feel free to reach out for engineering consulting, hardware code audits, or project inquiries.</p>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Reach out directly via email or GitHub for hardware inquiries, research, or opportunities.</p>
 
           <div class="contact-info-list">
+            <div class="contact-info-item">
+              <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Location</div>
+                <div style="font-weight: 600;">Hyderabad, Telangana, India</div>
+              </div>
+            </div>
+
             <div class="contact-info-item">
               <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
               <div>
@@ -472,14 +648,6 @@
                 <div style="font-weight: 600;">github.com/rajashekarthoutam</div>
               </div>
             </div>
-
-            <div class="contact-info-item">
-              <div class="contact-icon"><i class="fa-solid fa-cloud"></i></div>
-              <div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">Cloudflare Deployment</div>
-                <div style="font-weight: 600;">rajashekarthoutam/website</div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -487,17 +655,17 @@
           <form id="contact-form">
             <div class="form-group">
               <label class="form-label" for="contact-name">Your Name</label>
-              <input type="text" id="contact-name" class="form-control" placeholder="John Doe" required>
+              <input type="text" id="contact-name" class="form-control" placeholder="Your Name" required>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="contact-email">Email Address</label>
-              <input type="email" id="contact-email" class="form-control" placeholder="john@example.com" required>
+              <input type="email" id="contact-email" class="form-control" placeholder="your.email@example.com" required>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="contact-message">Message</label>
-              <textarea id="contact-message" class="form-control" placeholder="Discuss your hardware, BESS, or firmware project..." required></textarea>
+              <textarea id="contact-message" class="form-control" placeholder="Discuss hardware projects, FPGA design, or industrial opportunities..." required></textarea>
             </div>
 
             <div id="contact-alert" style="display: none; margin-bottom: 1rem;"></div>
@@ -515,11 +683,11 @@
   <footer class="footer">
     <div class="container footer-container">
       <div class="footer-text">
-        © 2026 <strong>Rajashekar Thoutam</strong>. Deployed on <strong>Cloudflare Pages</strong> via <strong>GitHub</strong>.
+        © 2026 <strong>Thoutam Rajashekar</strong>. Electronics & Communication Engineering Specialist | Hyderabad, India.
       </div>
       <div class="social-links">
         <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="https://cloudflare.com" target="_blank" rel="noopener" class="social-icon" aria-label="Cloudflare"><i class="fa-solid fa-cloud"></i></a>
+        <a href="https://website.rajashekarthoutam.workers.dev" target="_blank" rel="noopener" class="social-icon" aria-label="Cloudflare"><i class="fa-solid fa-cloud"></i></a>
         <a href="#hero" class="social-icon" aria-label="Back to Top"><i class="fa-solid fa-arrow-up"></i></a>
       </div>
     </div>
@@ -529,7 +697,7 @@
   <div class="terminal-drawer" id="terminal-drawer">
     <div class="terminal-header">
       <div class="terminal-title">
-        <i class="fa-solid fa-terminal" style="color: var(--accent-cyan);"></i> rajashekar@hardware-node:~
+        <i class="fa-solid fa-terminal" style="color: var(--accent-cyan);"></i> rajashekar@tang-nano-20k:~
       </div>
       <div class="terminal-controls">
         <span class="dot-btn dot-red" id="terminal-close"></span>
@@ -538,12 +706,12 @@
       </div>
     </div>
     <div class="terminal-body" id="terminal-body">
-      <div class="terminal-line highlight">Rajashekar Engineering CLI Terminal v2.4</div>
+      <div class="terminal-line highlight">Thoutam Rajashekar Hardware CLI v3.0</div>
       <div class="terminal-line output">Type "help" to view available system commands.</div>
     </div>
     <div class="terminal-input-row">
       <span class="prompt-symbol">$</span>
-      <input type="text" id="terminal-input" class="terminal-input" placeholder="Type command (e.g. help, skills, projects)..." autocomplete="off">
+      <input type="text" id="terminal-input" class="terminal-input" placeholder="Type command (e.g. help, fpga, medha, education)..." autocomplete="off">
     </div>
   </div>
 
