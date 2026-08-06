@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rajashekar Thoutam | Embedded Systems & Smart Energy Engineer</title>
+  <meta name="description" content="Official portfolio and engineering showcase of Rajashekar Thoutam. Embedded Systems, BESS Simulators, High-Speed PCB Design, IoT, and Cloudflare Edge Deployments.">
+  <meta name="keywords" content="Rajashekar Thoutam, Embedded Systems, KiCad PCB, BESS Simulator, Smart Energy, IoT, Cloudflare Pages, Linux Kernel, Firmware">
+  <meta name="author" content="Rajashekar Thoutam">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://website-rajashekarthoutam.pages.dev/">
+  <meta property="og:title" content="Rajashekar Thoutam | Engineering Portfolio">
+  <meta property="og:description" content="Hardware, Firmware & Smart Energy Systems Showcase. Deployed via Cloudflare Pages & GitHub.">
+  <meta property="og:image" content="assets/images/bess_simulator.png">
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- Connected Particle Background Canvas -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo" id="nav-brand">
+        <div class="brand-icon">RT</div>
+        <span>Rajashekar<span class="gradient-text">.dev</span></span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero" class="nav-link active" id="nav-item-hero">Home</a></li>
+        <li><a href="#about" class="nav-link" id="nav-item-about">About</a></li>
+        <li><a href="#skills" class="nav-link" id="nav-item-skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" id="nav-item-projects">Projects</a></li>
+        <li><a href="#demos" class="nav-link" id="nav-item-demos">Live Demos</a></li>
+        <li><a href="#github" class="nav-link" id="nav-item-github">GitHub Feed</a></li>
+        <li><a href="#contact" class="nav-link" id="nav-item-contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn btn-terminal" id="terminal-fab" aria-label="Open Interactive CLI Terminal">
+          <i class="fa-solid fa-terminal"></i> CLI Terminal
+        </button>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="badge-status" id="hero-status-badge">
+            <span class="pulse-dot"></span> Available for Embedded & Hardware Engineering Projects
+          </div>
+          <h1 class="hero-title">
+            Hi, I'm <span class="gradient-text">Rajashekar</span> Thoutam
+          </h1>
+          <div class="hero-subtitle-wrapper">
+            <span class="typing-text" id="typing-text">Hardware & Embedded Systems Engineer</span>
+          </div>
+          <p class="hero-bio">
+            Engineering high-reliability embedded systems, battery energy storage (BESS) microgrid telemetry simulators, multilayer PCB designs, and edge-connected IoT devices backed by Linux and Cloudflare architecture.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary" id="btn-explore-projects">
+              <i class="fa-solid fa-microchip"></i> View Projects
+            </a>
+            <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener" class="btn btn-outline" id="btn-github-profile">
+              <i class="fa-brands fa-github"></i> GitHub Profile
+            </a>
+            <a href="#contact" class="btn btn-outline" id="btn-get-in-touch">
+              <i class="fa-solid fa-paper-plane"></i> Contact Me
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-avatar-wrapper">
+          <div class="avatar-card">
+            <img src="assets/images/avatar.png" alt="Rajashekar Thoutam Avatar Emblem" class="avatar-img">
+            <div class="floating-badge badge-top-right">
+              <i class="fa-solid fa-bolt" style="color: var(--accent-cyan);"></i> BESS Telemetry
+            </div>
+            <div class="floating-badge badge-bottom-left">
+              <i class="fa-solid fa-layer-group" style="color: var(--accent-purple);"></i> KiCad Multilayer PCB
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cloudflare Pages & GitHub Live Status Banner -->
+      <div class="deploy-status-bar" id="deploy-status-bar">
+        <div class="status-item">
+          <i class="fa-solid fa-cloud" style="color: var(--accent-cyan);"></i>
+          <span class="status-label">Hosted on:</span>
+          <span class="status-value cf-logo">Cloudflare Pages</span>
+        </div>
+        <div class="status-item">
+          <i class="fa-brands fa-github" style="color: #fff;"></i>
+          <span class="status-label">Source Repository:</span>
+          <span class="status-value">rajashekarthoutam/website</span>
+        </div>
+        <div class="status-item">
+          <i class="fa-solid fa-globe" style="color: var(--accent-emerald);"></i>
+          <span class="status-label">Edge Node:</span>
+          <span class="status-value" id="cf-node">HYD (Hyderabad)</span>
+        </div>
+        <div class="status-item">
+          <i class="fa-solid fa-gauge-high" style="color: var(--accent-amber);"></i>
+          <span class="status-label">Edge Latency:</span>
+          <span class="status-value" id="cf-ping">12 ms</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">// Engineering Background</span>
+        <h2 class="section-title">Innovating at the Intersection of <span class="gradient-text">Hardware & Code</span></h2>
+        <p class="section-desc">Passionate about building robust physical and cyber systems with low latency, telemetry monitoring, and clean hardware execution.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="glass-card about-text">
+          <h3 style="font-size: 1.5rem; margin-bottom: 1rem;" class="gradient-text">Bridging Hardware & Software</h3>
+          <p>
+            I specialize in designing complete hardware-to-software pipelines. From designing multi-layer PCBs in KiCad EDA to writing bare-metal C/C++ firmware and deploying edge cloud services on Cloudflare.
+          </p>
+          <p>
+            My recent flagship development includes a complete <strong>Smart BESS (Battery Energy Storage System) Simulator</strong> for smart homes and industrial microgrids, combining real-time battery chemistry telemetry, solar PV integration, and grid load-balancing algorithms.
+          </p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-title">Open Source & Git</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">4+</div>
+            <div class="stat-title">PCB Layers Stackup</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">&lt;15ms</div>
+            <div class="stat-title">Cloudflare Edge Time</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">24/7</div>
+            <div class="stat-title">BESS Microgrid Telemetry</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Matrix Section -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">// Technical Capabilities</span>
+        <h2 class="section-title">Skills & <span class="gradient-text">Technology Stack</span></h2>
+        <p class="section-desc">A comprehensive matrix of hardware design software, embedded programming languages, protocols, and cloud platforms.</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="glass-card">
+          <div class="skill-category-title">
+            <i class="fa-solid fa-microchip skill-icon"></i> Embedded & Hardware
+          </div>
+          <div class="skill-list">
+            <div>
+              <div class="skill-item-header"><span>Embedded C / C++</span><span>95%</span></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 95%;"></div></div>
+            </div>
+            <div>
+              <div class="skill-item-header"><span>KiCad EDA & PCB Layout</span><span>90%</span></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 90%;"></div></div>
+            </div>
+            <div>
+              <div class="skill-item-header"><span>ARM Cortex-M & STM32</span><span>88%</span></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 88%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="skill-category-title">
+            <i class="fa-solid fa-network-wired skill-icon"></i> Protocols & Systems
+          </div>
+          <div class="skill-list">
+            <div>
+              <div class="skill-item-header"><span>MQTT / Modbus / CAN Bus</span><span>92%</span></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 92%;"></div></div>
+            </div>
+            <div>
+              <div class="skill-item-header"><span>Linux Kernel & Drivers</span><span>85%</span></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 85%;"></div></div>
+            </div>
+            <div>
+              <div class="skill-item-header"><span>Python Telemetry & Data</span><span>90%</span></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 90%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="skill-category-title">
+            <i class="fa-solid fa-cloud skill-icon"></i> Web & Cloudflare
+          </div>
+          <div class="skill-list">
+            <div>
+              <div class="skill-item-header"><span>Cloudflare Pages & Workers</span><span>94%</span></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 94%;"></div></div>
+            </div>
+            <div>
+              <div class="skill-item-header"><span>HTML5 / CSS3 / Vanilla JS</span><span>92%</span></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 92%;"></div></div>
+            </div>
+            <div>
+              <div class="skill-item-header"><span>GitHub Actions & CI/CD</span><span>88%</span></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 88%;"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Showcase Section -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">// Engineering Portfolio</span>
+        <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+        <p class="section-desc">Explore projects ranging from smart grid battery simulators to multilayer high-speed circuit boards.</p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="projects-filter">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="bess">BESS & Energy</button>
+        <button class="filter-btn" data-filter="pcb">PCB & Hardware</button>
+        <button class="filter-btn" data-filter="iot">IoT & Linux</button>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: Smart BESS Simulator -->
+        <div class="glass-card project-card" data-category="bess iot">
+          <div class="project-thumb-wrapper">
+            <img src="assets/images/bess_simulator.png" alt="Smart BESS Energy Storage Simulator" class="project-thumb">
+            <span class="project-tag">Energy & IoT</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Smart BESS Energy Storage Simulator</h3>
+            <p class="project-desc">Real-time battery energy storage simulator monitoring State-of-Charge (SoC), solar PV yield, thermal dynamics, and power flow optimization.</p>
+            <div class="project-tech-stack">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">C++</span>
+              <span class="tech-badge">MQTT</span>
+              <span class="tech-badge">WebSockets</span>
+            </div>
+            <div class="project-actions">
+              <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem;" data-modal-target="bess">
+                <i class="fa-solid fa-circle-info"></i> Technical Details
+              </button>
+              <a href="https://github.com/rajashekarthoutam" target="_blank" class="btn btn-terminal" style="padding: 0.5rem 1rem;">
+                <i class="fa-brands fa-github"></i> Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: High-Speed Multilayer PCB -->
+        <div class="glass-card project-card" data-category="pcb">
+          <div class="project-thumb-wrapper">
+            <img src="assets/images/pcb_design.png" alt="Multilayer High-Speed PCB Layout" class="project-thumb">
+            <span class="project-tag">KiCad EDA</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Multilayer High-Speed PCB Suite</h3>
+            <p class="project-desc">4-layer high-density interconnect PCB for ARM Cortex-M microcontrollers with matched differential line traces and power distribution networks.</p>
+            <div class="project-tech-stack">
+              <span class="tech-badge">KiCad 8</span>
+              <span class="tech-badge">Impedance Control</span>
+              <span class="tech-badge">STM32</span>
+              <span class="tech-badge">Signal Integrity</span>
+            </div>
+            <div class="project-actions">
+              <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem;" data-modal-target="pcb">
+                <i class="fa-solid fa-circle-info"></i> Technical Details
+              </button>
+              <a href="https://github.com/rajashekarthoutam" target="_blank" class="btn btn-terminal" style="padding: 0.5rem 1rem;">
+                <i class="fa-brands fa-github"></i> Schematics
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: IoT Edge Gateway Node -->
+        <div class="glass-card project-card" data-category="iot">
+          <div class="project-thumb-wrapper">
+            <img src="assets/images/embedded_iot.png" alt="IoT Microcontroller Edge Gateway" class="project-thumb">
+            <span class="project-tag">Embedded Linux</span>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">IoT Microcontroller Edge Gateway</h3>
+            <p class="project-desc">Embedded gateway node connecting distributed sensor nodes via LoRaWAN/Wi-Fi and syncing telemetry with Cloudflare Workers APIs.</p>
+            <div class="project-tech-stack">
+              <span class="tech-badge">Embedded Linux</span>
+              <span class="tech-badge">FreeRTOS</span>
+              <span class="tech-badge">Cloudflare Workers</span>
+              <span class="tech-badge">CAN Bus</span>
+            </div>
+            <div class="project-actions">
+              <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem;" data-modal-target="iot">
+                <i class="fa-solid fa-circle-info"></i> Technical Details
+              </button>
+              <a href="https://github.com/rajashekarthoutam" target="_blank" class="btn btn-terminal" style="padding: 0.5rem 1rem;">
+                <i class="fa-brands fa-github"></i> Repository
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Demos & Widgets Section -->
+  <section class="section" id="demos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">// Interactive Hardware Widgets</span>
+        <h2 class="section-title">Live <span class="gradient-text">Demonstrators</span></h2>
+        <p class="section-desc">Test real-time microgrid battery algorithms and inspect multilayer PCB trace planes directly in your browser.</p>
+      </div>
+
+      <div class="demo-widget-container">
+        <!-- Widget 1: Interactive BESS Telemetry Simulator -->
+        <div class="widget-card">
+          <div class="widget-header">
+            <h3 class="widget-title"><i class="fa-solid fa-battery-three-quarters" style="color: var(--accent-cyan);"></i> BESS Energy Flow Simulator</h3>
+            <span class="project-tag" id="bess-status-tag">BALANCED</span>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Battery State of Charge (SoC):</span>
+              <span id="soc-val" style="color: var(--accent-cyan);">50%</span>
+            </div>
+            <input type="range" id="soc-slider" min="5" max="100" value="50" class="slider-input">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Solar PV Generation (kW):</span>
+              <span id="solar-val" style="color: var(--accent-emerald);">6.5 kW</span>
+            </div>
+            <input type="range" id="solar-slider" min="0" max="20" step="0.5" value="6.5" class="slider-input">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Home Load Demand (kW):</span>
+              <span id="load-val" style="color: var(--accent-pink);">8.0 kW</span>
+            </div>
+            <input type="range" id="load-slider" min="0" max="25" step="0.5" value="8.0" class="slider-input">
+          </div>
+
+          <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; display: flex; justify-content: space-between;">
+            <span>Net Grid Exchange: <strong id="grid-val" style="color: var(--accent-purple);">1.5 kW</strong></span>
+            <span>Scale: -20kW to +20kW</span>
+          </div>
+
+          <div class="bess-canvas-wrapper">
+            <canvas id="bess-graph-canvas"></canvas>
+          </div>
+        </div>
+
+        <!-- Widget 2: Interactive PCB Multi-Layer Inspector -->
+        <div class="widget-card">
+          <div class="widget-header">
+            <h3 class="widget-title"><i class="fa-solid fa-layer-group" style="color: var(--accent-purple);"></i> PCB Layer Inspector</h3>
+            <span class="project-tag">Interactive CAD</span>
+          </div>
+
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Toggle copper planes and signal trace layers to view KiCad layer stackup hierarchy:</p>
+
+          <div class="layer-toggle-btns">
+            <button class="layer-btn active" data-layer="signal">Signal (F.Cu)</button>
+            <button class="layer-btn active" data-layer="power">Power Plane (+3.3V)</button>
+            <button class="layer-btn active" data-layer="ground">Ground Plane (GND)</button>
+            <button class="layer-btn active" data-layer="silk">Silkscreen (F.SilkS)</button>
+          </div>
+
+          <div class="pcb-layer-viewer" id="pcb-layer-canvas">
+            <!-- Canvas dynamically rendered by index.js -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GitHub Live Feed Section -->
+  <section class="section" id="github">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">// GitHub Synchronization</span>
+        <h2 class="section-title">Live <span class="gradient-text">GitHub Feed</span></h2>
+        <p class="section-desc">Automated fetch of recent public repositories from @rajashekarthoutam.</p>
+      </div>
+
+      <div class="github-stats-container">
+        <div class="glass-card github-profile-card">
+          <i class="fa-brands fa-github" style="font-size: 3.5rem; color: var(--accent-cyan); margin-bottom: 1rem;"></i>
+          <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">@rajashekarthoutam</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Hardware, Firmware & Systems Engineer</p>
+
+          <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener" class="btn btn-primary" style="width: 100%;">
+            <i class="fa-solid fa-external-link"></i> Open GitHub Profile
+          </a>
+        </div>
+
+        <div class="repo-list" id="github-repos-list">
+          <div style="text-align: center; color: var(--text-muted); padding: 2rem;">
+            <i class="fa-solid fa-spinner fa-spin" style="font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+            <p>Fetching repositories from GitHub API...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">// Connect & Collaborate</span>
+        <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+        <p class="section-desc">Have a hardware project, BESS inquiry, or embedded systems collaboration? Send a message below.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="glass-card">
+          <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Contact Information</h3>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Feel free to reach out for engineering consulting, hardware code audits, or project inquiries.</p>
+
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Email</div>
+                <div style="font-weight: 600;">rajashekar.thoutam.dev@gmail.com</div>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+              <div>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">GitHub</div>
+                <div style="font-weight: 600;">github.com/rajashekarthoutam</div>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-icon"><i class="fa-solid fa-cloud"></i></div>
+              <div>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Cloudflare Deployment</div>
+                <div style="font-weight: 600;">rajashekarthoutam/website</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <form id="contact-form">
+            <div class="form-group">
+              <label class="form-label" for="contact-name">Your Name</label>
+              <input type="text" id="contact-name" class="form-control" placeholder="John Doe" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" class="form-control" placeholder="john@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-message">Message</label>
+              <textarea id="contact-message" class="form-control" placeholder="Discuss your hardware, BESS, or firmware project..." required></textarea>
+            </div>
+
+            <div id="contact-alert" style="display: none; margin-bottom: 1rem;"></div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;" id="btn-send-message">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-text">
+        © 2026 <strong>Rajashekar Thoutam</strong>. Deployed on <strong>Cloudflare Pages</strong> via <strong>GitHub</strong>.
+      </div>
+      <div class="social-links">
+        <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://cloudflare.com" target="_blank" rel="noopener" class="social-icon" aria-label="Cloudflare"><i class="fa-solid fa-cloud"></i></a>
+        <a href="#hero" class="social-icon" aria-label="Back to Top"><i class="fa-solid fa-arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Retro CLI Terminal Drawer -->
+  <div class="terminal-drawer" id="terminal-drawer">
+    <div class="terminal-header">
+      <div class="terminal-title">
+        <i class="fa-solid fa-terminal" style="color: var(--accent-cyan);"></i> rajashekar@hardware-node:~
+      </div>
+      <div class="terminal-controls">
+        <span class="dot-btn dot-red" id="terminal-close"></span>
+        <span class="dot-btn dot-yellow"></span>
+        <span class="dot-btn dot-green"></span>
+      </div>
+    </div>
+    <div class="terminal-body" id="terminal-body">
+      <div class="terminal-line highlight">Rajashekar Engineering CLI Terminal v2.4</div>
+      <div class="terminal-line output">Type "help" to view available system commands.</div>
+    </div>
+    <div class="terminal-input-row">
+      <span class="prompt-symbol">$</span>
+      <input type="text" id="terminal-input" class="terminal-input" placeholder="Type command (e.g. help, skills, projects)..." autocomplete="off">
+    </div>
+  </div>
+
+  <!-- Modal Dialog Popup -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></button>
+      <h2 id="modal-title" class="gradient-text" style="font-size: 1.8rem; margin-bottom: 1rem;">Project Details</h2>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
