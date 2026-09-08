@@ -1,7 +1,7 @@
 /**
- * THOUTAM RAJASHEKAR - DAVID HECKHOFF INSPIRED WEBGL & HOLOGRAPHIC SCRIPT
- * Features: Three.js 3D FPGA Core, Procedural Web Audio Synthesizer,
- * Floating Capsule Pill Nav, Magnetic Cursor, Hardware Simulators & Terminal.
+ * WEBGL & HOLOGRAPHIC PORTFOLIO TEMPLATE SCRIPT
+ * Features: Three.js 3D Silicon Core, Procedural Web Audio Synthesizer,
+ * Floating Capsule Pill Nav, Magnetic Cursor, Interactive Simulators & Terminal.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   1. THREE.JS WEBGL 3D HOLOGRAPHIC SCENE (HARDWARE FPGA DIE & ORBITING PARTICLES)
+   1. THREE.JS WEBGL 3D HOLOGRAPHIC SCENE
    ========================================================================== */
 function initThreeWebGLScene() {
   const container = document.getElementById('webgl-canvas-container');
@@ -33,11 +33,10 @@ function initThreeWebGLScene() {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   container.appendChild(renderer.domElement);
 
-  // Group to rotate together
   const fpgaGroup = new THREE.Group();
   scene.add(fpgaGroup);
 
-  // 1. Central Silicon Die (Cube with Wireframe overlay)
+  // 1. Central Core Cube with Wireframe overlay
   const dieGeo = new THREE.BoxGeometry(4.2, 4.2, 0.8);
   const dieMat = new THREE.MeshStandardMaterial({
     color: 0x051329,
@@ -55,13 +54,13 @@ function initThreeWebGLScene() {
   const wireframeCage = new THREE.LineSegments(edgeGeo, edgeMat);
   dieMesh.add(wireframeCage);
 
-  // 2. Inner Chip Substrate Grid
+  // 2. Substrate Grid
   const gridHelper = new THREE.GridHelper(3.8, 8, 0x00f2fe, 0x004880);
   gridHelper.rotation.x = Math.PI / 2;
   gridHelper.position.z = 0.42;
   fpgaGroup.add(gridHelper);
 
-  // 3. Orbiting Logic Bus Rings (Torus)
+  // 3. Orbiting Rings
   const ring1Geo = new THREE.TorusGeometry(6.2, 0.04, 16, 100);
   const ring1Mat = new THREE.MeshBasicMaterial({ color: 0x00f2fe, wireframe: true });
   const ring1 = new THREE.Mesh(ring1Geo, ring1Mat);
@@ -74,7 +73,7 @@ function initThreeWebGLScene() {
   ring2.rotation.y = Math.PI / 4;
   fpgaGroup.add(ring2);
 
-  // 4. Data Packet Particle Cloud
+  // 4. Data Particle Cloud
   const particleCount = 280;
   const particleGeo = new THREE.BufferGeometry();
   const particlePositions = new Float32Array(particleCount * 3);
@@ -123,7 +122,6 @@ function initThreeWebGLScene() {
     mouseY = (e.clientY - windowHalfY) * 0.0012;
   });
 
-  // Animation Loop
   function animate() {
     requestAnimationFrame(animate);
 
@@ -144,7 +142,6 @@ function initThreeWebGLScene() {
   }
   animate();
 
-  // Resize Handler
   window.addEventListener('resize', () => {
     camera.aspect = container.clientWidth / container.clientHeight;
     camera.updateProjectionMatrix();
@@ -153,7 +150,7 @@ function initThreeWebGLScene() {
 }
 
 /* ==========================================================================
-   2. PROCEDURAL WEB AUDIO SYNTHESIZER (DAVID HECKHOFF AUDIO TOGGLE)
+   2. PROCEDURAL WEB AUDIO SYNTHESIZER
    ========================================================================== */
 let audioCtx = null;
 let isAudioEnabled = false;
@@ -180,14 +177,13 @@ function initWebAudioSynthesizer() {
 
     if (isAudioEnabled) {
       toggleBtn.classList.add('sound-active');
-      playTone(587.33, 0.08, 'sine', 0.15); // D5 chime
-      setTimeout(() => playTone(880, 0.12, 'sine', 0.18), 70); // A5 chime
+      playTone(587.33, 0.08, 'sine', 0.15);
+      setTimeout(() => playTone(880, 0.12, 'sine', 0.18), 70);
     } else {
       toggleBtn.classList.remove('sound-active');
     }
   });
 
-  // Attach hover sound to clickable elements
   const hoverables = document.querySelectorAll('a, button, .cmd-chip, .filter-btn');
   hoverables.forEach(elem => {
     elem.addEventListener('mouseenter', () => {
@@ -223,7 +219,7 @@ function playTone(freq, duration, type = 'sine', volume = 0.1) {
 
 function playUnlockChime() {
   if (!audioCtx || !isAudioEnabled) return;
-  const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6 major chord
+  const notes = [523.25, 659.25, 783.99, 1046.50];
   notes.forEach((freq, idx) => {
     setTimeout(() => playTone(freq, 0.25, 'sine', 0.12), idx * 100);
   });
@@ -236,7 +232,7 @@ function playHazardAlert() {
 }
 
 /* ==========================================================================
-   3. CUSTOM MAGNETIC CURSOR (DAVID HECKHOFF STYLE)
+   3. CUSTOM MAGNETIC CURSOR
    ========================================================================== */
 function initCustomCursor() {
   const cursorWrapper = document.getElementById('custom-cursor');
@@ -271,7 +267,7 @@ function initCustomCursor() {
 }
 
 /* ==========================================================================
-   4. CAPSULE PILL NAVIGATION WITH SLIDING BAR (DAVID HECKHOFF STYLE)
+   4. CAPSULE PILL NAVIGATION WITH SLIDING BAR
    ========================================================================== */
 function initCapsulePillNav() {
   const container = document.getElementById('nav-pill-container');
@@ -295,14 +291,11 @@ function initCapsulePillNav() {
     targetLink.classList.add('active');
   }
 
-  // Initial position for Home
   const activeLink = document.querySelector('.nav-pill-link.active') || links[0];
   setTimeout(() => updateBar(activeLink), 100);
 
   links.forEach(link => {
-    link.addEventListener('click', (e) => {
-      updateBar(link);
-    });
+    link.addEventListener('click', () => updateBar(link));
   });
 
   window.addEventListener('scroll', () => {
@@ -329,7 +322,7 @@ function initCapsulePillNav() {
 }
 
 /* ==========================================================================
-   5. FPGA FSM & LFSR SIMULATOR (WITH AUDIO & REAL ALGORITHMIC STEPPING)
+   5. FPGA FSM & LFSR SIMULATOR
    ========================================================================== */
 function initFPGALfsrSimulator() {
   const btnRun = document.getElementById('btn-run-fsm');
@@ -356,7 +349,7 @@ function initFPGALfsrSimulator() {
 
   if (!btnRun || !seedDisplay) return;
 
-  let currentLfsr = 0xACE1; // Initial seed 44257
+  let currentLfsr = 0xACE1;
   let isRunning = false;
 
   function stepLfsr16(val) {
@@ -388,8 +381,7 @@ function initFPGALfsrSimulator() {
     isRunning = true;
     btnRun.disabled = true;
 
-    // Stage 1: LFSR Calculation
-    statusBadge.textContent = 'STATUS: S1 (GEN LFSR)';
+    statusBadge.textContent = 'STATUS: S1 (GEN TOKEN)';
     statusBadge.style.color = 'var(--color-cyan-glow)';
     setActiveNode('lfsr');
     setPulsingLine(0);
@@ -404,41 +396,37 @@ function initFPGALfsrSimulator() {
     relayDisplay.textContent = 'WAITING FOR PACKET';
     relayDisplay.style.color = 'var(--color-text-dim)';
 
-    // Stage 2: Simplex UART Transmission
     setTimeout(() => {
-      statusBadge.textContent = 'STATUS: S2 (UART TX)';
+      statusBadge.textContent = 'STATUS: S2 (PACKET TX)';
       statusBadge.style.color = 'var(--color-purple)';
       setActiveNode('tx');
       setPulsingLine(1);
       otpDisplay.textContent = `PAYLOAD: [${calculatedOtp}]`;
       playTone(850, 0.08, 'sine', 0.1);
 
-      // Stage 3: Tang Nano 20K FPGA Verification
       setTimeout(() => {
-        statusBadge.textContent = 'STATUS: S3 (FPGA VERIFY)';
+        statusBadge.textContent = 'STATUS: S3 (VERIFY)';
         statusBadge.style.color = 'var(--color-orange)';
         setActiveNode('verify');
         setPulsingLine(2);
         playTone(1050, 0.08, 'sine', 0.1);
 
-        // Stage 4: Verified & Unlock Actuation
         setTimeout(() => {
-          statusBadge.textContent = 'STATUS: S4 (UNLOCKED)';
+          statusBadge.textContent = 'STATUS: S4 (SUCCESS)';
           statusBadge.style.color = 'var(--color-emerald)';
           setActiveNode('unlock');
           setPulsingLine(3);
-          otpDisplay.textContent = `TOKEN VERIFIED: ${calculatedOtp}`;
-          relayDisplay.textContent = 'SOLENOID RELAY ENERGIZED (ACTIVE HIGH 3.3V)';
+          otpDisplay.textContent = `VERIFIED: ${calculatedOtp}`;
+          relayDisplay.textContent = 'SYSTEM ACTIVE (VERIFIED)';
           relayDisplay.style.color = 'var(--color-emerald)';
-          playUnlockChime(); // Celebratory harmonic chime
+          playUnlockChime();
 
-          // Return to idle after delay
           setTimeout(() => {
             setActiveNode('idle');
             setPulsingLine(-1);
             statusBadge.textContent = 'STATUS: IDLE';
             statusBadge.style.color = 'var(--color-emerald)';
-            relayDisplay.textContent = 'AUTO-RELOCKED (PASSIVE HOLD)';
+            relayDisplay.textContent = 'STANDBY (READY)';
             relayDisplay.style.color = 'var(--color-text-dim)';
             isRunning = false;
             btnRun.disabled = false;
@@ -453,7 +441,7 @@ function initFPGALfsrSimulator() {
     currentLfsr = 0xACE1;
     seedDisplay.textContent = '0xACE1 (44257)';
     otpDisplay.textContent = '----';
-    relayDisplay.textContent = 'LOCKED (HIGH IMPEDANCE)';
+    relayDisplay.textContent = 'STANDBY (READY)';
     relayDisplay.style.color = 'var(--color-text-dim)';
     statusBadge.textContent = 'STATUS: IDLE';
     statusBadge.style.color = 'var(--color-emerald)';
@@ -465,7 +453,7 @@ function initFPGALfsrSimulator() {
 }
 
 /* ==========================================================================
-   6. AUTOMOTIVE MULTI-SENSOR TELEMETRY DASHBOARD
+   6. METRICS & TELEMETRY DASHBOARD
    ========================================================================== */
 function initAutomotiveSensorDashboard() {
   const sliderDist = document.getElementById('slider-distance');
@@ -490,24 +478,24 @@ function initAutomotiveSensorDashboard() {
     const alc = parseInt(sliderAlc.value, 10);
     const temp = parseInt(sliderTemp.value, 10);
 
-    valDist.textContent = `${dist} cm ${dist < 30 ? '(CRITICAL <30cm)' : '(Safe >30cm)'}`;
-    valAlc.textContent = `${alc} Raw ${alc > 300 ? '(HAZARD >300)' : '(Safe <300)'}`;
-    valTemp.textContent = `${temp} °C ${temp > 95 ? '(OVERHEAT >95°C)' : '(Safe <95°C)'}`;
+    valDist.textContent = `${dist} ms ${dist < 30 ? '(CRITICAL <30ms)' : '(Normal)'}`;
+    valAlc.textContent = `${alc} req/s ${alc > 300 ? '(HIGH LOAD >300)' : '(Normal)'}`;
+    valTemp.textContent = `${temp} °C ${temp > 95 ? '(THERMAL WARNING >95°C)' : '(Optimal <95°C)'}`;
 
     let hazards = [];
-    if (dist < 30) hazards.push(`Obstacle Proximity Warning (${dist}cm)`);
-    if (alc > 300) hazards.push(`Alcohol Breath Threshold Exceeded (${alc})`);
-    if (temp > 95) hazards.push(`Engine Thermal Overheat (${temp}°C)`);
+    if (dist < 30) hazards.push(`Latency Bottleneck Alert (${dist}ms)`);
+    if (alc > 300) hazards.push(`Throughput Spike Event (${alc} req/s)`);
+    if (temp > 95) hazards.push(`Thermal Compute Load Exceeded (${temp}°C)`);
 
     if (hazards.length > 0) {
       hazardBox.className = 'hazard-alert-box danger';
       hazardIcon.className = 'fa-solid fa-triangle-exclamation';
       hazardText.textContent = hazards.join(' | ');
-      buzzerTag.textContent = 'BUZZER: ACTIVE 2.4kHz PULSE';
+      buzzerTag.textContent = 'ALERT: ACTIVE FREQUENCY';
       buzzerTag.style.color = '#ef4444';
       buzzerTag.style.fontWeight = '700';
 
-      sensorStatusBadge.textContent = 'CRITICAL HAZARD';
+      sensorStatusBadge.textContent = 'THRESHOLD ALERT';
       sensorStatusBadge.style.background = 'rgba(239, 68, 68, 0.2)';
       sensorStatusBadge.style.color = '#ef4444';
 
@@ -515,8 +503,8 @@ function initAutomotiveSensorDashboard() {
     } else {
       hazardBox.className = 'hazard-alert-box';
       hazardIcon.className = 'fa-solid fa-circle-check';
-      hazardText.textContent = 'All parameters within safe operating thresholds.';
-      buzzerTag.textContent = 'BUZZER: SILENT';
+      hazardText.textContent = 'All telemetry parameters operating within normal parameters.';
+      buzzerTag.textContent = 'ALERT: STANDBY';
       buzzerTag.style.color = 'var(--color-emerald)';
       buzzerTag.style.fontWeight = 'normal';
 
@@ -556,61 +544,46 @@ function initEngineeringTerminal() {
   const commands = {
     help: `
 Available commands:
-  • <span style="color: var(--color-cyan-glow);">skills</span>     - View core hardware & embedded competencies
+  • <span style="color: var(--color-cyan-glow);">skills</span>     - View technical competencies & stack
   • <span style="color: var(--color-cyan-glow);">projects</span>   - List featured engineering repositories & projects
-  • <span style="color: var(--color-cyan-glow);">fpga</span>       - Inspect Tang Nano 20K FPGA architecture details
-  • <span style="color: var(--color-cyan-glow);">medha</span>      - Medha Servo Drives industrial apprenticeship notes
   • <span style="color: var(--color-cyan-glow);">specs</span>      - Workstation & development environment specs
   • <span style="color: var(--color-cyan-glow);">resume</span>     - Open technical resume specification modal
-  • <span style="color: var(--color-cyan-glow);">contact</span>    - View direct contact details & location
+  • <span style="color: var(--color-cyan-glow);">contact</span>    - View direct contact details & links
   • <span style="color: var(--color-cyan-glow);">clear</span>      - Clear terminal stream
     `,
     skills: `
-<span style="color: var(--color-purple);">Hardware & Circuit:</span> Verilog HDL, Tang Nano 20K FPGA, Gowin EDA, KiCad, Traction Converters (LTC).
-<span style="color: var(--color-cyan-glow);">Embedded & Protocols:</span> PIC16 (MPLAB X), ESP32 (ESP-NOW), Arduino Uno, UART/SPI/I2C, BLE.
-<span style="color: var(--color-emerald);">Systems & AI:</span> Windows 11 Native Architecture, Scoop, Tailscale Mesh, Local LLMs.
+<span style="color: var(--color-purple);">Core Languages:</span> TypeScript, JavaScript, Python, Node.js, C/C++, HTML5/CSS3.
+<span style="color: var(--color-cyan-glow);">3D & Graphics:</span> Three.js, WebGL, Canvas API, Custom Shaders.
+<span style="color: var(--color-emerald);">Architecture:</span> Cloudflare Workers/Pages, Docker, Distributed APIs, Tailscale.
     `,
     projects: `
-1. <span style="color: var(--color-cyan-glow);">Dual-Hardware Secure Locking System</span> - Tang Nano 20K FPGA + ESP-NOW + 16-bit LFSR.
-2. <span style="color: var(--color-orange);">Vehicle Multi-Sensor Safety System</span> - Arduino Uno + HC-SR04 + MQ-3 + Temp.
-3. <span style="color: var(--color-purple);">V2G Smart Energy Infrastructure</span> - Bidirectional power flow & EV BMS logic.
-4. <span style="color: var(--color-emerald);">Containerized Mesh Messaging</span> - Dockerized Matrix Synapse + Tailscale.
-    `,
-    fpga: `
-<span style="color: var(--color-cyan-glow);">FPGA Core:</span> Tang Nano 20K (Gowin GW2AR-18C)
-<span style="color: var(--color-purple);">Synthesis:</span> Gowin EDA / Xilinx Vivado
-<span style="color: var(--color-emerald);">Key Logic:</span> 16-bit LFSR pseudo-random engine, Verilog 6-state FSM, 27 MHz clock.
-<span style="color: var(--color-text-muted);">Decoupled Air-Gap: Simplex UART packet reception with relay drive output.</span>
-    `,
-    medha: `
-<span style="color: var(--color-purple);">Medha Servo Drives - Assembly & Testing Technician / Apprentice</span>
-• Assembled locomotive Traction Converters (LTC) following mechanical & schematic blueprints.
-• Routed Optical Fiber Cables (OFC) for noise-immune pulse width modulation firing.
-• Conducted high-voltage (HV) insulation resistance and calibration measurements.
+1. <span style="color: var(--color-cyan-glow);">Interactive 3D Simulation Platform</span> - Three.js WebGL + Real-Time Shaders.
+2. <span style="color: var(--color-orange);">Real-Time Telemetry & Monitoring Suite</span> - Node.js + WebSockets + Redis.
+3. <span style="color: var(--color-purple);">Distributed Energy & Grid Infrastructure</span> - Smart microgrid algorithm.
+4. <span style="color: var(--color-emerald);">Containerized Messaging & Mesh Network</span> - Docker + Tailscale P2P.
     `,
     specs: `
-<span style="color: var(--color-emerald);">Workstation Architecture:</span> Windows 11 Native (Pure CLI, Scoop package manager)
-<span style="color: var(--color-cyan-glow);">Embedded EDA:</span> Gowin EDA v1.9, MPLAB X v6.20, KiCad v8, Arduino CLI
-<span style="color: var(--color-purple);">Mesh Network:</span> Tailscale zero-config encrypted P2P overlay
+<span style="color: var(--color-emerald);">Environment:</span> Modern Cloud & Native Architecture
+<span style="color: var(--color-cyan-glow);">Tooling:</span> Three.js, Node.js, WebGL, Docker, Vite
+<span style="color: var(--color-purple);">Deployment:</span> Cloudflare Pages + Edge Network
     `,
     contact: `
-<span style="color: var(--color-cyan-glow);">Email:</span> rajashekar.thoutam.dev@gmail.com
-<span style="color: var(--color-emerald);">Location:</span> Hyderabad, Telangana, India
-<span style="color: var(--color-purple);">GitHub:</span> https://github.com/rajashekarthoutam
-<span style="color: var(--color-cyan-glow);">Domain:</span> https://rajashekarthoutam.in/
+<span style="color: var(--color-cyan-glow);">Email:</span> contact@yourdomain.com
+<span style="color: var(--color-emerald);">Location:</span> Your City, Country
+<span style="color: var(--color-purple);">GitHub:</span> https://github.com/yourusername
     `,
-    resume: `Opening Technical Resume Modal...`
+    resume: `Opening Resume Modal...`
   };
 
   function executeCommand(cmd) {
     const trimmed = cmd.trim().toLowerCase();
     const line = document.createElement('div');
-    line.innerHTML = `<span class="prompt-symbol">rajashekar@hardware:~$</span> ${cmd}`;
+    line.innerHTML = `<span class="prompt-symbol">developer@portfolio:~$</span> ${cmd}`;
     stream.appendChild(line);
 
     if (trimmed === 'clear') {
       stream.innerHTML = `
-        <div style="color: var(--color-cyan-glow);">=== THOUTAM RAJASHEKAR - HARDWARE SHELL v3.0 ===</div>
+        <div style="color: var(--color-cyan-glow);">=== INTERACTIVE DEVELOPER SHELL v3.0 ===</div>
         <div style="color: var(--color-text-muted); margin-bottom: 0.75rem;">Type 'help' for available commands or click the chips below.</div>
       `;
     } else if (trimmed === 'resume') {
@@ -665,7 +638,7 @@ Available commands:
       tabRtl.classList.add('active');
       tabBash.classList.remove('active');
       tabSpecs.classList.remove('active');
-      executeCommand('fpga');
+      executeCommand('skills');
     });
   }
 }
@@ -711,7 +684,7 @@ function initContactForm() {
     if (alertBox) {
       alertBox.style.display = 'block';
       alertBox.className = 'hazard-alert-box';
-      alertBox.innerHTML = '⚡ Thank you! Your message has been sent to Thoutam Rajashekar.';
+      alertBox.innerHTML = '⚡ Thank you! Your message has been sent successfully.';
       form.reset();
 
       setTimeout(() => {
@@ -722,7 +695,7 @@ function initContactForm() {
 }
 
 /* ==========================================================================
-   10. MODAL WINDOWS (RESUME & SYSTEM SPECIFICATIONS)
+   10. MODAL WINDOWS
    ========================================================================== */
 function initModals() {
   const overlay = document.getElementById('modal-overlay');
@@ -736,76 +709,62 @@ function initModals() {
   if (!overlay) return;
 
   const modalDetails = {
-    fpga_lock: {
-      title: 'Dual-Hardware Secure Locking System (Tang Nano 20K & ESP32)',
+    proj1: {
+      title: 'Interactive 3D Simulation Platform',
       content: `
         <div style="color: #e2e8f0; line-height: 1.7;">
-          <h4 style="color: var(--color-cyan-glow);">Hardware-Isolated Architecture</h4>
-          <p>An air-gapped embedded security system decoupling wireless connectivity from physical execution logic.</p>
+          <h4 style="color: var(--color-cyan-glow);">Project Architecture Overview</h4>
+          <p>High-performance interactive 3D WebGL application featuring real-time physics and custom GLSL lighting shaders.</p>
           <br>
           <ul style="margin-left: 1.5rem; color: #94a3b8;">
-            <li><strong>Hardware Root of Trust:</strong> Tang Nano 20K FPGA running a Verilog Finite State Machine (FSM).</li>
-            <li><strong>Dynamic Rolling Code:</strong> 16-bit Linear Feedback Shift Register (LFSR) calculating 65,535 non-repeating OTP keys.</li>
-            <li><strong>Simplex Pipeline:</strong> Unidirectional UART connection between ESP32 and FPGA preventing physical reverse-probing.</li>
-            <li><strong>Token Display Unit:</strong> Secondary ESP32 handheld terminal running ESP-NOW protocol.</li>
+            <li><strong>Renderer:</strong> Three.js WebGL with custom post-processing passes.</li>
+            <li><strong>Shaders:</strong> Custom vertex and fragment GLSL shaders.</li>
+            <li><strong>State Pipeline:</strong> Low-latency state synchronization.</li>
           </ul>
         </div>
       `
     },
-    car_safety: {
-      title: 'Advanced Multi-Modal Automotive Safety & Alert System',
+    proj2: {
+      title: 'Real-Time Telemetry & Monitoring Suite',
       content: `
         <div style="color: #e2e8f0; line-height: 1.7;">
-          <h4 style="color: var(--color-cyan-glow);">Sensor Ingestion Architecture</h4>
-          <p>Arduino Uno based real-time hazard detection system processing three critical metrics:</p>
+          <h4 style="color: var(--color-cyan-glow);">System Architecture</h4>
+          <p>High-throughput real-time telemetry processing platform.</p>
           <br>
           <ul style="margin-left: 1.5rem; color: #94a3b8;">
-            <li><strong>HC-SR04 Ultrasonic Sensors:</strong> 360-degree obstacle detection with a 30 cm safety threshold.</li>
-            <li><strong>MQ-3 Alcohol Sensor:</strong> Breathalyzer sobriety sampling with a 300 raw threshold trigger.</li>
-            <li><strong>Thermal Sensor:</strong> Continuous engine thermal monitoring to prevent catastrophic overheating.</li>
-            <li><strong>Alert Matrix:</strong> Multi-modal warning featuring high-pitch piezoelectric buzzer alarms and an LED indicator array.</li>
+            <li><strong>Ingestion:</strong> Low-latency WebSocket connections.</li>
+            <li><strong>In-Memory Cache:</strong> Redis pub/sub queuing.</li>
+            <li><strong>Alert Engine:</strong> Automated threshold dispatching.</li>
           </ul>
         </div>
       `
     },
-    v2g: {
-      title: 'Vehicle-to-Grid (V2G) Smart Energy Infrastructure',
+    proj3: {
+      title: 'Distributed Energy & Grid Infrastructure',
       content: `
         <div style="color: #e2e8f0; line-height: 1.7;">
-          <h4 style="color: var(--color-cyan-glow);">Major B.Tech Engineering Project</h4>
-          <p>Bidirectional power flow control between Electric Vehicles (EVs) and local microgrids.</p>
-          <br>
-          <ul style="margin-left: 1.5rem; color: #94a3b8;">
-            <li>Smart EV Battery Management System (BMS) telemetry integration.</li>
-            <li>Grid synchronization protocols and power inverter pulse control algorithms.</li>
-            <li>Decentralized peak shaving and microgrid energy exchange.</li>
-          </ul>
+          <h4 style="color: var(--color-cyan-glow);">Decentralized Optimization</h4>
+          <p>Bidirectional power flow control and microgrid balancing algorithms.</p>
         </div>
       `
     },
-    mesh: {
-      title: 'Containerized Home Messaging & Mesh Infrastructure',
+    proj4: {
+      title: 'Containerized Messaging & Mesh Network',
       content: `
         <div style="color: #e2e8f0; line-height: 1.7;">
-          <h4 style="color: var(--color-cyan-glow);">Deployment Architecture</h4>
-          <p>Self-hosted offline-first messaging network.</p>
-          <br>
-          <ul style="margin-left: 1.5rem; color: #94a3b8;">
-            <li><strong>Matrix Synapse:</strong> Containerized communication server deployed inside Docker.</li>
-            <li><strong>Tailscale Mesh:</strong> Encrypted P2P mesh network bridging remote hardware nodes without open public ports.</li>
-            <li>Deployed on Windows 11 native environment managed via Scoop.</li>
-          </ul>
+          <h4 style="color: var(--color-cyan-glow);">Encrypted P2P Architecture</h4>
+          <p>Secure self-hosted offline-first messaging network deployed inside isolated containers.</p>
         </div>
       `
     },
     resume: {
-      title: 'Thoutam Rajashekar - Official Technical Resume',
+      title: 'Curriculum Vitae & Technical Resume',
       content: `
         <div style="font-family: var(--font-main); color: #e2e8f0; line-height: 1.6;">
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
             <div>
-              <h3 style="color: var(--color-cyan-glow); font-size: 1.6rem; font-weight: 800;">THOUTAM RAJASHEKAR</h3>
-              <p style="color: var(--color-text-muted); font-size: 0.9rem;">Hyderabad, Telangana, India | rajashekar.thoutam.dev@gmail.com</p>
+              <h3 style="color: var(--color-cyan-glow); font-size: 1.6rem; font-weight: 800;">YOUR NAME HERE</h3>
+              <p style="color: var(--color-text-muted); font-size: 0.9rem;">Your City, Country | contact@yourdomain.com</p>
             </div>
             <button class="btn-pill btn-pill-outline" onclick="window.print()" style="margin-top: 0.5rem;">
               <i class="fa-solid fa-print"></i> Print / Save PDF
@@ -813,28 +772,12 @@ function initModals() {
           </div>
           <hr style="border-color: rgba(255,255,255,0.1); margin: 1.25rem 0;">
 
-          <h4 style="color: var(--color-purple); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">EDUCATION</h4>
-          <p><strong>B.Tech in Electronics & Communication Engineering</strong> - JBREC, Hyderabad (JNTUH R23 | <strong>CGPA: 7.93</strong>)</p>
-          <p><strong>Diploma in ECE</strong> - Government Polytechnic Masabtank (2021–2023)</p>
-          <p><strong>Electrician Certification</strong> - Shakthi ITI, Mancherial (2016–2018)</p>
+          <h4 style="color: var(--color-purple); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">SUMMARY</h4>
+          <p style="font-size: 0.92rem; color: #94a3b8;">Experienced engineer and developer building high-performance applications, interactive 3D web experiences, and robust architectures.</p>
 
           <br>
-          <h4 style="color: var(--color-purple); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">INDUSTRIAL EXPERIENCE</h4>
-          <p><strong>Assembly & Testing Technician / Apprentice</strong> | Medha Servo Drives</p>
-          <ul style="margin-left: 1.2rem; font-size: 0.88rem; color: #94a3b8;">
-            <li>Assembled & wired locomotive Traction Converters (LTC) following industrial blueprints.</li>
-            <li>Executed Optical Fiber Cable (OFC) routing, high-voltage (HV) testing, and equipment calibration.</li>
-          </ul>
-
-          <br>
-          <p><strong>Virtual Embedded Systems Intern</strong> | Microchip Technology</p>
-          <ul style="margin-left: 1.2rem; font-size: 0.88rem; color: #94a3b8;">
-            <li>Programmed PIC16 microcontrollers in MPLAB X IDE and implemented BLE applications.</li>
-          </ul>
-
-          <br>
-          <h4 style="color: var(--color-purple); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">HARDWARE & SKILLS</h4>
-          <p style="font-size: 0.9rem; color: #94a3b8;">Tang Nano 20K FPGA, Verilog HDL, Gowin EDA, Xilinx Vivado, KiCad, PIC16, ESP32 (ESP-NOW), Arduino Uno, Tailscale, Docker, Cloudflare Pages, WebGL.</p>
+          <h4 style="color: var(--color-purple); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">TECHNICAL SKILLS</h4>
+          <p style="font-size: 0.9rem; color: #94a3b8;">TypeScript, JavaScript, Python, Node.js, Three.js, WebGL, C/C++, Docker, Cloudflare, Tailscale, Git.</p>
         </div>
       `
     }
