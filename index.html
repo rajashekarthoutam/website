@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Developer &amp; Engineer | WebGL Portfolio</title>
-  <meta name="description" content="Personal Portfolio &amp; Engineering Showcase featuring interactive WebGL, 3D graphics, and modern web applications.">
-  <meta name="keywords" content="Portfolio, Web Developer, Software Engineer, WebGL, Three.js, Interactive Design">
-  <meta name="author" content="Portfolio">
+  <title>Rajashekar Thoutam | Hardware &amp; Embedded Systems Engineer</title>
+  <meta name="description" content="Official Engineering Portfolio of Rajashekar Thoutam - Hardware &amp; Embedded Systems Specialist, Tang Nano 20K FPGA, Verilog HDL, and Hardware Root of Trust.">
+  <meta name="keywords" content="Rajashekar Thoutam, Hardware Engineer, FPGA, Verilog HDL, Tang Nano 20K, Gowin EDA, ESP32, ESP-NOW, LFSR, Hardware Security">
+  <meta name="author" content="Rajashekar Thoutam">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rajashekarthoutam.in/">
-  <meta property="og:title" content="Developer &amp; Engineer | WebGL Portfolio">
-  <meta property="og:description" content="Interactive 3D WebGL Experiences and Engineering Showcase.">
-  <meta property="og:image" content="assets/images/bess_simulator.png">
+  <meta property="og:title" content="Rajashekar Thoutam | Hardware &amp; Embedded Systems Engineer">
+  <meta property="og:description" content="Air-Gapped Architectures, Verilog FSM Logic, and Hardware Roots of Trust.">
+  <meta property="og:image" content="assets/images/fpga_lock.png">
 
   <!-- Font Awesome, Three.js & Design System -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -31,8 +31,8 @@
   <header class="header" id="navbar">
     <!-- Brand Logo -->
     <a href="#hero" class="header-logo" id="nav-brand">
-      <div class="brand-icon-pill">DEV</div>
-      <span>Your <span class="gradient-text">Portfolio</span></span>
+      <div class="brand-icon-pill">RT</div>
+      <span>Rajashekar <span class="gradient-text">Thoutam</span></span>
     </a>
 
     <!-- Centered Floating Capsule Pill Nav -->
@@ -40,19 +40,17 @@
       <nav class="header-nav-pill" id="nav-pill-container">
         <div class="nav-pill-bar" id="nav-pill-bar"></div>
         <a href="#hero" class="nav-pill-link active" data-nav="hero">Home</a>
-        <a href="#simulators" class="nav-pill-link" data-nav="simulators">Toolkits</a>
-        <a href="#about" class="nav-pill-link" data-nav="about">About</a>
-        <a href="#experience" class="nav-pill-link" data-nav="experience">Experience</a>
-        <a href="#projects" class="nav-pill-link" data-nav="projects">Projects</a>
-        <a href="#terminal" class="nav-pill-link" data-nav="terminal">Terminal</a>
+        <a href="#simulators" class="nav-pill-link" data-nav="simulators">3D Toolkit</a>
+        <a href="#featured-project" class="nav-pill-link" data-nav="featured-project">Project</a>
+        <a href="#skills" class="nav-pill-link" data-nav="skills">Skills</a>
         <a href="#contact" class="nav-pill-link" data-nav="contact">Contact</a>
       </nav>
     </div>
 
-    <!-- Header Actions (Sound Toggle & Resume) -->
+    <!-- Header Actions (Sound Toggle & Architecture Modal) -->
     <div class="header-actions">
       <!-- Web Audio Synthesizer Toggle Button -->
-      <button class="sound-toggle-btn" id="sound-toggle" aria-label="Toggle Audio Feedback" title="Toggle Synthesized Audio Effects">
+      <button class="sound-toggle-btn" id="sound-toggle" aria-label="Toggle Audio Feedback" title="Toggle Synthesized Audio Feedback">
         <svg class="volume-wave-svg" viewBox="0 0 24 24">
           <path d="M3 9v6h4l5 5V4L7 9H3z"></path>
           <rect x="15" y="10" width="2" height="4" rx="1" class="volume-wave-bar"></rect>
@@ -61,8 +59,8 @@
         </svg>
       </button>
 
-      <button class="btn-pill btn-pill-outline" id="btn-view-resume-nav">
-        <i class="fa-solid fa-file-pdf"></i> Resume
+      <button class="btn-pill btn-pill-outline" id="btn-view-spec-nav" data-modal-target="fpga_lock">
+        <i class="fa-solid fa-microchip"></i> Architecture Spec
       </button>
     </div>
   </header>
@@ -75,13 +73,13 @@
     <!-- Left Hologram Callout Box -->
     <div class="hologram-callout hologram-callout-left">
       <div class="hologram-content">
-        <span class="hologram-tag">// SYSTEM ARCHITECTURE</span>
-        <h4 class="hologram-title">Core Focus Area</h4>
+        <span class="hologram-tag">// HARDWARE ROOT OF TRUST</span>
+        <h4 class="hologram-title">Tang Nano 20K FPGA</h4>
         <p class="hologram-desc">
-          • Scalable Software Architecture<br>
-          • Modern High-Performance Stacks<br>
-          • Interactive WebGL &amp; Graphics<br>
-          • Cloud &amp; Distributed Systems
+          • Gowin GW2AR-18C Silicon Core<br>
+          • 27 MHz Verilog FSM Engine<br>
+          • 16-Bit LFSR Dynamic Keying<br>
+          • Air-Gapped Simplex Bus
         </p>
       </div>
     </div>
@@ -89,13 +87,13 @@
     <!-- Right Hologram Callout Box -->
     <div class="hologram-callout hologram-callout-right">
       <div class="hologram-content">
-        <span class="hologram-tag">// ENGINEERING HIGHLIGHTS</span>
-        <h4 class="hologram-title">Featured Domain</h4>
+        <span class="hologram-tag">// EMBEDDED INTEGRATION</span>
+        <h4 class="hologram-title">Wireless Token Unit</h4>
         <p class="hologram-desc">
-          • Real-Time Interactive Toolkits<br>
-          • Custom Shaders &amp; Simulations<br>
-          • Clean Code &amp; API Design<br>
-          • Cross-Platform Performance
+          • ESP32 Peer-to-Peer ESP-NOW<br>
+          • Unidirectional UART Receiver<br>
+          • Active-High Relay Actuation<br>
+          • Physical Tamper Resistance
         </p>
       </div>
     </div>
@@ -104,20 +102,20 @@
     <div class="container hero-content-layer">
       <div class="hero-center-box">
         <div class="angled-banner">
-          Software &amp; Creative Technology
+          Hardware &amp; Embedded Systems Engineer
         </div>
         <h1 class="hero-main-title">
-          Your Name <span class="gradient-text">Here</span>
+          Rajashekar <span class="gradient-text">Thoutam</span>
         </h1>
         <div class="hero-tagline-text">
-          "Building interactive 3D experiences, scalable systems, and cutting-edge software."
+          "Air-Gapped Architectures, Verilog FSM Logic, and Hardware Roots of Trust."
         </div>
         <div class="hero-actions-row">
-          <a href="#simulators" class="btn-pill btn-pill-cyan">
-            <i class="fa-solid fa-cubes"></i> Explore 3D Toolkits
+          <a href="#simulators" class="btn-pill btn-pill-emerald">
+            <i class="fa-solid fa-play"></i> Launch Interactive 3D Simulator
           </a>
-          <a href="#projects" class="btn-pill btn-pill-outline">
-            <i class="fa-solid fa-code"></i> Featured Projects
+          <a href="#featured-project" class="btn-pill btn-pill-outline">
+            <i class="fa-solid fa-microchip"></i> Explore FPGA Project
           </a>
           <a href="#contact" class="btn-pill btn-pill-outline">
             <i class="fa-solid fa-envelope"></i> Contact Me
@@ -127,30 +125,29 @@
     </div>
   </section>
 
-  <!-- 2. Web Toolkits & Interactive Graphic Simulators -->
+  <!-- 2. Interactive 3D Web Toolkit & FPGA FSM Simulator -->
   <section class="section" id="simulators">
     <div class="container">
       <div class="section-header">
-        <span class="section-subtitle">// Interactive Algorithmic Models</span>
-        <h2 class="section-title">Interactive <span class="gradient-text">Web Toolkits</span></h2>
-        <p class="section-desc">Real-time browser-based simulators running algorithmic logic, state machines, and dynamic telemetry models.</p>
+        <span class="section-subtitle">// Interactive Algorithmic Model</span>
+        <h2 class="section-title">Tang Nano 20K <span class="gradient-text">FSM Simulator</span></h2>
+        <p class="section-desc">Real-time browser simulation of the 16-bit LFSR pseudo-random engine, simplex UART packet transmission, and Verilog state machine verification.</p>
       </div>
 
-      <div class="sim-grid">
-        <!-- Simulator 1: State Machine & Cryptographic Logic -->
+      <div class="fsm-showcase-container">
         <div class="sim-panel" id="sim-fpga-card">
           <div class="sim-header">
             <div>
-              <span class="sim-chip">ALGORITHMIC FSM</span>
+              <span class="sim-chip">TANG NANO 20K VERILOG FSM</span>
               <h3 class="sim-title" style="margin-top: 0.5rem;">
-                <i class="fa-solid fa-shield-halved" style="color: var(--color-cyan-glow);"></i> Security &amp; Token Generator
+                <i class="fa-solid fa-shield-halved" style="color: var(--color-emerald-glow);"></i> Air-Gapped Dynamic Token Pipeline
               </h3>
             </div>
-            <span id="fsm-status-badge" class="sim-chip" style="background: rgba(16, 185, 129, 0.15); color: var(--color-emerald);">STATUS: IDLE</span>
+            <span id="fsm-status-badge" class="sim-chip" style="background: rgba(16, 185, 129, 0.15); color: var(--color-emerald-glow);">STATUS: IDLE</span>
           </div>
 
-          <p style="color: var(--color-text-muted); font-size: 0.92rem; margin-bottom: 1.5rem;">
-            Simulate a dynamic state machine with linear feedback shift register (LFSR) logic, packet transmission, and cryptographic verification pipelines.
+          <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.75rem;">
+            Experience the air-gapped security cycle: calculate 16-bit LFSR dynamic OTP keys, transmit across the simplex link, verify against the hardware FSM, and trigger active relay unlock pulses.
           </p>
 
           <!-- Interactive FSM Pipeline Visualizer -->
@@ -162,108 +159,51 @@
             <div class="fsm-line" id="fsm-line-1"></div>
             <div class="fsm-node" id="fsm-node-lfsr">
               <div class="fsm-circle">S1</div>
-              <div class="fsm-label">GEN TOKEN</div>
+              <div class="fsm-label">GEN LFSR</div>
             </div>
             <div class="fsm-line" id="fsm-line-2"></div>
             <div class="fsm-node" id="fsm-node-tx">
               <div class="fsm-circle">S2</div>
-              <div class="fsm-label">PACKET TX</div>
+              <div class="fsm-label">UART TX</div>
             </div>
             <div class="fsm-line" id="fsm-line-3"></div>
             <div class="fsm-node" id="fsm-node-verify">
               <div class="fsm-circle">S3</div>
-              <div class="fsm-label">VERIFY</div>
+              <div class="fsm-label">FPGA VERIFY</div>
             </div>
             <div class="fsm-line" id="fsm-line-4"></div>
             <div class="fsm-node" id="fsm-node-unlock">
               <div class="fsm-circle">S4</div>
-              <div class="fsm-label">SUCCESS</div>
+              <div class="fsm-label">RELAY UNLOCKED</div>
             </div>
           </div>
 
-          <!-- Live Output Console -->
+          <!-- LFSR Live Output Console -->
           <div class="lfsr-console">
             <div class="lfsr-row">
-              <span style="color: var(--color-text-muted);">Current State Seed:</span>
+              <span style="color: var(--color-text-muted);">Current LFSR Seed Register:</span>
               <span class="lfsr-val" id="lfsr-seed-display">0xACE1 (44257)</span>
             </div>
             <div class="lfsr-row">
-              <span style="color: var(--color-text-muted);">Polynomial Function:</span>
-              <span style="color: var(--color-purple);">x^16 + x^14 + x^13 + x^11 + 1</span>
+              <span style="color: var(--color-text-muted);">Verilog Taps Feedback Polynomial:</span>
+              <span style="color: var(--color-violet);">x^16 + x^14 + x^13 + x^11 + 1</span>
             </div>
             <div class="lfsr-row">
-              <span style="color: var(--color-text-muted);">Calculated Token:</span>
-              <span class="lfsr-val" id="lfsr-otp-display" style="color: var(--color-emerald); font-size: 1.05rem;">----</span>
+              <span style="color: var(--color-text-muted);">Dynamic Computed 4-Digit OTP:</span>
+              <span class="lfsr-val" id="lfsr-otp-display" style="color: var(--color-emerald-glow); font-size: 1.15rem;">----</span>
             </div>
             <div class="lfsr-row">
-              <span style="color: var(--color-text-muted);">System Execution State:</span>
-              <span id="relay-state-display" style="color: var(--color-text-dim);">STANDBY (READY)</span>
+              <span style="color: var(--color-text-muted);">Physical Solenoid Relay Output:</span>
+              <span id="relay-state-display" style="color: var(--color-text-dim);">LOCKED (HIGH IMPEDANCE PASSIVE)</span>
             </div>
           </div>
 
-          <div style="display: flex; gap: 0.75rem;">
-            <button class="btn-pill btn-pill-cyan" id="btn-run-fsm" style="flex: 1;">
-              <i class="fa-solid fa-play"></i> Step Pipeline &amp; Execute
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button class="btn-pill btn-pill-emerald" id="btn-run-fsm" style="flex: 1;">
+              <i class="fa-solid fa-play"></i> Step Pipeline &amp; Generate Dynamic OTP
             </button>
             <button class="btn-pill btn-pill-outline" id="btn-reset-fsm">
-              <i class="fa-solid fa-rotate-left"></i> Reset
-            </button>
-          </div>
-        </div>
-
-        <!-- Simulator 2: Real-Time Telemetry & Metric Dashboard -->
-        <div class="sim-panel" id="sim-sensor-card">
-          <div class="sim-header">
-            <div>
-              <span class="sim-chip">TELEMETRY ENGINE</span>
-              <h3 class="sim-title" style="margin-top: 0.5rem;">
-                <i class="fa-solid fa-gauge-high" style="color: var(--color-orange);"></i> Real-Time Metric Inspector
-              </h3>
-            </div>
-            <span id="sensor-status-badge" class="sim-chip" style="background: rgba(16, 185, 129, 0.15); color: var(--color-emerald);">SYS NORMAL</span>
-          </div>
-
-          <p style="color: var(--color-text-muted); font-size: 0.92rem; margin-bottom: 1.5rem;">
-            Real-time interactive metrics simulator. Adjust latency, payload throughput, and system resource load to trigger dynamic threshold alerts.
-          </p>
-
-          <!-- Sliders -->
-          <div class="sensor-control-group">
-            <div class="sensor-control-header">
-              <span><i class="fa-solid fa-arrows-left-right-to-line" style="color: var(--color-cyan-glow);"></i> Proximity / Latency Metric:</span>
-              <span class="lfsr-val" id="val-distance">75 ms (Normal)</span>
-            </div>
-            <input type="range" min="5" max="150" value="75" class="sensor-slider" id="slider-distance">
-          </div>
-
-          <div class="sensor-control-group">
-            <div class="sensor-control-header">
-              <span><i class="fa-solid fa-chart-line" style="color: var(--color-orange);"></i> Throughput Demand Rate:</span>
-              <span class="lfsr-val" id="val-alcohol">120 req/s (Normal)</span>
-            </div>
-            <input type="range" min="50" max="700" value="120" class="sensor-slider" id="slider-alcohol">
-          </div>
-
-          <div class="sensor-control-group">
-            <div class="sensor-control-header">
-              <span><i class="fa-solid fa-microchip" style="color: var(--color-danger);"></i> Compute Thermal Load:</span>
-              <span class="lfsr-val" id="val-temp">65 °C (Optimal &lt;95°C)</span>
-            </div>
-            <input type="range" min="30" max="130" value="65" class="sensor-slider" id="slider-temp">
-          </div>
-
-          <!-- Dynamic Hazard Alert Box -->
-          <div class="hazard-alert-box" id="hazard-box">
-            <div style="display: flex; align-items: center; gap: 0.75rem;">
-              <i class="fa-solid fa-circle-check" id="hazard-icon" style="font-size: 1.2rem;"></i>
-              <span id="hazard-text">All telemetry parameters operating within normal parameters.</span>
-            </div>
-            <span id="hazard-buzzer-tag" style="font-size: 0.75rem;">ALERT: STANDBY</span>
-          </div>
-
-          <div style="margin-top: 1.5rem;">
-            <button class="btn-pill btn-pill-outline" style="width: 100%;" id="btn-test-danger">
-              <i class="fa-solid fa-triangle-exclamation"></i> Simulate High Load Threshold Event
+              <i class="fa-solid fa-rotate-left"></i> Reset FSM
             </button>
           </div>
         </div>
@@ -271,384 +211,125 @@
     </div>
   </section>
 
-  <!-- 3. About Me Section -->
-  <section class="section" id="about">
+  <!-- 3. Featured Project Spotlight -->
+  <section class="section" id="featured-project">
     <div class="container">
       <div class="section-header">
-        <span class="section-subtitle">// Background</span>
-        <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+        <span class="section-subtitle">// Featured Hardware Architecture</span>
+        <h2 class="section-title">Project <span class="gradient-text">Spotlight</span></h2>
+        <p class="section-desc">In-depth exploration of the dual-hardware air-gapped security system utilizing FPGA logic as the hardware root of trust.</p>
       </div>
 
-      <div class="about-card-full">
-        <p class="about-lead-text">
-          Passionate engineer and developer dedicated to crafting modern interactive applications, high-performance systems, and creative 3D web experiences. Committed to writing clean, maintainable code with deep attention to architecture, performance optimization, and intuitive user experiences.
-        </p>
+      <div class="project-spotlight-card">
+        <div class="spotlight-img-wrap">
+          <img src="assets/images/fpga_lock.png" alt="Dual-Hardware Secure Locking System" class="spotlight-img">
+        </div>
+        <div class="spotlight-content">
+          <span class="sim-chip" style="width: fit-content;">FPGA + MICROCONTROLLER ARCHITECTURE</span>
+          <h3 style="font-size: 2.2rem; font-weight: 900; margin-top: 0.75rem; text-transform: uppercase;">
+            Dual-Hardware Secure Locking System
+          </h3>
+          <p style="color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.7; margin-top: 1rem;">
+            An air-gapped embedded security system that decouples wireless RF communication from hardware execution logic. The Tang Nano 20K FPGA acts as the isolated Hardware Root of Trust, executing a 16-bit LFSR rolling code engine that produces 65,535 non-repeating dynamic OTP authentication keys.
+          </p>
 
-        <div class="about-highlights-grid">
-          <div class="about-highlight-box">
-            <i class="fa-solid fa-code highlight-icon"></i>
-            <h4>Architecture &amp; Design</h4>
-            <p>End-to-end full-stack software development, clean system architecture, and robust engineering principles.</p>
+          <div class="tech-badge-row">
+            <span class="tag-badge tag-emerald">Tang Nano 20K FPGA</span>
+            <span class="tag-badge tag-violet">Verilog HDL FSM</span>
+            <span class="tag-badge tag-cyan">ESP32 (ESP-NOW)</span>
+            <span class="tag-badge tag-emerald">Gowin EDA</span>
+            <span class="tag-badge tag-violet">Simplex UART</span>
           </div>
-          <div class="about-highlight-box">
-            <i class="fa-solid fa-cubes highlight-icon"></i>
-            <h4>3D WebGL &amp; Graphics</h4>
-            <p>Interactive Three.js experiences, GLSL shaders, and responsive hardware-accelerated animations.</p>
-          </div>
-          <div class="about-highlight-box">
-            <i class="fa-solid fa-bolt highlight-icon"></i>
-            <h4>High-Performance Systems</h4>
-            <p>Low-latency data processing, distributed network protocols, and reliable real-time systems.</p>
+
+          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <button class="btn-pill btn-pill-emerald" data-modal-target="fpga_lock">
+              <i class="fa-solid fa-circle-info"></i> View Full Architecture Spec
+            </button>
+            <a href="https://github.com/rajashekarthoutam/secure-lock-system" target="_blank" rel="noopener" class="btn-pill btn-pill-outline">
+              <i class="fa-brands fa-github"></i> GitHub Repository
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 4. Core Skills & Technical Expertise -->
+  <!-- 4. Core Skills & Technical Competencies -->
   <section class="section" id="skills">
     <div class="container">
       <div class="section-header">
-        <span class="section-subtitle">// Competencies</span>
-        <h2 class="section-title">Technical <span class="gradient-text">Skills</span></h2>
+        <span class="section-subtitle">// Engineering Domain</span>
+        <h2 class="section-title">Technical <span class="gradient-text">Competencies</span></h2>
       </div>
 
       <div class="skills-category-grid">
         <div class="skill-card-detailed">
           <div class="skill-card-header">
-            <i class="fa-solid fa-laptop-code skill-cat-icon"></i>
-            <h3>Core Engineering</h3>
+            <i class="fa-solid fa-microchip skill-cat-icon"></i>
+            <h3>FPGA &amp; Digital Logic</h3>
           </div>
           <div class="skill-subgroup">
-            <h4>Languages &amp; Runtimes</h4>
-            <p>TypeScript, JavaScript (ESNext), Python, Node.js, C / C++, HTML5 / CSS3.</p>
+            <h4>Synthesis &amp; RTL</h4>
+            <p>Verilog HDL, Tang Nano 20K (Gowin EDA), Xilinx Vivado, Finite State Machine (FSM) Design.</p>
           </div>
           <div class="skill-subgroup">
-            <h4>Graphics &amp; UI</h4>
-            <p>Three.js, WebGL, Canvas API, Modern Vanilla CSS, Figma Design Systems.</p>
-          </div>
-          <div class="skill-subgroup">
-            <h4>Tools &amp; Workflows</h4>
-            <p>Git, GitHub Actions, Vite, Webpack, Modern CLI tooling.</p>
+            <h4>Hardware Security</h4>
+            <p>Hardware Root of Trust, 16-bit LFSR Dynamic Rolling Code Engines, Air-Gapped System Decoupling.</p>
           </div>
         </div>
 
         <div class="skill-card-detailed">
           <div class="skill-card-header">
             <i class="fa-solid fa-network-wired skill-cat-icon"></i>
-            <h3>Systems &amp; Architecture</h3>
+            <h3>Embedded Systems</h3>
           </div>
           <div class="skill-subgroup">
-            <h4>Back-End &amp; APIs</h4>
-            <p>RESTful APIs, WebSockets, Real-Time Messaging, GraphQL, Microservices.</p>
+            <h4>Microcontrollers</h4>
+            <p>ESP32, PIC16 (MPLAB X IDE), ATmega328P (Arduino), ARM Cortex basics.</p>
           </div>
           <div class="skill-subgroup">
-            <h4>Data &amp; Storage</h4>
-            <p>PostgreSQL, Redis, MongoDB, Edge Caching, Optimized Querying.</p>
-          </div>
-          <div class="skill-subgroup">
-            <h4>Security &amp; Protocols</h4>
-            <p>Authentication Systems, End-to-End Encryption, Safe Token Verification.</p>
+            <h4>Protocols</h4>
+            <p>ESP-NOW (Router-less P2P), Simplex/Full-Duplex UART, SPI, I2C, BLE.</p>
           </div>
         </div>
 
         <div class="skill-card-detailed">
           <div class="skill-card-header">
-            <i class="fa-solid fa-cloud skill-cat-icon"></i>
-            <h3>DevOps &amp; Infrastructure</h3>
+            <i class="fa-solid fa-screwdriver-wrench skill-cat-icon"></i>
+            <h3>Hardware Tooling &amp; CAD</h3>
           </div>
           <div class="skill-subgroup">
-            <h4>Cloud &amp; Deployment</h4>
-            <p>Cloudflare Workers &amp; Pages, Docker Containers, AWS / GCP, Vercel.</p>
+            <h4>Design &amp; Simulation</h4>
+            <p>KiCad EDA schematic and PCB layout, OpenSCAD, Octave, Circuit Simulation.</p>
           </div>
           <div class="skill-subgroup">
-            <h4>Networking</h4>
-            <p>P2P Mesh Networks, Reverse Proxies, DNS Configuration, SSL / TLS Security.</p>
-          </div>
-          <div class="skill-subgroup">
-            <h4>Monitoring</h4>
-            <p>Performance Auditing, Telemetry Logging, Zero-Downtime Releases.</p>
+            <h4>Physical Layout</h4>
+            <p>Soldering calibration, high-voltage testing protocols, optical fiber cable routing.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. Work Experience & Career Milestones -->
-  <section class="section" id="experience">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">// Career Milestones</span>
-        <h2 class="section-title">Work <span class="gradient-text">Experience</span></h2>
-      </div>
-
-      <div class="timeline-container">
-        <div class="timeline-item">
-          <div class="timeline-dot"><i class="fa-solid fa-briefcase"></i></div>
-          <div class="timeline-content">
-            <div class="timeline-badge">Present Role</div>
-            <h3 class="timeline-title">Senior Software / Systems Engineer</h3>
-            <div class="timeline-company">Featured Organization</div>
-            <div class="timeline-period">2024 – Present</div>
-            <ul class="timeline-list">
-              <li>Architected and launched high-performance applications serving thousands of active users.</li>
-              <li>Engineered interactive WebGL visualizations and responsive design systems.</li>
-              <li>Optimized latency and pipeline bottlenecks, cutting server load times by over 40%.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"><i class="fa-solid fa-code-branch"></i></div>
-          <div class="timeline-content">
-            <div class="timeline-badge">Previous Experience</div>
-            <h3 class="timeline-title">Software Developer &amp; Systems Specialist</h3>
-            <div class="timeline-company">Technology Engineering Group</div>
-            <div class="timeline-period">2022 – 2024</div>
-            <ul class="timeline-list">
-              <li>Developed modular front-end interfaces, RESTful microservices, and automated testing suites.</li>
-              <li>Integrated distributed real-time telemetry protocols and continuous integration pipelines.</li>
-              <li>Collaborated with cross-functional engineering teams to deliver robust software solutions.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. Featured Projects -->
-  <section class="section" id="projects">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">// Portfolio Showcase</span>
-        <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
-        <p class="section-desc">Selected software applications, 3D interactive graphics, and systems engineering projects.</p>
-      </div>
-
-      <!-- Filter Tabs -->
-      <div class="filter-tabs-wrapper">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="webgl">WebGL &amp; 3D</button>
-        <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
-        <button class="filter-btn" data-filter="systems">Systems</button>
-      </div>
-
-      <div class="projects-grid">
-        <!-- Project 1 -->
-        <div class="project-card" data-category="webgl fullstack">
-          <div class="project-img-wrapper">
-            <img src="assets/images/fpga_lock.png" alt="Interactive 3D Simulation Platform" class="project-img">
-          </div>
-          <div class="project-body">
-            <span class="project-tag">WEBGL &amp; REAL-TIME GRAPHICS</span>
-            <h3 class="project-title">Interactive 3D Simulation Platform</h3>
-            <p class="project-desc">
-              High-performance interactive 3D WebGL application featuring real-time physics, custom GLSL lighting shaders, and low-latency procedural state generation.
-            </p>
-            <div class="tech-tag-row">
-              <span class="tag-badge tag-cyan">Three.js</span>
-              <span class="tag-badge tag-purple">WebGL</span>
-              <span class="tag-badge tag-emerald">TypeScript</span>
-              <span class="tag-badge tag-orange">GLSL</span>
-            </div>
-            <div style="display: flex; align-items: center;">
-              <button class="btn-pill btn-pill-outline" data-modal-target="proj1">
-                View Project Details
-              </button>
-              <button class="circle-arrow-btn" data-modal-target="proj1" aria-label="Open Project Spec">
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="project-card" data-category="systems fullstack">
-          <div class="project-img-wrapper">
-            <img src="assets/images/car_safety.png" alt="Real-Time Telemetry & Monitoring Suite" class="project-img">
-          </div>
-          <div class="project-body">
-            <span class="project-tag">REAL-TIME TELEMETRY</span>
-            <h3 class="project-title">Real-Time Telemetry &amp; Monitoring Suite</h3>
-            <p class="project-desc">
-              High-throughput monitoring platform processing sensor and system metrics in real time with dynamic hazard detection and alert dispatching.
-            </p>
-            <div class="tech-tag-row">
-              <span class="tag-badge tag-cyan">Node.js</span>
-              <span class="tag-badge tag-purple">WebSockets</span>
-              <span class="tag-badge tag-orange">Redis</span>
-              <span class="tag-badge tag-emerald">Tailscale</span>
-            </div>
-            <div style="display: flex; align-items: center;">
-              <button class="btn-pill btn-pill-outline" data-modal-target="proj2">
-                View Project Details
-              </button>
-              <button class="circle-arrow-btn" data-modal-target="proj2" aria-label="Open Project Spec">
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project-card" data-category="systems">
-          <div class="project-img-wrapper">
-            <img src="assets/images/bess_simulator.png" alt="Distributed Energy & Grid Infrastructure" class="project-img">
-          </div>
-          <div class="project-body">
-            <span class="project-tag">DISTRIBUTED SYSTEMS</span>
-            <h3 class="project-title">Distributed Energy &amp; Grid Infrastructure</h3>
-            <p class="project-desc">
-              Smart power telemetry simulation and decentralized microgrid algorithm optimizing bidirectional power flow, balancing state-of-charge, and peak shaving.
-            </p>
-            <div class="tech-tag-row">
-              <span class="tag-badge tag-cyan">Python</span>
-              <span class="tag-badge tag-purple">Microgrid Algorithms</span>
-              <span class="tag-badge tag-emerald">Simulation</span>
-            </div>
-            <div style="display: flex; align-items: center;">
-              <button class="btn-pill btn-pill-outline" data-modal-target="proj3">
-                View Project Details
-              </button>
-              <button class="circle-arrow-btn" data-modal-target="proj3" aria-label="Open Project Spec">
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4 -->
-        <div class="project-card" data-category="fullstack">
-          <div class="project-img-wrapper">
-            <img src="assets/images/embedded_iot.png" alt="Containerized Messaging & Mesh Network" class="project-img">
-          </div>
-          <div class="project-body">
-            <span class="project-tag">CONTAINER &amp; NETWORKING</span>
-            <h3 class="project-title">Containerized Messaging &amp; Mesh Network</h3>
-            <p class="project-desc">
-              Self-hosted communication server deployed inside isolated containers, securely connected across distributed remote nodes via encrypted peer-to-peer mesh.
-            </p>
-            <div class="tech-tag-row">
-              <span class="tag-badge tag-cyan">Docker</span>
-              <span class="tag-badge tag-purple">Tailscale P2P</span>
-              <span class="tag-badge tag-emerald">Encrypted Mesh</span>
-            </div>
-            <div style="display: flex; align-items: center;">
-              <button class="btn-pill btn-pill-outline" data-modal-target="proj4">
-                View Project Details
-              </button>
-              <button class="circle-arrow-btn" data-modal-target="proj4" aria-label="Open Project Spec">
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. Interactive Engineering CLI Terminal HUD -->
-  <section class="section" id="terminal">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">// Developer HUD</span>
-        <h2 class="section-title">Interactive <span class="gradient-text">Terminal</span></h2>
-        <p class="section-desc">Query software specifications, inspect project repositories, or execute system commands directly from this embedded shell.</p>
-      </div>
-
-      <div class="terminal-interactive-wrapper">
-        <div class="terminal-hud">
-          <div class="terminal-hud-header">
-            <div class="terminal-tab-group">
-              <button class="terminal-tab active" id="tab-cli-bash">terminal (zsh)</button>
-              <button class="terminal-tab" id="tab-cli-specs">system_specs</button>
-              <button class="terminal-tab" id="tab-cli-rtl">app_config.json</button>
-            </div>
-            <div class="terminal-controls">
-              <span class="dot-btn dot-red"></span>
-              <span class="dot-btn dot-yellow"></span>
-              <span class="dot-btn dot-green"></span>
-            </div>
-          </div>
-
-          <div class="terminal-hud-body" id="terminal-stream">
-            <div style="color: var(--color-cyan-glow);">=== INTERACTIVE DEVELOPER SHELL v3.0 ===</div>
-            <div style="color: var(--color-text-muted); margin-bottom: 0.75rem;">Type 'help' for available commands or click the chips below.</div>
-            <div class="terminal-prompt-line">
-              <span class="prompt-symbol">developer@portfolio:~$</span>
-              <input type="text" class="terminal-input" id="terminal-cmd-input" placeholder="Type a command (e.g. 'help', 'skills', 'specs')..." autofocus>
-            </div>
-          </div>
-
-          <div class="terminal-quick-chips">
-            <span class="cmd-chip" data-cmd="help">help</span>
-            <span class="cmd-chip" data-cmd="skills">skills</span>
-            <span class="cmd-chip" data-cmd="projects">projects</span>
-            <span class="cmd-chip" data-cmd="specs">specs</span>
-            <span class="cmd-chip" data-cmd="resume">resume</span>
-            <span class="cmd-chip" data-cmd="contact">contact</span>
-            <span class="cmd-chip" data-cmd="clear">clear</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8. Education & Certifications -->
-  <section class="section" id="education">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">// Academic Background</span>
-        <h2 class="section-title">Education &amp; <span class="gradient-text">Qualifications</span></h2>
-      </div>
-
-      <div class="skills-category-grid">
-        <div class="skill-card-detailed">
-          <div class="timeline-badge" style="margin-bottom: 1rem;">Degree</div>
-          <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Bachelor of Technology / Science</h3>
-          <div style="color: var(--color-cyan-glow); font-weight: 700; margin-bottom: 0.5rem;">University / Institution</div>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Computer Science &amp; Engineering</p>
-          <div style="font-family: var(--font-mono); font-size: 1.25rem; font-weight: 700; color: var(--color-cyan-glow);">First Class Honors</div>
-        </div>
-
-        <div class="skill-card-detailed">
-          <div class="timeline-badge" style="margin-bottom: 1rem;">Diploma / Specialization</div>
-          <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Advanced Engineering Diploma</h3>
-          <div style="color: var(--color-cyan-glow); font-weight: 700; margin-bottom: 0.5rem;">Polytechnic / Academy</div>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Software Development &amp; Embedded Systems</p>
-          <p style="color: var(--color-text-dim); font-size: 0.85rem;">Comprehensive hands-on technical training.</p>
-        </div>
-
-        <div class="skill-card-detailed">
-          <div class="timeline-badge" style="margin-bottom: 1rem;">Professional Certification</div>
-          <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Certified Cloud &amp; Systems Architect</h3>
-          <div style="color: var(--color-cyan-glow); font-weight: 700; margin-bottom: 0.5rem;">Professional Body</div>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Cloud Computing &amp; Architecture</p>
-          <p style="color: var(--color-text-dim); font-size: 0.85rem;">Industry standard verification and best practices.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 9. Contact Section -->
+  <!-- 5. Contact Section -->
   <section class="section" id="contact">
     <div class="container">
       <div class="section-header">
-        <span class="section-subtitle">// Inquiries</span>
+        <span class="section-subtitle">// Collaboration</span>
         <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
       </div>
 
       <div class="contact-grid">
         <div class="contact-card">
-          <h3 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 1rem; text-transform: uppercase;">Contact Information</h3>
-          <p style="color: var(--color-text-muted); margin-bottom: 2rem;">Feel free to reach out for software engineering roles, project collaborations, or consultation inquiries.</p>
+          <h3 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 1rem; text-transform: uppercase;">Direct Contact</h3>
+          <p style="color: var(--color-text-muted); margin-bottom: 2rem;">Reach out for hardware engineering opportunities, FPGA synthesis collaborations, or embedded systems development.</p>
 
           <div class="contact-info-list">
             <div class="contact-info-item">
               <div class="contact-icon"><i class="fa-solid fa-user"></i></div>
               <div>
-                <div style="font-size: 0.8rem; color: var(--color-text-dim); text-transform: uppercase;">Name</div>
-                <div style="font-weight: 700;">Your Name</div>
+                <div style="font-size: 0.8rem; color: var(--color-text-dim); text-transform: uppercase;">Engineer</div>
+                <div style="font-weight: 700;">Rajashekar Thoutam</div>
               </div>
             </div>
 
@@ -656,7 +337,7 @@
               <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
               <div>
                 <div style="font-size: 0.8rem; color: var(--color-text-dim); text-transform: uppercase;">Location</div>
-                <div style="font-weight: 700;">Your City, Country</div>
+                <div style="font-weight: 700;">Hyderabad, Telangana, India</div>
               </div>
             </div>
 
@@ -664,7 +345,7 @@
               <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
               <div>
                 <div style="font-size: 0.8rem; color: var(--color-text-dim); text-transform: uppercase;">Email</div>
-                <div style="font-weight: 700;">contact@yourdomain.com</div>
+                <div style="font-weight: 700;">rajashekar.thoutam.dev@gmail.com</div>
               </div>
             </div>
 
@@ -672,7 +353,7 @@
               <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
               <div>
                 <div style="font-size: 0.8rem; color: var(--color-text-dim); text-transform: uppercase;">GitHub</div>
-                <div style="font-weight: 700;">github.com/yourusername</div>
+                <div style="font-weight: 700;">github.com/rajashekarthoutam</div>
               </div>
             </div>
           </div>
@@ -697,7 +378,7 @@
 
             <div id="contact-alert" style="display: none; margin-bottom: 1rem;"></div>
 
-            <button type="submit" class="btn-pill btn-pill-cyan" style="width: 100%;" id="btn-send-message">
+            <button type="submit" class="btn-pill btn-pill-emerald" style="width: 100%;" id="btn-send-message">
               <i class="fa-solid fa-paper-plane"></i> Send Message
             </button>
           </form>
@@ -710,15 +391,16 @@
   <footer class="footer">
     <div class="container footer-container">
       <div class="footer-text">
-        © 2026 <strong>Your Portfolio</strong>. Software Engineering &amp; Interactive Graphics.
+        © 2026 <strong>Rajashekar Thoutam</strong>. Hardware &amp; Embedded Systems Engineer.
       </div>
       <div class="social-links">
+        <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
         <a href="#hero" class="social-icon" aria-label="Back to Top"><i class="fa-solid fa-arrow-up"></i></a>
       </div>
     </div>
   </footer>
 
-  <!-- Modal Dialog Window (Resume & Specifications) -->
+  <!-- Modal Dialog Window (Architecture Specifications) -->
   <div class="modal-overlay" id="modal-overlay">
     <div class="modal-content">
       <button class="modal-close" id="modal-close" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></button>

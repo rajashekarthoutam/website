@@ -1,7 +1,7 @@
 /**
- * WEBGL & HOLOGRAPHIC PORTFOLIO TEMPLATE SCRIPT
- * Features: Three.js 3D Silicon Core, Procedural Web Audio Synthesizer,
- * Floating Capsule Pill Nav, Magnetic Cursor, Interactive Simulators & Terminal.
+ * RAJASHEKAR THOUTAM - HARDWARE & EMBEDDED SHOWCASE SCRIPT
+ * Features: Three.js 3D FPGA Core, Procedural Web Audio Synthesizer,
+ * Floating Capsule Pill Nav, Magnetic Cursor, FSM & LFSR Simulator, Architecture Modals.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,15 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initCustomCursor();
   initCapsulePillNav();
   initFPGALfsrSimulator();
-  initAutomotiveSensorDashboard();
-  initEngineeringTerminal();
-  initProjectFilters();
   initContactForm();
   initModals();
 });
 
 /* ==========================================================================
-   1. THREE.JS WEBGL 3D HOLOGRAPHIC SCENE
+   1. THREE.JS WEBGL 3D HOLOGRAPHIC SCENE (FPGA SILICON DIE & ORBITING BUS RINGS)
    ========================================================================== */
 function initThreeWebGLScene() {
   const container = document.getElementById('webgl-canvas-container');
@@ -36,33 +33,33 @@ function initThreeWebGLScene() {
   const fpgaGroup = new THREE.Group();
   scene.add(fpgaGroup);
 
-  // 1. Central Core Cube with Wireframe overlay
-  const dieGeo = new THREE.BoxGeometry(4.2, 4.2, 0.8);
+  // 1. Central Tang Nano 20K FPGA Die (Dark Metallic Core with Emerald Edges)
+  const dieGeo = new THREE.BoxGeometry(4.4, 4.4, 0.85);
   const dieMat = new THREE.MeshStandardMaterial({
-    color: 0x051329,
+    color: 0x03120d,
     metalness: 0.9,
-    roughness: 0.2,
+    roughness: 0.18,
     transparent: true,
-    opacity: 0.85
+    opacity: 0.88
   });
   const dieMesh = new THREE.Mesh(dieGeo, dieMat);
   fpgaGroup.add(dieMesh);
 
-  // Wireframe Cage
+  // Wireframe Cage with Emerald Glow
   const edgeGeo = new THREE.EdgesGeometry(dieGeo);
-  const edgeMat = new THREE.LineBasicMaterial({ color: 0x00f2fe, linewidth: 2 });
+  const edgeMat = new THREE.LineBasicMaterial({ color: 0x10b981, linewidth: 2 });
   const wireframeCage = new THREE.LineSegments(edgeGeo, edgeMat);
   dieMesh.add(wireframeCage);
 
-  // 2. Substrate Grid
-  const gridHelper = new THREE.GridHelper(3.8, 8, 0x00f2fe, 0x004880);
+  // 2. Substrate Logic Grid
+  const gridHelper = new THREE.GridHelper(3.8, 8, 0x10b981, 0x4c1d95);
   gridHelper.rotation.x = Math.PI / 2;
-  gridHelper.position.z = 0.42;
+  gridHelper.position.z = 0.45;
   fpgaGroup.add(gridHelper);
 
-  // 3. Orbiting Rings
-  const ring1Geo = new THREE.TorusGeometry(6.2, 0.04, 16, 100);
-  const ring1Mat = new THREE.MeshBasicMaterial({ color: 0x00f2fe, wireframe: true });
+  // 3. Orbiting Logic Bus Rings (Emerald & Violet Matrix)
+  const ring1Geo = new THREE.TorusGeometry(6.2, 0.045, 16, 100);
+  const ring1Mat = new THREE.MeshBasicMaterial({ color: 0x10b981, wireframe: true });
   const ring1 = new THREE.Mesh(ring1Geo, ring1Mat);
   ring1.rotation.x = Math.PI / 3;
   fpgaGroup.add(ring1);
@@ -73,7 +70,7 @@ function initThreeWebGLScene() {
   ring2.rotation.y = Math.PI / 4;
   fpgaGroup.add(ring2);
 
-  // 4. Data Particle Cloud
+  // 4. Data Packet Electron Particle Cloud
   const particleCount = 280;
   const particleGeo = new THREE.BufferGeometry();
   const particlePositions = new Float32Array(particleCount * 3);
@@ -89,27 +86,27 @@ function initThreeWebGLScene() {
 
   particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
   const particleMat = new THREE.PointsMaterial({
-    color: 0x00f2fe,
+    color: 0x05f29d,
     size: 0.16,
     transparent: true,
-    opacity: 0.8
+    opacity: 0.85
   });
   const particleSystem = new THREE.Points(particleGeo, particleMat);
   fpgaGroup.add(particleSystem);
 
   // Lighting
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.65);
   scene.add(ambientLight);
 
-  const pointLightCyan = new THREE.PointLight(0x00f2fe, 3, 50);
-  pointLightCyan.position.set(10, 10, 15);
-  scene.add(pointLightCyan);
+  const pointLightEmerald = new THREE.PointLight(0x10b981, 3, 50);
+  pointLightEmerald.position.set(10, 10, 15);
+  scene.add(pointLightEmerald);
 
-  const pointLightPurple = new THREE.PointLight(0x8b5cf6, 2, 50);
-  pointLightPurple.position.set(-10, -10, 10);
-  scene.add(pointLightPurple);
+  const pointLightViolet = new THREE.PointLight(0x8b5cf6, 2.5, 50);
+  pointLightViolet.position.set(-10, -10, 10);
+  scene.add(pointLightViolet);
 
-  // Mouse Parallax
+  // Mouse Parallax & Interaction
   let mouseX = 0;
   let mouseY = 0;
   let targetX = 0;
@@ -177,14 +174,14 @@ function initWebAudioSynthesizer() {
 
     if (isAudioEnabled) {
       toggleBtn.classList.add('sound-active');
-      playTone(587.33, 0.08, 'sine', 0.15);
-      setTimeout(() => playTone(880, 0.12, 'sine', 0.18), 70);
+      playTone(587.33, 0.08, 'sine', 0.15); // D5
+      setTimeout(() => playTone(880, 0.12, 'sine', 0.18), 70); // A5
     } else {
       toggleBtn.classList.remove('sound-active');
     }
   });
 
-  const hoverables = document.querySelectorAll('a, button, .cmd-chip, .filter-btn');
+  const hoverables = document.querySelectorAll('a, button');
   hoverables.forEach(elem => {
     elem.addEventListener('mouseenter', () => {
       if (isAudioEnabled) playTone(920, 0.03, 'sine', 0.04);
@@ -219,16 +216,10 @@ function playTone(freq, duration, type = 'sine', volume = 0.1) {
 
 function playUnlockChime() {
   if (!audioCtx || !isAudioEnabled) return;
-  const notes = [523.25, 659.25, 783.99, 1046.50];
+  const notes = [523.25, 659.25, 783.99, 1046.50]; // Ascending C Major chord
   notes.forEach((freq, idx) => {
     setTimeout(() => playTone(freq, 0.25, 'sine', 0.12), idx * 100);
   });
-}
-
-function playHazardAlert() {
-  if (!audioCtx || !isAudioEnabled) return;
-  playTone(850, 0.12, 'sawtooth', 0.1);
-  setTimeout(() => playTone(650, 0.14, 'sawtooth', 0.12), 110);
 }
 
 /* ==========================================================================
@@ -251,7 +242,7 @@ function initCustomCursor() {
   window.addEventListener('mousedown', () => cursorWrapper.classList.add('active'));
   window.addEventListener('mouseup', () => cursorWrapper.classList.remove('active'));
 
-  const interactives = document.querySelectorAll('a, button, input, .project-card, .cmd-chip, .filter-btn');
+  const interactives = document.querySelectorAll('a, button, input');
   interactives.forEach(el => {
     el.addEventListener('mouseenter', () => cursorWrapper.classList.add('hovered'));
     el.addEventListener('mouseleave', () => cursorWrapper.classList.remove('hovered'));
@@ -322,7 +313,7 @@ function initCapsulePillNav() {
 }
 
 /* ==========================================================================
-   5. FPGA FSM & LFSR SIMULATOR
+   5. TANG NANO 20K FPGA FSM & LFSR SIMULATOR
    ========================================================================== */
 function initFPGALfsrSimulator() {
   const btnRun = document.getElementById('btn-run-fsm');
@@ -381,8 +372,9 @@ function initFPGALfsrSimulator() {
     isRunning = true;
     btnRun.disabled = true;
 
-    statusBadge.textContent = 'STATUS: S1 (GEN TOKEN)';
-    statusBadge.style.color = 'var(--color-cyan-glow)';
+    // Stage 1: LFSR Calculation
+    statusBadge.textContent = 'STATUS: S1 (GEN LFSR)';
+    statusBadge.style.color = 'var(--color-emerald-glow)';
     setActiveNode('lfsr');
     setPulsingLine(0);
     playTone(700, 0.08, 'sine', 0.1);
@@ -396,37 +388,41 @@ function initFPGALfsrSimulator() {
     relayDisplay.textContent = 'WAITING FOR PACKET';
     relayDisplay.style.color = 'var(--color-text-dim)';
 
+    // Stage 2: Simplex UART Packet Transmission
     setTimeout(() => {
-      statusBadge.textContent = 'STATUS: S2 (PACKET TX)';
-      statusBadge.style.color = 'var(--color-purple)';
+      statusBadge.textContent = 'STATUS: S2 (UART TX)';
+      statusBadge.style.color = 'var(--color-violet)';
       setActiveNode('tx');
       setPulsingLine(1);
       otpDisplay.textContent = `PAYLOAD: [${calculatedOtp}]`;
       playTone(850, 0.08, 'sine', 0.1);
 
+      // Stage 3: Tang Nano 20K FPGA Verification
       setTimeout(() => {
-        statusBadge.textContent = 'STATUS: S3 (VERIFY)';
-        statusBadge.style.color = 'var(--color-orange)';
+        statusBadge.textContent = 'STATUS: S3 (FPGA VERIFY)';
+        statusBadge.style.color = 'var(--color-cyan)';
         setActiveNode('verify');
         setPulsingLine(2);
         playTone(1050, 0.08, 'sine', 0.1);
 
+        // Stage 4: Verified & Unlock Actuation
         setTimeout(() => {
-          statusBadge.textContent = 'STATUS: S4 (SUCCESS)';
-          statusBadge.style.color = 'var(--color-emerald)';
+          statusBadge.textContent = 'STATUS: S4 (RELAY UNLOCKED)';
+          statusBadge.style.color = 'var(--color-emerald-glow)';
           setActiveNode('unlock');
           setPulsingLine(3);
-          otpDisplay.textContent = `VERIFIED: ${calculatedOtp}`;
-          relayDisplay.textContent = 'SYSTEM ACTIVE (VERIFIED)';
-          relayDisplay.style.color = 'var(--color-emerald)';
+          otpDisplay.textContent = `TOKEN VERIFIED: ${calculatedOtp}`;
+          relayDisplay.textContent = 'SOLENOID RELAY ENERGIZED (ACTIVE-HIGH 3.3V)';
+          relayDisplay.style.color = 'var(--color-emerald-glow)';
           playUnlockChime();
 
+          // Return to idle after hold
           setTimeout(() => {
             setActiveNode('idle');
             setPulsingLine(-1);
             statusBadge.textContent = 'STATUS: IDLE';
-            statusBadge.style.color = 'var(--color-emerald)';
-            relayDisplay.textContent = 'STANDBY (READY)';
+            statusBadge.style.color = 'var(--color-emerald-glow)';
+            relayDisplay.textContent = 'AUTO-RELOCKED (PASSIVE HOLD)';
             relayDisplay.style.color = 'var(--color-text-dim)';
             isRunning = false;
             btnRun.disabled = false;
@@ -441,10 +437,10 @@ function initFPGALfsrSimulator() {
     currentLfsr = 0xACE1;
     seedDisplay.textContent = '0xACE1 (44257)';
     otpDisplay.textContent = '----';
-    relayDisplay.textContent = 'STANDBY (READY)';
+    relayDisplay.textContent = 'LOCKED (HIGH IMPEDANCE PASSIVE)';
     relayDisplay.style.color = 'var(--color-text-dim)';
     statusBadge.textContent = 'STATUS: IDLE';
-    statusBadge.style.color = 'var(--color-emerald)';
+    statusBadge.style.color = 'var(--color-emerald-glow)';
     setActiveNode('idle');
     setPulsingLine(-1);
     isRunning = false;
@@ -453,224 +449,7 @@ function initFPGALfsrSimulator() {
 }
 
 /* ==========================================================================
-   6. METRICS & TELEMETRY DASHBOARD
-   ========================================================================== */
-function initAutomotiveSensorDashboard() {
-  const sliderDist = document.getElementById('slider-distance');
-  const sliderAlc = document.getElementById('slider-alcohol');
-  const sliderTemp = document.getElementById('slider-temp');
-
-  const valDist = document.getElementById('val-distance');
-  const valAlc = document.getElementById('val-alcohol');
-  const valTemp = document.getElementById('val-temp');
-
-  const hazardBox = document.getElementById('hazard-box');
-  const hazardIcon = document.getElementById('hazard-icon');
-  const hazardText = document.getElementById('hazard-text');
-  const buzzerTag = document.getElementById('hazard-buzzer-tag');
-  const sensorStatusBadge = document.getElementById('sensor-status-badge');
-  const btnDanger = document.getElementById('btn-test-danger');
-
-  if (!sliderDist || !hazardBox) return;
-
-  function updateSensors() {
-    const dist = parseInt(sliderDist.value, 10);
-    const alc = parseInt(sliderAlc.value, 10);
-    const temp = parseInt(sliderTemp.value, 10);
-
-    valDist.textContent = `${dist} ms ${dist < 30 ? '(CRITICAL <30ms)' : '(Normal)'}`;
-    valAlc.textContent = `${alc} req/s ${alc > 300 ? '(HIGH LOAD >300)' : '(Normal)'}`;
-    valTemp.textContent = `${temp} °C ${temp > 95 ? '(THERMAL WARNING >95°C)' : '(Optimal <95°C)'}`;
-
-    let hazards = [];
-    if (dist < 30) hazards.push(`Latency Bottleneck Alert (${dist}ms)`);
-    if (alc > 300) hazards.push(`Throughput Spike Event (${alc} req/s)`);
-    if (temp > 95) hazards.push(`Thermal Compute Load Exceeded (${temp}°C)`);
-
-    if (hazards.length > 0) {
-      hazardBox.className = 'hazard-alert-box danger';
-      hazardIcon.className = 'fa-solid fa-triangle-exclamation';
-      hazardText.textContent = hazards.join(' | ');
-      buzzerTag.textContent = 'ALERT: ACTIVE FREQUENCY';
-      buzzerTag.style.color = '#ef4444';
-      buzzerTag.style.fontWeight = '700';
-
-      sensorStatusBadge.textContent = 'THRESHOLD ALERT';
-      sensorStatusBadge.style.background = 'rgba(239, 68, 68, 0.2)';
-      sensorStatusBadge.style.color = '#ef4444';
-
-      playHazardAlert();
-    } else {
-      hazardBox.className = 'hazard-alert-box';
-      hazardIcon.className = 'fa-solid fa-circle-check';
-      hazardText.textContent = 'All telemetry parameters operating within normal parameters.';
-      buzzerTag.textContent = 'ALERT: STANDBY';
-      buzzerTag.style.color = 'var(--color-emerald)';
-      buzzerTag.style.fontWeight = 'normal';
-
-      sensorStatusBadge.textContent = 'SYS NORMAL';
-      sensorStatusBadge.style.background = 'rgba(16, 185, 129, 0.15)';
-      sensorStatusBadge.style.color = 'var(--color-emerald)';
-    }
-  }
-
-  sliderDist.addEventListener('input', updateSensors);
-  sliderAlc.addEventListener('input', updateSensors);
-  sliderTemp.addEventListener('input', updateSensors);
-
-  if (btnDanger) {
-    btnDanger.addEventListener('click', () => {
-      sliderDist.value = 18;
-      sliderAlc.value = 460;
-      sliderTemp.value = 108;
-      updateSensors();
-    });
-  }
-}
-
-/* ==========================================================================
-   7. INTERACTIVE ENGINEERING CLI TERMINAL
-   ========================================================================== */
-function initEngineeringTerminal() {
-  const stream = document.getElementById('terminal-stream');
-  const input = document.getElementById('terminal-cmd-input');
-  const chips = document.querySelectorAll('.cmd-chip');
-  const tabBash = document.getElementById('tab-cli-bash');
-  const tabSpecs = document.getElementById('tab-cli-specs');
-  const tabRtl = document.getElementById('tab-cli-rtl');
-
-  if (!stream || !input) return;
-
-  const commands = {
-    help: `
-Available commands:
-  • <span style="color: var(--color-cyan-glow);">skills</span>     - View technical competencies & stack
-  • <span style="color: var(--color-cyan-glow);">projects</span>   - List featured engineering repositories & projects
-  • <span style="color: var(--color-cyan-glow);">specs</span>      - Workstation & development environment specs
-  • <span style="color: var(--color-cyan-glow);">resume</span>     - Open technical resume specification modal
-  • <span style="color: var(--color-cyan-glow);">contact</span>    - View direct contact details & links
-  • <span style="color: var(--color-cyan-glow);">clear</span>      - Clear terminal stream
-    `,
-    skills: `
-<span style="color: var(--color-purple);">Core Languages:</span> TypeScript, JavaScript, Python, Node.js, C/C++, HTML5/CSS3.
-<span style="color: var(--color-cyan-glow);">3D & Graphics:</span> Three.js, WebGL, Canvas API, Custom Shaders.
-<span style="color: var(--color-emerald);">Architecture:</span> Cloudflare Workers/Pages, Docker, Distributed APIs, Tailscale.
-    `,
-    projects: `
-1. <span style="color: var(--color-cyan-glow);">Interactive 3D Simulation Platform</span> - Three.js WebGL + Real-Time Shaders.
-2. <span style="color: var(--color-orange);">Real-Time Telemetry & Monitoring Suite</span> - Node.js + WebSockets + Redis.
-3. <span style="color: var(--color-purple);">Distributed Energy & Grid Infrastructure</span> - Smart microgrid algorithm.
-4. <span style="color: var(--color-emerald);">Containerized Messaging & Mesh Network</span> - Docker + Tailscale P2P.
-    `,
-    specs: `
-<span style="color: var(--color-emerald);">Environment:</span> Modern Cloud & Native Architecture
-<span style="color: var(--color-cyan-glow);">Tooling:</span> Three.js, Node.js, WebGL, Docker, Vite
-<span style="color: var(--color-purple);">Deployment:</span> Cloudflare Pages + Edge Network
-    `,
-    contact: `
-<span style="color: var(--color-cyan-glow);">Email:</span> contact@yourdomain.com
-<span style="color: var(--color-emerald);">Location:</span> Your City, Country
-<span style="color: var(--color-purple);">GitHub:</span> https://github.com/yourusername
-    `,
-    resume: `Opening Resume Modal...`
-  };
-
-  function executeCommand(cmd) {
-    const trimmed = cmd.trim().toLowerCase();
-    const line = document.createElement('div');
-    line.innerHTML = `<span class="prompt-symbol">developer@portfolio:~$</span> ${cmd}`;
-    stream.appendChild(line);
-
-    if (trimmed === 'clear') {
-      stream.innerHTML = `
-        <div style="color: var(--color-cyan-glow);">=== INTERACTIVE DEVELOPER SHELL v3.0 ===</div>
-        <div style="color: var(--color-text-muted); margin-bottom: 0.75rem;">Type 'help' for available commands or click the chips below.</div>
-      `;
-    } else if (trimmed === 'resume') {
-      const resp = document.createElement('div');
-      resp.innerHTML = commands.resume;
-      stream.appendChild(resp);
-      const navResume = document.getElementById('btn-view-resume-nav');
-      if (navResume) navResume.click();
-    } else if (commands[trimmed]) {
-      const resp = document.createElement('div');
-      resp.innerHTML = commands[trimmed];
-      stream.appendChild(resp);
-    } else if (trimmed !== '') {
-      const resp = document.createElement('div');
-      resp.innerHTML = `<span style="color: #ef4444;">zsh: command not found: ${trimmed}</span>. Type '<span style="color: var(--color-cyan-glow);">help</span>' for available commands.`;
-      stream.appendChild(resp);
-    }
-
-    stream.scrollTop = stream.scrollHeight;
-  }
-
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      executeCommand(input.value);
-      input.value = '';
-    }
-  });
-
-  chips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      const cmd = chip.getAttribute('data-cmd');
-      executeCommand(cmd);
-    });
-  });
-
-  if (tabBash && tabSpecs && tabRtl) {
-    tabBash.addEventListener('click', () => {
-      tabBash.classList.add('active');
-      tabSpecs.classList.remove('active');
-      tabRtl.classList.remove('active');
-      executeCommand('clear');
-    });
-
-    tabSpecs.addEventListener('click', () => {
-      tabSpecs.classList.add('active');
-      tabBash.classList.remove('active');
-      tabRtl.classList.remove('active');
-      executeCommand('specs');
-    });
-
-    tabRtl.addEventListener('click', () => {
-      tabRtl.classList.add('active');
-      tabBash.classList.remove('active');
-      tabSpecs.classList.remove('active');
-      executeCommand('skills');
-    });
-  }
-}
-
-/* ==========================================================================
-   8. PROJECT FILTER SYSTEM
-   ========================================================================== */
-function initProjectFilters() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filterValue = btn.getAttribute('data-filter');
-
-      projectCards.forEach(card => {
-        const category = card.getAttribute('data-category') || '';
-        if (filterValue === 'all' || category.includes(filterValue)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-}
-
-/* ==========================================================================
-   9. CONTACT FORM
+   6. CONTACT FORM
    ========================================================================== */
 function initContactForm() {
   const form = document.getElementById('contact-form');
@@ -683,8 +462,11 @@ function initContactForm() {
 
     if (alertBox) {
       alertBox.style.display = 'block';
-      alertBox.className = 'hazard-alert-box';
-      alertBox.innerHTML = '⚡ Thank you! Your message has been sent successfully.';
+      alertBox.className = 'sim-chip';
+      alertBox.style.width = '100%';
+      alertBox.style.padding = '0.75rem';
+      alertBox.style.marginTop = '1rem';
+      alertBox.innerHTML = '⚡ Thank you! Your message has been sent to Rajashekar Thoutam.';
       form.reset();
 
       setTimeout(() => {
@@ -695,7 +477,7 @@ function initContactForm() {
 }
 
 /* ==========================================================================
-   10. MODAL WINDOWS
+   7. MODAL WINDOWS (FPGA ARCHITECTURE SPECIFICATION)
    ========================================================================== */
 function initModals() {
   const overlay = document.getElementById('modal-overlay');
@@ -704,80 +486,30 @@ function initModals() {
   const modalBody = document.getElementById('modal-body');
   const triggerBtns = document.querySelectorAll('[data-modal-target]');
 
-  const navResumeBtn = document.getElementById('btn-view-resume-nav');
-
   if (!overlay) return;
 
   const modalDetails = {
-    proj1: {
-      title: 'Interactive 3D Simulation Platform',
+    fpga_lock: {
+      title: 'Dual-Hardware Secure Locking System (Tang Nano 20K FPGA & ESP32)',
       content: `
-        <div style="color: #e2e8f0; line-height: 1.7;">
-          <h4 style="color: var(--color-cyan-glow);">Project Architecture Overview</h4>
-          <p>High-performance interactive 3D WebGL application featuring real-time physics and custom GLSL lighting shaders.</p>
+        <div style="color: #e2e8f0; line-height: 1.7; font-family: var(--font-main);">
+          <h4 style="color: var(--color-emerald-glow); font-size: 1.2rem; font-weight: 800; text-transform: uppercase;">
+            Hardware-Isolated Root of Trust Architecture
+          </h4>
+          <p style="color: var(--color-text-muted); margin-top: 0.5rem;">
+            An air-gapped embedded security architecture that physically decouples wireless RF communication from hardware execution logic.
+          </p>
           <br>
-          <ul style="margin-left: 1.5rem; color: #94a3b8;">
-            <li><strong>Renderer:</strong> Three.js WebGL with custom post-processing passes.</li>
-            <li><strong>Shaders:</strong> Custom vertex and fragment GLSL shaders.</li>
-            <li><strong>State Pipeline:</strong> Low-latency state synchronization.</li>
-          </ul>
-        </div>
-      `
-    },
-    proj2: {
-      title: 'Real-Time Telemetry & Monitoring Suite',
-      content: `
-        <div style="color: #e2e8f0; line-height: 1.7;">
-          <h4 style="color: var(--color-cyan-glow);">System Architecture</h4>
-          <p>High-throughput real-time telemetry processing platform.</p>
-          <br>
-          <ul style="margin-left: 1.5rem; color: #94a3b8;">
-            <li><strong>Ingestion:</strong> Low-latency WebSocket connections.</li>
-            <li><strong>In-Memory Cache:</strong> Redis pub/sub queuing.</li>
-            <li><strong>Alert Engine:</strong> Automated threshold dispatching.</li>
-          </ul>
-        </div>
-      `
-    },
-    proj3: {
-      title: 'Distributed Energy & Grid Infrastructure',
-      content: `
-        <div style="color: #e2e8f0; line-height: 1.7;">
-          <h4 style="color: var(--color-cyan-glow);">Decentralized Optimization</h4>
-          <p>Bidirectional power flow control and microgrid balancing algorithms.</p>
-        </div>
-      `
-    },
-    proj4: {
-      title: 'Containerized Messaging & Mesh Network',
-      content: `
-        <div style="color: #e2e8f0; line-height: 1.7;">
-          <h4 style="color: var(--color-cyan-glow);">Encrypted P2P Architecture</h4>
-          <p>Secure self-hosted offline-first messaging network deployed inside isolated containers.</p>
-        </div>
-      `
-    },
-    resume: {
-      title: 'Curriculum Vitae & Technical Resume',
-      content: `
-        <div style="font-family: var(--font-main); color: #e2e8f0; line-height: 1.6;">
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-            <div>
-              <h3 style="color: var(--color-cyan-glow); font-size: 1.6rem; font-weight: 800;">YOUR NAME HERE</h3>
-              <p style="color: var(--color-text-muted); font-size: 0.9rem;">Your City, Country | contact@yourdomain.com</p>
-            </div>
-            <button class="btn-pill btn-pill-outline" onclick="window.print()" style="margin-top: 0.5rem;">
-              <i class="fa-solid fa-print"></i> Print / Save PDF
-            </button>
+          <div style="background: #020408; padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(16, 185, 129, 0.3); font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            <div>[ESP32 Token Unit] ──(ESP-NOW RF)──► [Receiver ESP32] ──(Simplex UART)──► [Tang Nano 20K FPGA]</div>
+            <div style="color: var(--color-emerald-glow); margin-top: 0.5rem;">Root of Trust: 16-bit LFSR Verilog FSM (Hardware Isolated) ──► Solenoid Relay</div>
           </div>
-          <hr style="border-color: rgba(255,255,255,0.1); margin: 1.25rem 0;">
-
-          <h4 style="color: var(--color-purple); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">SUMMARY</h4>
-          <p style="font-size: 0.92rem; color: #94a3b8;">Experienced engineer and developer building high-performance applications, interactive 3D web experiences, and robust architectures.</p>
-
-          <br>
-          <h4 style="color: var(--color-purple); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">TECHNICAL SKILLS</h4>
-          <p style="font-size: 0.9rem; color: #94a3b8;">TypeScript, JavaScript, Python, Node.js, Three.js, WebGL, C/C++, Docker, Cloudflare, Tailscale, Git.</p>
+          <ul style="margin-left: 1.5rem; color: #cbd5e1; line-height: 1.8;">
+            <li><strong>Hardware Root of Trust:</strong> Tang Nano 20K FPGA (Gowin GW2AR-18C) running a 6-state Verilog Finite State Machine clocked at 27 MHz.</li>
+            <li><strong>Dynamic Rolling Code Engine:</strong> 16-bit Linear Feedback Shift Register (LFSR) with maximal-length taps ($x^{16} + x^{14} + x^{13} + x^{11} + 1$) calculating 65,535 non-repeating dynamic OTP authentication keys.</li>
+            <li><strong>Simplex Pipeline:</strong> Unidirectional physical UART bus between the ESP32 receiver and the FPGA core, making physical reverse-probing from external interfaces mathematically impossible.</li>
+            <li><strong>Token Display Unit:</strong> Handheld secondary ESP32 unit executing router-less peer-to-peer ESP-NOW protocol for instant token confirmation.</li>
+          </ul>
         </div>
       `
     }
@@ -796,16 +528,6 @@ function initModals() {
       }
     });
   });
-
-  const openResumeModal = (e) => {
-    if (e) e.preventDefault();
-    const data = modalDetails.resume;
-    modalTitle.textContent = data.title;
-    modalBody.innerHTML = data.content;
-    overlay.classList.add('active');
-  };
-
-  if (navResumeBtn) navResumeBtn.addEventListener('click', openResumeModal);
 
   if (closeBtn) closeBtn.addEventListener('click', () => overlay.classList.remove('active'));
 
