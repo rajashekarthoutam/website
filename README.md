@@ -1,6 +1,7 @@
 # Thoutam Rajashekar - Personal Portfolio & Resume Website
 
-🌐 **Live Website**: [https://rajashekarthoutam.github.io/website/](https://rajashekarthoutam.github.io/website/)
+🌐 **Custom Domain**: [https://rajashekarthoutam.in/](https://rajashekarthoutam.in/)  
+🌐 **GitHub Pages Mirror**: [https://rajashekarthoutam.github.io/website/](https://rajashekarthoutam.github.io/website/)
 
 Official personal portfolio and technical showcase of **Thoutam Rajashekar** — Electronics & Communication Engineering Undergraduate, Hardware & Embedded Systems Specialist.
 

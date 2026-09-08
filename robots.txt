@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rajashekarthoutam.github.io/website/sitemap.xml
+Sitemap: https://rajashekarthoutam.in/sitemap.xml
