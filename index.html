@@ -70,99 +70,73 @@
       </div>
     </section>
 
-    <!-- 2. Selected Work (3 Curated Projects) -->
+    <!-- 2. Selected Work (2 Flagship Projects from GitHub) -->
     <section class="section work-section" id="work">
       <div class="container">
         <div class="section-title-wrap">
           <h2 class="section-heading">Selected Work</h2>
-          <span class="section-subtext">03 Focus Projects</span>
+          <span class="section-subtext">02 Featured Repositories</span>
         </div>
 
         <div class="project-list">
-          <!-- Project 1 -->
+          <!-- Project 1: Secure Locking System -->
           <article class="project-card">
             <div class="project-header">
-              <span class="project-category">FPGA • HARDWARE ROOT OF TRUST</span>
+              <span class="project-category">FPGA • HARDWARE ROOT OF TRUST • VERILOG HDL</span>
               <span class="project-year">2026</span>
             </div>
             
             <h3 class="project-title">
-              Dual-Hardware Air-Gapped Secure Lock System
+              Secure Dual-Hardware Locking System
             </h3>
 
             <p class="project-desc">
-              An air-gapped security system that physically decouples wireless RF communications from physical actuation. A <strong>Tang Nano 20K FPGA</strong> functions as the isolated Hardware Root of Trust, verifying 65,535 non-repeating dynamic OTP tokens received across a unidirectional simplex optical UART channel from an ESP32.
+              An air-gapped physical firewall architecture that physically decouples wireless RF communication from lock actuation logic. A <strong>Sipeed Tang Nano 20K FPGA</strong> acts as an immutable Hardware Root of Trust executing a cycle-accurate <strong>16-bit Galois LFSR</strong> (polynomial <code>x^16 + x^14 + x^13 + x^11 + 1</code>) generating 65,535 non-repeating dynamic OTP codes rotated every 60 seconds. Wireless transmission is handled by an <strong>ESP32</strong> running router-less ESP-NOW connected to the FPGA via a strictly unidirectional <strong>Simplex Optical UART link</strong>, guaranteeing 100% immunity to remote buffer overflows and replay attacks.
             </p>
 
             <div class="project-tags">
-              <span class="tag">Tang Nano 20K</span>
-              <span class="tag">Verilog HDL</span>
+              <span class="tag">Tang Nano 20K (GW2AR-18C)</span>
+              <span class="tag">Verilog HDL RTL</span>
               <span class="tag">Gowin EDA</span>
+              <span class="tag">Hardware LFSR</span>
+              <span class="tag">Simplex Optical UART</span>
               <span class="tag">ESP-NOW</span>
-              <span class="tag">Simplex UART</span>
             </div>
 
             <div class="project-links">
-              <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener noreferrer" class="link-btn">
-                View on GitHub &rarr;
+              <a href="https://github.com/rajashekarthoutam/secure-lock-system" target="_blank" rel="noopener noreferrer" class="link-btn">
+                github.com/rajashekarthoutam/secure-lock-system &rarr;
               </a>
             </div>
           </article>
 
-          <!-- Project 2 -->
+          <!-- Project 2: Smart SiC SSCB -->
           <article class="project-card">
             <div class="project-header">
-              <span class="project-category">DIGITAL SYNTHESIS • RTL MODELING</span>
+              <span class="project-category">POWER ELECTRONICS • REAL-TIME FIRMWARE • SILICON CARBIDE</span>
               <span class="project-year">2026</span>
             </div>
             
             <h3 class="project-title">
-              16-Bit Hardware Galois LFSR Dynamic Token Engine
+              Smart Bidirectional Double-Pole SiC Solid-State Circuit Breaker (SSCB)
             </h3>
 
             <p class="project-desc">
-              Hardware-level Linear Feedback Shift Register designed in Verilog HDL utilizing tap polynomial <code>x^16 + x^14 + x^13 + x^11 + 1</code>. Synthesized on FPGA silicon to generate cycle-accurate pseudorandom authentication tokens with zero operating system dependencies.
+              A double-pole AC solid-state breaker replacing electromechanical inertia and contact arcing with 4× <strong>Wolfspeed C3M0075120K (1200V, 75mΩ)</strong> Silicon Carbide MOSFETs in common-source back-to-back pairs. Achieves an autonomous sub-microsecond trip path (<515–650 ns) via an <strong>STM32G431KB (ARM Cortex-M4F @ 170MHz)</strong> routing dual internal Analog Watchdogs (AWD1/AWD2) directly to Advanced Control Timer <code>TIM1_BKIN</code> break circuitry, bypassing software interrupt latency. Integrates coordinated MOV energy absorption (150 J), zero-crossing TRIAC dynamic PFC correction, and opto-isolated telemetry streaming True-RMS power over MQTT via an <strong>ESP32 FreeRTOS</strong> co-processor.
             </p>
 
             <div class="project-tags">
-              <span class="tag">Verilog HDL</span>
-              <span class="tag">RTL Synthesis</span>
-              <span class="tag">Cryptographic State Machine</span>
-              <span class="tag">ModelSim</span>
-            </div>
-
-            <div class="project-links">
-              <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener noreferrer" class="link-btn">
-                View on GitHub &rarr;
-              </a>
-            </div>
-          </article>
-
-          <!-- Project 3 -->
-          <article class="project-card">
-            <div class="project-header">
-              <span class="project-category">EMBEDDED IOT • TELEMETRY</span>
-              <span class="project-year">2025</span>
-            </div>
-            
-            <h3 class="project-title">
-              Automotive Telemetry &amp; Microsecond Sensor Logger
-            </h3>
-
-            <p class="project-desc">
-              Deterministic logging architecture capturing powertrain and sensor data over high-speed SPI and CAN-bus transceivers. Captures microsecond-timestamped telemetry with dual-buffer DMA memory ping-pong to eliminate packet loss during high-frequency bursts.
-            </p>
-
-            <div class="project-tags">
+              <span class="tag">STM32G431KB (ARM Cortex-M4F)</span>
+              <span class="tag">Wolfspeed 1200V SiC MOSFETs</span>
+              <span class="tag">Sub-Microsecond AWD (&lt;650ns)</span>
               <span class="tag">Embedded C</span>
-              <span class="tag">ESP32 / PIC16</span>
-              <span class="tag">CAN Bus (ISO 11898)</span>
-              <span class="tag">SPI DMA</span>
+              <span class="tag">ESP32 FreeRTOS</span>
+              <span class="tag">MQTT Telemetry</span>
             </div>
 
             <div class="project-links">
-              <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener noreferrer" class="link-btn">
-                View on GitHub &rarr;
+              <a href="https://github.com/rajashekarthoutam/smart-sic-sscb" target="_blank" rel="noopener noreferrer" class="link-btn">
+                github.com/rajashekarthoutam/smart-sic-sscb &rarr;
               </a>
             </div>
           </article>
@@ -170,7 +144,7 @@
       </div>
     </section>
 
-    <!-- 3. Focused About / Background Section (1 Short Focused Paragraph) -->
+    <!-- 3. Focused About / Background Section -->
     <section class="section about-section" id="about">
       <div class="container">
         <div class="section-title-wrap">
@@ -179,7 +153,7 @@
 
         <div class="about-card">
           <p class="about-text">
-            I am an engineer driven by the boundary where digital logic synthesis meets low-level embedded hardware. Rather than relying solely on software-level access control, my work centers on designing deterministic hardware state machines in Verilog HDL, verifying RTL timing, and architecting physically isolated systems that prevent remote network exploits by design. Outside the lab, I design custom multi-layer PCBs in KiCad, probe signal lines on digital oscilloscopes, and assemble prototype electronics.
+            I am an engineer driven by the boundary where digital logic synthesis meets low-level embedded hardware and high-speed power electronics. Rather than relying solely on software-level access control or slow electromechanical mechanisms, my work centers on designing deterministic hardware state machines in Verilog HDL, autonomous sub-microsecond analog watchdog trip engines in modern ARM Cortex microcontrollers, and architecting physically isolated systems that prevent remote network exploits by design. Outside the lab, I design custom multi-layer PCBs in KiCad, probe high-voltage signal lines on digital oscilloscopes, and assemble prototype electronics.
           </p>
 
           <div class="about-meta-row">
@@ -206,7 +180,7 @@
         <div class="contact-box">
           <h2 class="contact-title">Let's build something deterministic.</h2>
           <p class="contact-desc">
-            Whether you are looking to hire for an FPGA/embedded systems role, collaborate on hardware security, or discuss custom PCB architecture, my inbox is always open.
+            Whether you are looking to hire for an FPGA/embedded systems role, collaborate on hardware security, or discuss power electronics architecture, my inbox is always open.
           </p>
 
           <div class="contact-buttons">
