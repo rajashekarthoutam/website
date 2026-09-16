@@ -3,10 +3,243 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website</title>
+  
+  <title>Rajashekar Thoutam | Hardware &amp; Embedded Systems Engineer</title>
+  <meta name="description" content="Portfolio of Rajashekar Thoutam. Hardware and Embedded Systems Engineer specializing in FPGA logic, Verilog HDL RTL, and air-gapped security.">
+  <meta name="author" content="Rajashekar Thoutam">
+  <link rel="canonical" href="https://rajashekarthoutam.in/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rajashekarthoutam.in/">
+  <meta property="og:title" content="Rajashekar Thoutam | Hardware &amp; Embedded Systems Engineer">
+  <meta property="og:description" content="Hardware and Embedded Systems Engineer specializing in FPGA digital logic, Verilog RTL, and air-gapped embedded security.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
+
+  <!-- Minimal Header & Navigation -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-link" aria-label="Rajashekar Thoutam Home">
+        <span class="brand-symbol">RT</span>
+        <span class="brand-name">Rajashekar Thoutam</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="#work" class="nav-item">Work</a>
+        <a href="#about" class="nav-item">About</a>
+        <a href="#contact" class="nav-item">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="mailto:rajashekar.thoutam.dev@gmail.com" class="btn btn-sm btn-ghost">Email Me &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. Ultra-Clean Minimalist Hero -->
+    <section class="section hero-section" id="hero">
+      <div class="container">
+        <div class="status-indicator">
+          <span class="pulse-dot"></span>
+          <span>Available for roles &amp; engineering collaborations • Hyderabad, India</span>
+        </div>
+
+        <h1 class="hero-name">Rajashekar Thoutam</h1>
+
+        <p class="hero-lead">
+          Hardware &amp; Embedded Systems Engineer. I design deterministic <strong>FPGA digital logic</strong>, 
+          <strong>Verilog RTL</strong> architectures, and secure <strong>air-gapped embedded systems</strong>.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#work" class="btn btn-primary">Selected Work &darr;</a>
+          <a href="#contact" class="btn btn-secondary">Get in Touch &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Selected Work (3 Curated Projects) -->
+    <section class="section work-section" id="work">
+      <div class="container">
+        <div class="section-title-wrap">
+          <h2 class="section-heading">Selected Work</h2>
+          <span class="section-subtext">03 Focus Projects</span>
+        </div>
+
+        <div class="project-list">
+          <!-- Project 1 -->
+          <article class="project-card">
+            <div class="project-header">
+              <span class="project-category">FPGA • HARDWARE ROOT OF TRUST</span>
+              <span class="project-year">2026</span>
+            </div>
+            
+            <h3 class="project-title">
+              Dual-Hardware Air-Gapped Secure Lock System
+            </h3>
+
+            <p class="project-desc">
+              An air-gapped security system that physically decouples wireless RF communications from physical actuation. A <strong>Tang Nano 20K FPGA</strong> functions as the isolated Hardware Root of Trust, verifying 65,535 non-repeating dynamic OTP tokens received across a unidirectional simplex optical UART channel from an ESP32.
+            </p>
+
+            <div class="project-tags">
+              <span class="tag">Tang Nano 20K</span>
+              <span class="tag">Verilog HDL</span>
+              <span class="tag">Gowin EDA</span>
+              <span class="tag">ESP-NOW</span>
+              <span class="tag">Simplex UART</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener noreferrer" class="link-btn">
+                View on GitHub &rarr;
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card">
+            <div class="project-header">
+              <span class="project-category">DIGITAL SYNTHESIS • RTL MODELING</span>
+              <span class="project-year">2026</span>
+            </div>
+            
+            <h3 class="project-title">
+              16-Bit Hardware Galois LFSR Dynamic Token Engine
+            </h3>
+
+            <p class="project-desc">
+              Hardware-level Linear Feedback Shift Register designed in Verilog HDL utilizing tap polynomial <code>x^16 + x^14 + x^13 + x^11 + 1</code>. Synthesized on FPGA silicon to generate cycle-accurate pseudorandom authentication tokens with zero operating system dependencies.
+            </p>
+
+            <div class="project-tags">
+              <span class="tag">Verilog HDL</span>
+              <span class="tag">RTL Synthesis</span>
+              <span class="tag">Cryptographic State Machine</span>
+              <span class="tag">ModelSim</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener noreferrer" class="link-btn">
+                View on GitHub &rarr;
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card">
+            <div class="project-header">
+              <span class="project-category">EMBEDDED IOT • TELEMETRY</span>
+              <span class="project-year">2025</span>
+            </div>
+            
+            <h3 class="project-title">
+              Automotive Telemetry &amp; Microsecond Sensor Logger
+            </h3>
+
+            <p class="project-desc">
+              Deterministic logging architecture capturing powertrain and sensor data over high-speed SPI and CAN-bus transceivers. Captures microsecond-timestamped telemetry with dual-buffer DMA memory ping-pong to eliminate packet loss during high-frequency bursts.
+            </p>
+
+            <div class="project-tags">
+              <span class="tag">Embedded C</span>
+              <span class="tag">ESP32 / PIC16</span>
+              <span class="tag">CAN Bus (ISO 11898)</span>
+              <span class="tag">SPI DMA</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener noreferrer" class="link-btn">
+                View on GitHub &rarr;
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Focused About / Background Section (1 Short Focused Paragraph) -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-title-wrap">
+          <h2 class="section-heading">About</h2>
+        </div>
+
+        <div class="about-card">
+          <p class="about-text">
+            I am an engineer driven by the boundary where digital logic synthesis meets low-level embedded hardware. Rather than relying solely on software-level access control, my work centers on designing deterministic hardware state machines in Verilog HDL, verifying RTL timing, and architecting physically isolated systems that prevent remote network exploits by design. Outside the lab, I design custom multi-layer PCBs in KiCad, probe signal lines on digital oscilloscopes, and assemble prototype electronics.
+          </p>
+
+          <div class="about-meta-row">
+            <div class="meta-item">
+              <span class="meta-label">Location</span>
+              <span class="meta-value">Hyderabad, Telangana, India</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Core Specialization</span>
+              <span class="meta-value">FPGA Logic &amp; Embedded Systems</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Availability</span>
+              <span class="meta-value">Full-Time Roles &amp; Engineering Consulting</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Direct Contact Section -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <h2 class="contact-title">Let's build something deterministic.</h2>
+          <p class="contact-desc">
+            Whether you are looking to hire for an FPGA/embedded systems role, collaborate on hardware security, or discuss custom PCB architecture, my inbox is always open.
+          </p>
+
+          <div class="contact-buttons">
+            <a href="mailto:rajashekar.thoutam.dev@gmail.com" class="btn btn-primary" id="btn-email-link">
+              rajashekar.thoutam.dev@gmail.com &rarr;
+            </a>
+            <button class="btn btn-secondary" id="btn-copy-email">
+              Copy Email Address
+            </button>
+            <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              GitHub Profile &nearr;
+            </a>
+          </div>
+
+          <div class="toast-message" id="copy-toast" role="status" aria-live="polite">
+            Email copied to clipboard!
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Clean Minimal Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <span class="footer-copy">&copy; 2026 Rajashekar Thoutam. Hosted on Cloudflare Edge.</span>
+      <div class="footer-links">
+        <a href="#hero">Top &uarr;</a>
+        <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
   <script src="index.js"></script>
 </body>
 </html>
