@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Rajashekar Thoutam | Hardware &amp; Embedded Systems Engineer</title>
-  <meta name="description" content="Portfolio of Rajashekar Thoutam. Hardware and Embedded Systems Engineer specializing in FPGA logic, Verilog HDL RTL, and air-gapped security.">
+  <meta name="description" content="Portfolio of Rajashekar Thoutam (Thoutam Rajashekar). Hardware and Embedded Systems Engineer specializing in FPGA logic, Verilog HDL RTL, air-gapped security, and power electronics.">
   <meta name="author" content="Rajashekar Thoutam">
   <link rel="canonical" href="https://rajashekarthoutam.in/">
 
@@ -13,7 +13,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rajashekarthoutam.in/">
   <meta property="og:title" content="Rajashekar Thoutam | Hardware &amp; Embedded Systems Engineer">
-  <meta property="og:description" content="Hardware and Embedded Systems Engineer specializing in FPGA digital logic, Verilog RTL, and air-gapped embedded security.">
+  <meta property="og:description" content="Hardware and Embedded Systems Engineer specializing in FPGA digital logic, Verilog RTL, air-gapped security, and SiC solid-state electronics.">
 
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
@@ -39,6 +39,7 @@
         <a href="#work" class="nav-item">Work</a>
         <a href="#about" class="nav-item">About</a>
         <a href="#contact" class="nav-item">Contact</a>
+        <a href="https://www.linkedin.com/in/thoutam-rajashekar/" target="_blank" rel="noopener noreferrer" class="nav-item">LinkedIn &nearr;</a>
       </nav>
 
       <div class="nav-cta">
@@ -60,12 +61,16 @@
 
         <p class="hero-lead">
           Hardware &amp; Embedded Systems Engineer. I design deterministic <strong>FPGA digital logic</strong>, 
-          <strong>Verilog RTL</strong> architectures, and secure <strong>air-gapped embedded systems</strong>.
+          <strong>Verilog RTL</strong> architectures, secure <strong>air-gapped embedded systems</strong>, and 
+          autonomous <strong>sub-microsecond power electronics</strong>.
         </p>
 
         <div class="hero-actions">
           <a href="#work" class="btn btn-primary">Selected Work &darr;</a>
           <a href="#contact" class="btn btn-secondary">Get in Touch &rarr;</a>
+          <a href="https://www.linkedin.com/in/thoutam-rajashekar/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            LinkedIn Profile &nearr;
+          </a>
         </div>
       </div>
     </section>
@@ -122,7 +127,7 @@
             </h3>
 
             <p class="project-desc">
-              A double-pole AC solid-state breaker replacing electromechanical inertia and contact arcing with 4× <strong>Wolfspeed C3M0075120K (1200V, 75mΩ)</strong> Silicon Carbide MOSFETs in common-source back-to-back pairs. Achieves an autonomous sub-microsecond trip path (<515–650 ns) via an <strong>STM32G431KB (ARM Cortex-M4F @ 170MHz)</strong> routing dual internal Analog Watchdogs (AWD1/AWD2) directly to Advanced Control Timer <code>TIM1_BKIN</code> break circuitry, bypassing software interrupt latency. Integrates coordinated MOV energy absorption (150 J), zero-crossing TRIAC dynamic PFC correction, and opto-isolated telemetry streaming True-RMS power over MQTT via an <strong>ESP32 FreeRTOS</strong> co-processor.
+              A double-pole AC solid-state breaker replacing electromechanical inertia and contact arcing with 4× <strong>Wolfspeed C3M0075120K (1200V, 75mΩ)</strong> Silicon Carbide MOSFETs in common-source back-to-back pairs. Achieves an autonomous sub-microsecond trip path (&lt;515–650 ns) via an <strong>STM32G431KB (ARM Cortex-M4F @ 170MHz)</strong> routing dual internal Analog Watchdogs (AWD1/AWD2) directly to Advanced Control Timer <code>TIM1_BKIN</code> break circuitry, bypassing software interrupt latency. Integrates coordinated MOV energy absorption (150 J), zero-crossing TRIAC dynamic PFC correction, and opto-isolated telemetry streaming True-RMS power over MQTT via an <strong>ESP32 FreeRTOS</strong> co-processor.
             </p>
 
             <div class="project-tags">
@@ -144,16 +149,20 @@
       </div>
     </section>
 
-    <!-- 3. Focused About / Background Section -->
+    <!-- 3. Focused About / Background Section (Connected to LinkedIn & Academic Focus) -->
     <section class="section about-section" id="about">
       <div class="container">
         <div class="section-title-wrap">
           <h2 class="section-heading">About</h2>
+          <span class="section-subtext">Background &amp; Focus</span>
         </div>
 
         <div class="about-card">
           <p class="about-text">
-            I am an engineer driven by the boundary where digital logic synthesis meets low-level embedded hardware and high-speed power electronics. Rather than relying solely on software-level access control or slow electromechanical mechanisms, my work centers on designing deterministic hardware state machines in Verilog HDL, autonomous sub-microsecond analog watchdog trip engines in modern ARM Cortex microcontrollers, and architecting physically isolated systems that prevent remote network exploits by design. Outside the lab, I design custom multi-layer PCBs in KiCad, probe high-voltage signal lines on digital oscilloscopes, and assemble prototype electronics.
+            I am a Hardware and Embedded Systems Engineer with a foundation in <strong>Electronics and Communication Engineering (ECE)</strong> from <strong>Joginpally B.R. Engineering College (JBREC)</strong>, Hyderabad. My work bridges deterministic digital logic synthesis on FPGAs with hard-real-time embedded control and power electronics.
+          </p>
+          <p class="about-text">
+            Rather than relying solely on high-level software abstraction, I specialize in building provably secure, fault-tolerant architectures: designing cycle-accurate state machines in <strong>Verilog HDL</strong>, configuring hardware roots of trust with physical air-gapped isolation, implementing sub-microsecond autonomous fault interruption on <strong>ARM Cortex-M4F</strong> microcontrollers, and designing custom multi-layer PCBs with Kelvin-source routing in KiCad.
           </p>
 
           <div class="about-meta-row">
@@ -162,12 +171,18 @@
               <span class="meta-value">Hyderabad, Telangana, India</span>
             </div>
             <div class="meta-item">
-              <span class="meta-label">Core Specialization</span>
-              <span class="meta-value">FPGA Logic &amp; Embedded Systems</span>
+              <span class="meta-label">Education</span>
+              <span class="meta-value">B.Tech in ECE • JBREC</span>
             </div>
             <div class="meta-item">
-              <span class="meta-label">Availability</span>
-              <span class="meta-value">Full-Time Roles &amp; Engineering Consulting</span>
+              <span class="meta-label">Specialization</span>
+              <span class="meta-value">FPGA RTL, Embedded Systems &amp; Power Electronics</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Connect</span>
+              <a href="https://www.linkedin.com/in/thoutam-rajashekar/" target="_blank" rel="noopener noreferrer" class="link-btn" style="font-size: 0.9rem;">
+                LinkedIn Profile &nearr;
+              </a>
             </div>
           </div>
         </div>
@@ -190,6 +205,9 @@
             <button class="btn btn-secondary" id="btn-copy-email">
               Copy Email Address
             </button>
+            <a href="https://www.linkedin.com/in/thoutam-rajashekar/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              LinkedIn &nearr;
+            </a>
             <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
               GitHub Profile &nearr;
             </a>
@@ -209,6 +227,7 @@
       <span class="footer-copy">&copy; 2026 Rajashekar Thoutam. Hosted on Cloudflare Edge.</span>
       <div class="footer-links">
         <a href="#hero">Top &uarr;</a>
+        <a href="https://www.linkedin.com/in/thoutam-rajashekar/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </div>
