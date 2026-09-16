@@ -9,7 +9,7 @@
   // Copy Email to Clipboard
   const copyBtn = document.getElementById('btn-copy-email');
   const copyToast = document.getElementById('copy-toast');
-  const email = 'rajashekar.thoutam.dev@gmail.com';
+  const email = 'rajashekarthoutam06@gmail.com';
 
   if (copyBtn && copyToast) {
     copyBtn.addEventListener('click', () => {
