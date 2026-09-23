@@ -19,329 +19,307 @@
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 
-  <!-- Google Fonts: Outfit, Inter & JetBrains Mono -->
+  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- FontAwesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <link rel="stylesheet" href="index.css?v=2.1">
+  <link rel="stylesheet" href="index.css?v=3.0">
 </head>
-<body class="theme-3d">
+<body>
 
-  <!-- Interactive Scroll Progress Bar -->
-  <div class="scroll-progress-bar" id="scroll-progress" aria-hidden="true"></div>
+  <!-- Minimal Scroll Indicator -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
-  <!-- Ambient Interactive Canvas & Glow Lights -->
-  <canvas id="circuit-canvas" class="ambient-canvas" aria-hidden="true"></canvas>
-  <div class="ambient-glow glow-cyan" aria-hidden="true"></div>
-  <div class="ambient-glow glow-emerald" aria-hidden="true"></div>
-
-  <!-- Modern 3D Floating Glass Navigation -->
+  <!-- Classic Minimalist Navigation -->
   <header class="site-header" id="header">
     <div class="container nav-container">
-      <a href="#hero" class="brand-link" aria-label="Thoutam Rajashekar Home">
-        <span class="brand-symbol"><i class="fa-solid fa-microchip"></i></span>
+      <a href="#hero" class="brand-link">
+        <span class="brand-dot"></span>
         <span class="brand-name">Thoutam Rajashekar</span>
       </a>
 
       <nav class="nav-links" aria-label="Main Navigation">
-        <a href="#work" class="nav-item">Work</a>
-        <a href="#about" class="nav-item">About</a>
-        <a href="#contact" class="nav-item">Contact</a>
-        <a href="https://www.linkedin.com/in/thoutam-rajashekar-02579633b/" target="_blank" rel="noopener noreferrer" class="nav-item">
-          LinkedIn <i class="fa-solid fa-arrow-up-right-from-square nav-icon-sub"></i>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="https://www.linkedin.com/in/thoutam-rajashekar-02579633b/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+          LinkedIn <i class="fa-solid fa-arrow-up-right-from-square nav-arrow"></i>
         </a>
       </nav>
 
-      <div class="nav-cta">
-        <a href="mailto:rajashekarthoutam06@gmail.com" class="btn btn-sm btn-ghost">
-          <i class="fa-solid fa-paper-plane"></i> Email Me
+      <div class="nav-action">
+        <a href="mailto:rajashekarthoutam06@gmail.com" class="btn btn-sm btn-outline">
+          <i class="fa-solid fa-paper-plane"></i> Email
         </a>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- 1. Modern 3D Hero Section -->
+    <!-- Hero Section -->
     <section class="section hero-section" id="hero">
-      <div class="container hero-container-3d">
-        <div class="hero-content">
-          <div class="hero-profile-box">
-            <div class="avatar-3d-wrapper">
-              <img src="assets/rajashekar-avatar.png" alt="Thoutam Rajashekar" class="hero-avatar" width="104" height="104">
-              <div class="avatar-ring-glow"></div>
+      <div class="container">
+        <div class="hero-wrapper">
+          <div class="hero-top">
+            <div class="avatar-wrap">
+              <img src="assets/rajashekar-avatar.png" alt="Thoutam Rajashekar" class="hero-avatar" width="96" height="96">
             </div>
-            <div class="status-indicator">
-              <span class="pulse-dot"></span>
-              <span>Available for roles &amp; engineering collaborations • Hyderabad, India <span class="live-clock" id="live-clock" title="Indian Standard Time">IST --:--:--</span></span>
+            <div class="status-pill">
+              <span class="status-dot"></span>
+              <span class="status-text">Available for engineering roles • Hyderabad, India</span>
+              <span class="status-time" id="status-time">IST --:--</span>
             </div>
           </div>
 
-          <h1 class="hero-name">
-            Thoutam <span class="gradient-text-3d">Rajashekar</span>
+          <h1 class="hero-title">
+            Hardware &amp; Embedded Systems Engineer.
           </h1>
 
-          <p class="hero-lead">
-            B.Tech ECE Student at Joginpally B R Engineering, Hyderabad | Former Apprentice at Medha Servo Drives (NAC Certified) | Passionate about embedded systems, industrial electronics, and IoT automation.
+          <p class="hero-description">
+            B.Tech ECE Student at Joginpally B R Engineering College, Hyderabad. Former Apprentice at <strong>Medha Servo Drives</strong> (NAC Certified). Focused on FPGA architecture, embedded firmware, high-voltage power electronics, and industrial IoT automation.
           </p>
 
-          <div class="hero-actions">
-            <a href="#work" class="btn btn-primary btn-3d">
-              <i class="fa-solid fa-cube"></i> Selected Work &darr;
+          <div class="hero-cta-group">
+            <a href="#work" class="btn btn-primary">
+              Selected Work <i class="fa-solid fa-arrow-down"></i>
             </a>
-            <a href="#contact" class="btn btn-secondary btn-3d">
-              Get in Touch &rarr;
+            <a href="#contact" class="btn btn-secondary">
+              Get in Touch <i class="fa-solid fa-arrow-right"></i>
             </a>
-            <a href="https://www.linkedin.com/in/thoutam-rajashekar-02579633b/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-3d">
-              <i class="fa-brands fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-3d">
+            <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
               <i class="fa-brands fa-github"></i> GitHub
             </a>
+            <a href="https://www.linkedin.com/in/thoutam-rajashekar-02579633b/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+              <i class="fa-brands fa-linkedin"></i> LinkedIn
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 2. Selected Work (3D Interactive Tilt Project Cards) -->
+    <!-- Selected Work Section -->
     <section class="section work-section" id="work">
       <div class="container">
-        <div class="section-title-wrap">
-          <h2 class="section-heading">Selected <span class="gradient-text-3d">Work</span></h2>
-          <span class="section-subtext">02 Featured Repositories</span>
+        <div class="section-header">
+          <span class="section-tag">01 // PROJECTS</span>
+          <h2 class="section-title">Selected Engineering Work</h2>
+          <p class="section-lead">Peer-reviewed hardware prototypes, RTL syntheses, and real-time embedded systems.</p>
         </div>
 
-        <div class="project-list">
-          <!-- Project 1: Secure Locking System -->
-          <article class="project-card tilt-card" data-tilt>
-            <div class="card-glare" aria-hidden="true"></div>
-            <div class="card-3d-content">
-              <div class="project-header">
-                <span class="project-category"><i class="fa-solid fa-microchip"></i> FPGA • HARDWARE ROOT OF TRUST • VERILOG HDL</span>
-                <span class="project-year">2026</span>
-              </div>
-              
-              <h3 class="project-title">
-                Secure Dual-Hardware Locking System
-              </h3>
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <article class="project-card">
+            <div class="project-meta">
+              <span class="project-domain"><i class="fa-solid fa-microchip"></i> FPGA • HARDWARE ROOT OF TRUST • VERILOG HDL</span>
+              <span class="project-date">2026</span>
+            </div>
 
-              <p class="project-desc">
-                An air-gapped physical firewall architecture that physically decouples wireless RF communication from lock actuation logic. A <strong>Sipeed Tang Nano 20K FPGA</strong> acts as an immutable Hardware Root of Trust executing a cycle-accurate <strong>16-bit Galois LFSR</strong> (polynomial <code>x^16 + x^14 + x^13 + x^11 + 1</code>) generating 65,535 non-repeating dynamic OTP codes rotated every 60 seconds. Wireless transmission is handled by an <strong>ESP32</strong> running router-less ESP-NOW connected to the FPGA via a strictly unidirectional <strong>Simplex Optical UART link</strong>, guaranteeing 100% immunity to remote buffer overflows and replay attacks.
-              </p>
+            <h3 class="project-name">
+              <a href="https://github.com/rajashekarthoutam/secure-lock-system" target="_blank" rel="noopener noreferrer">
+                Secure Dual-Hardware Locking System <i class="fa-solid fa-arrow-up-right-from-square title-arrow"></i>
+              </a>
+            </h3>
 
-              <div class="project-tags">
-                <span class="tag">Tang Nano 20K (GW2AR-18C)</span>
-                <span class="tag">Verilog HDL RTL</span>
-                <span class="tag">Gowin EDA</span>
-                <span class="tag">Hardware LFSR</span>
-                <span class="tag">Simplex Optical UART</span>
-                <span class="tag">ESP-NOW</span>
-              </div>
+            <p class="project-summary">
+              An air-gapped physical firewall architecture that physically decouples wireless RF communication from lock actuation logic. A <strong>Sipeed Tang Nano 20K FPGA</strong> acts as an immutable Hardware Root of Trust executing a cycle-accurate <strong>16-bit Galois LFSR</strong> (polynomial <code>x^16 + x^14 + x^13 + x^11 + 1</code>) generating 65,535 non-repeating dynamic OTP codes rotated every 60 seconds. Wireless transmission is handled by an <strong>ESP32</strong> running router-less ESP-NOW connected to the FPGA via a strictly unidirectional <strong>Simplex Optical UART link</strong>, guaranteeing 100% immunity to remote buffer overflows and replay attacks.
+            </p>
 
-              <div class="project-links">
-                <a href="https://github.com/rajashekarthoutam/secure-lock-system" target="_blank" rel="noopener noreferrer" class="link-btn btn-3d-sm">
-                  <i class="fa-brands fa-github"></i> github.com/rajashekarthoutam/secure-lock-system &rarr;
-                </a>
-                <button type="button" class="btn-drawer-toggle btn-3d-sm" data-target="drawer-lock-system" aria-expanded="false">
-                  <i class="fa-solid fa-microchip"></i> <span class="toggle-txt">Architecture Specs</span> <i class="fa-solid fa-chevron-down chevron-icon"></i>
-                </button>
+            <!-- Specs Grid -->
+            <div class="spec-grid">
+              <div class="spec-cell">
+                <span class="spec-label">Core Logic</span>
+                <span class="spec-val">Gowin GW2AR-18C FPGA (20K LUTs)</span>
               </div>
+              <div class="spec-cell">
+                <span class="spec-label">RTL Primitive</span>
+                <span class="spec-val">16-bit Galois LFSR (65,535 cycle OTP)</span>
+              </div>
+              <div class="spec-cell">
+                <span class="spec-label">Physical Isolation</span>
+                <span class="spec-val">Simplex Optical UART (Air-Gapped)</span>
+              </div>
+              <div class="spec-cell">
+                <span class="spec-label">RF Transport</span>
+                <span class="spec-val">ESP32 ESP-NOW Unicast Protocol</span>
+              </div>
+            </div>
 
-              <!-- Interactive Spec Drawer -->
-              <div class="project-drawer" id="drawer-lock-system" hidden>
-                <div class="drawer-inner">
-                  <div class="drawer-grid">
-                    <div class="drawer-node">
-                      <span class="drawer-key"><i class="fa-solid fa-microchip"></i> HARDWARE ROOT</span>
-                      <span class="drawer-val">Tang Nano 20K (Gowin GW2AR-18C)</span>
-                    </div>
-                    <div class="drawer-node">
-                      <span class="drawer-key"><i class="fa-solid fa-code"></i> RTL PRIMITIVE</span>
-                      <span class="drawer-val">16-bit Galois LFSR (65,535 cycle OTP)</span>
-                    </div>
-                    <div class="drawer-node">
-                      <span class="drawer-key"><i class="fa-solid fa-shield-halved"></i> AIR-GAP ISOLATION</span>
-                      <span class="drawer-val">Simplex Optical UART (Fiber Optic)</span>
-                    </div>
-                    <div class="drawer-node">
-                      <span class="drawer-key"><i class="fa-solid fa-wifi"></i> RF SUITE</span>
-                      <span class="drawer-val">ESP32 ESP-NOW (Routerless Unicast)</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="tag-list">
+              <span class="tag">Tang Nano 20K (GW2AR-18C)</span>
+              <span class="tag">Verilog HDL RTL</span>
+              <span class="tag">Gowin EDA</span>
+              <span class="tag">Hardware LFSR</span>
+              <span class="tag">Simplex Optical UART</span>
+              <span class="tag">ESP-NOW</span>
+            </div>
+
+            <div class="project-footer">
+              <a href="https://github.com/rajashekarthoutam/secure-lock-system" target="_blank" rel="noopener noreferrer" class="link-action">
+                <i class="fa-brands fa-github"></i> View Repository &rarr;
+              </a>
             </div>
           </article>
 
-          <!-- Project 2: Smart SiC SSCB -->
-          <article class="project-card tilt-card" data-tilt>
-            <div class="card-glare" aria-hidden="true"></div>
-            <div class="card-3d-content">
-              <div class="project-header">
-                <span class="project-category"><i class="fa-solid fa-bolt"></i> POWER ELECTRONICS • REAL-TIME FIRMWARE • SILICON CARBIDE</span>
-                <span class="project-year">2026</span>
-              </div>
-              
-              <h3 class="project-title">
-                Smart Bidirectional Double-Pole SiC Solid-State Circuit Breaker (SSCB)
-              </h3>
+          <!-- Project 2 -->
+          <article class="project-card">
+            <div class="project-meta">
+              <span class="project-domain"><i class="fa-solid fa-bolt"></i> POWER ELECTRONICS • REAL-TIME FIRMWARE • SILICON CARBIDE</span>
+              <span class="project-date">2026</span>
+            </div>
 
-              <p class="project-desc">
-                A double-pole AC solid-state breaker replacing electromechanical inertia and contact arcing with 4× <strong>Wolfspeed C3M0075120K (1200V, 75mΩ)</strong> Silicon Carbide MOSFETs in common-source back-to-back pairs. Achieves an autonomous sub-microsecond trip path (&lt;515–650 ns) via an <strong>STM32G431KB (ARM Cortex-M4F @ 170MHz)</strong> routing dual internal Analog Watchdogs (AWD1/AWD2) directly to Advanced Control Timer <code>TIM1_BKIN</code> break circuitry, bypassing software interrupt latency. Integrates coordinated MOV energy absorption (150 J), zero-crossing TRIAC dynamic PFC correction, and opto-isolated telemetry streaming True-RMS power over MQTT via an <strong>ESP32 FreeRTOS</strong> co-processor.
-              </p>
+            <h3 class="project-name">
+              <a href="https://github.com/rajashekarthoutam/smart-sic-sscb" target="_blank" rel="noopener noreferrer">
+                Smart Bidirectional Double-Pole SiC Solid-State Circuit Breaker (SSCB) <i class="fa-solid fa-arrow-up-right-from-square title-arrow"></i>
+              </a>
+            </h3>
 
-              <div class="project-tags">
-                <span class="tag">STM32G431KB (ARM Cortex-M4F)</span>
-                <span class="tag">Wolfspeed 1200V SiC MOSFETs</span>
-                <span class="tag">Sub-Microsecond AWD (&lt;650ns)</span>
-                <span class="tag">Embedded C</span>
-                <span class="tag">ESP32 FreeRTOS</span>
-                <span class="tag">MQTT Telemetry</span>
-              </div>
+            <p class="project-summary">
+              A double-pole AC solid-state breaker replacing electromechanical inertia and contact arcing with 4× <strong>Wolfspeed C3M0075120K (1200V, 75mΩ)</strong> Silicon Carbide MOSFETs in common-source back-to-back pairs. Achieves an autonomous sub-microsecond trip path (&lt;515–650 ns) via an <strong>STM32G431KB (ARM Cortex-M4F @ 170MHz)</strong> routing dual internal Analog Watchdogs (AWD1/AWD2) directly to Advanced Control Timer <code>TIM1_BKIN</code> break circuitry, bypassing software interrupt latency. Integrates coordinated MOV energy absorption (150 J), zero-crossing TRIAC dynamic PFC correction, and opto-isolated telemetry streaming True-RMS power over MQTT via an <strong>ESP32 FreeRTOS</strong> co-processor.
+            </p>
 
-              <div class="project-links">
-                <a href="https://github.com/rajashekarthoutam/smart-sic-sscb" target="_blank" rel="noopener noreferrer" class="link-btn btn-3d-sm">
-                  <i class="fa-brands fa-github"></i> github.com/rajashekarthoutam/smart-sic-sscb &rarr;
-                </a>
-                <button type="button" class="btn-drawer-toggle btn-3d-sm" data-target="drawer-sic-sscb" aria-expanded="false">
-                  <i class="fa-solid fa-bolt"></i> <span class="toggle-txt">Architecture Specs</span> <i class="fa-solid fa-chevron-down chevron-icon"></i>
-                </button>
+            <!-- Specs Grid -->
+            <div class="spec-grid">
+              <div class="spec-cell">
+                <span class="spec-label">Power Stage</span>
+                <span class="spec-val">4x Wolfspeed C3M0075120K (1200V SiC)</span>
               </div>
+              <div class="spec-cell">
+                <span class="spec-label">Trip Latency</span>
+                <span class="spec-val">Autonomous &lt;650ns (Analog AWD)</span>
+              </div>
+              <div class="spec-cell">
+                <span class="spec-label">Microcontroller</span>
+                <span class="spec-val">STM32G431KB Cortex-M4F @ 170MHz</span>
+              </div>
+              <div class="spec-cell">
+                <span class="spec-label">Telemetry Stack</span>
+                <span class="spec-val">Opto-Isolated MQTT via FreeRTOS</span>
+              </div>
+            </div>
 
-              <!-- Interactive Spec Drawer -->
-              <div class="project-drawer" id="drawer-sic-sscb" hidden>
-                <div class="drawer-inner">
-                  <div class="drawer-grid">
-                    <div class="drawer-node">
-                      <span class="drawer-key"><i class="fa-solid fa-bolt"></i> POWER STAGE</span>
-                      <span class="drawer-val">4x Wolfspeed C3M0075120K (1200V SiC)</span>
-                    </div>
-                    <div class="drawer-node">
-                      <span class="drawer-key"><i class="fa-solid fa-stopwatch"></i> TRIP LATENCY</span>
-                      <span class="drawer-val">Sub-Microsecond (&lt;650ns Analog AWD)</span>
-                    </div>
-                    <div class="drawer-node">
-                      <span class="drawer-key"><i class="fa-solid fa-brain"></i> PROCESSOR</span>
-                      <span class="drawer-val">STM32G431KB Cortex-M4F @ 170MHz</span>
-                    </div>
-                    <div class="drawer-node">
-                      <span class="drawer-key"><i class="fa-solid fa-satellite-dish"></i> TELEMETRY</span>
-                      <span class="drawer-val">Opto-Isolated MQTT via ESP32 FreeRTOS</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="tag-list">
+              <span class="tag">STM32G431KB (ARM Cortex-M4F)</span>
+              <span class="tag">Wolfspeed 1200V SiC MOSFETs</span>
+              <span class="tag">Sub-Microsecond AWD (&lt;650ns)</span>
+              <span class="tag">Embedded C</span>
+              <span class="tag">ESP32 FreeRTOS</span>
+              <span class="tag">MQTT Telemetry</span>
+            </div>
+
+            <div class="project-footer">
+              <a href="https://github.com/rajashekarthoutam/smart-sic-sscb" target="_blank" rel="noopener noreferrer" class="link-action">
+                <i class="fa-brands fa-github"></i> View Repository &rarr;
+              </a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 3. Focused About Section (Authentic LinkedIn Text on 3D Glass Slab) -->
+    <!-- About Section -->
     <section class="section about-section" id="about">
       <div class="container">
-        <div class="section-title-wrap">
-          <h2 class="section-heading">About <span class="gradient-text-3d">Me</span></h2>
-          <span class="section-subtext">Professional Background</span>
+        <div class="section-header">
+          <span class="section-tag">02 // BACKGROUND</span>
+          <h2 class="section-title">About Me</h2>
         </div>
 
-        <div class="about-card tilt-card" data-tilt>
-          <div class="card-glare" aria-hidden="true"></div>
-          <div class="card-3d-content">
-            <p class="about-text">
+        <div class="about-card">
+          <div class="about-bio">
+            <p>
               I am an Electronics and Communication Engineering student at Joginpally B R Engineering College with a strong foundation in industrial electronics and embedded systems.
             </p>
-            <p class="about-text">
-              What sets me apart is my one-year industrial apprenticeship at Medha Servo Drives, where I earned my National Apprenticeship Certificate (NAC). This experience gave me hands-on expertise in electronics production, assembly, and equipment calibration that most students don't have.
+            <p>
+              What sets me apart is my one-year industrial apprenticeship at <strong>Medha Servo Drives</strong>, where I earned my National Apprenticeship Certificate (NAC). This experience gave me hands-on expertise in electronics production, assembly, and equipment calibration that most students don't have.
             </p>
-            <p class="about-text">
-              Recently, I completed a virtual internship as an Embedded System Engineer at Microchip, where I sharpened my skills in C, C++, and PIC microcontrollers using MPLAB X IDE. I am passionate about IoT and automation, as demonstrated by my IEEE-presented projects like the "Earthquake Monitor" and my "Car Safety System."
+            <p>
+              Recently, I completed a virtual internship as an Embedded System Engineer at <strong>Microchip</strong>, where I sharpened my skills in C, C++, and PIC microcontrollers using MPLAB X IDE. I am passionate about IoT and automation, as demonstrated by my IEEE-presented projects like the "Earthquake Monitor" and my "Car Safety System."
             </p>
-            <p class="about-text">
+            <p>
               I am a member of IEEE and IEEE Circuits and Systems Society (CAS). I am always looking to connect with professionals in the Embedded Systems, IoT, and Electronics Design space!
             </p>
+          </div>
 
-            <div class="about-meta-row">
-              <div class="meta-item-3d">
-                <span class="meta-label">Location</span>
-                <span class="meta-value"><i class="fa-solid fa-location-dot"></i> Hyderabad, India</span>
-              </div>
-              <div class="meta-item-3d">
-                <span class="meta-label">Education</span>
-                <span class="meta-value"><i class="fa-solid fa-graduation-cap"></i> B.Tech in ECE • JBREC</span>
-              </div>
-              <div class="meta-item-3d">
-                <span class="meta-label">Apprenticeship</span>
-                <span class="meta-value"><i class="fa-solid fa-certificate"></i> Medha Servo Drives (NAC)</span>
-              </div>
-              <div class="meta-item-3d">
-                <span class="meta-label">Affiliation</span>
-                <span class="meta-value"><i class="fa-solid fa-award"></i> IEEE &amp; IEEE CAS Member</span>
-              </div>
+          <div class="about-credentials">
+            <div class="credential-item">
+              <span class="credential-label">Location</span>
+              <span class="credential-val"><i class="fa-solid fa-location-dot"></i> Hyderabad, India</span>
+            </div>
+            <div class="credential-item">
+              <span class="credential-label">Education</span>
+              <span class="credential-val"><i class="fa-solid fa-graduation-cap"></i> B.Tech in ECE • JBREC</span>
+            </div>
+            <div class="credential-item">
+              <span class="credential-label">Industrial NAC</span>
+              <span class="credential-val"><i class="fa-solid fa-certificate"></i> Medha Servo Drives</span>
+            </div>
+            <div class="credential-item">
+              <span class="credential-label">Memberships</span>
+              <span class="credential-val"><i class="fa-solid fa-award"></i> IEEE &amp; IEEE CAS</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 4. Direct Contact Section (3D Luminous Beacon) -->
+    <!-- Contact Section -->
     <section class="section contact-section" id="contact">
       <div class="container">
-        <div class="contact-box tilt-card" data-tilt>
-          <div class="card-glare" aria-hidden="true"></div>
-          <div class="card-3d-content">
-            <h2 class="contact-title">Let's connect &amp; build.</h2>
-            <p class="contact-desc">
-              Whether you are looking to hire for an embedded systems/hardware role, discuss industrial electronics, or explore collaborations, my inbox is always open.
-            </p>
+        <div class="contact-card">
+          <span class="section-tag">03 // CONTACT</span>
+          <h2 class="contact-title">Let's connect &amp; build.</h2>
+          <p class="contact-lead">
+            Whether you are looking to hire for an embedded systems or hardware role, discuss industrial electronics, or explore engineering collaborations, my inbox is always open.
+          </p>
 
-            <div class="contact-buttons">
-              <a href="mailto:rajashekarthoutam06@gmail.com" class="btn btn-primary btn-3d" id="btn-email-link">
-                <i class="fa-solid fa-envelope"></i> rajashekarthoutam06@gmail.com
-              </a>
-              <button class="btn btn-secondary btn-3d" id="btn-copy-email">
-                <i class="fa-regular fa-copy"></i> Copy Email Address
-              </button>
-              <a href="https://www.linkedin.com/in/thoutam-rajashekar-02579633b/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-3d">
-                <i class="fa-brands fa-linkedin"></i> LinkedIn
-              </a>
-              <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-3d">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-              <a href="https://huggingface.co/rajashekar8899" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-3d">
-                <i class="fa-solid fa-brain"></i> Hugging Face
-              </a>
-              <a href="https://www.instagram.com/raja_shekar_thoutam/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-3d">
-                <i class="fa-brands fa-instagram"></i> Instagram
-              </a>
-            </div>
+          <div class="contact-actions">
+            <a href="mailto:rajashekarthoutam06@gmail.com" class="btn btn-primary" id="btn-email-link">
+              <i class="fa-solid fa-envelope"></i> rajashekarthoutam06@gmail.com
+            </a>
+            <button type="button" class="btn btn-secondary" id="btn-copy-email">
+              <i class="fa-regular fa-copy"></i> Copy Email
+            </button>
+          </div>
 
-            <div class="toast-message" id="copy-toast" role="status" aria-live="polite">
-              Email copied to clipboard!
-            </div>
+          <div class="social-links-grid">
+            <a href="https://www.linkedin.com/in/thoutam-rajashekar-02579633b/" target="_blank" rel="noopener noreferrer" class="social-chip">
+              <i class="fa-brands fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener noreferrer" class="social-chip">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+            <a href="https://huggingface.co/rajashekar8899" target="_blank" rel="noopener noreferrer" class="social-chip">
+              <i class="fa-solid fa-brain"></i> Hugging Face
+            </a>
+            <a href="https://www.instagram.com/raja_shekar_thoutam/" target="_blank" rel="noopener noreferrer" class="social-chip">
+              <i class="fa-brands fa-instagram"></i> Instagram
+            </a>
+          </div>
+
+          <div class="toast-message" id="copy-toast" role="status" aria-live="polite">
+            Email copied to clipboard!
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Clean 3D Glass Footer -->
+  <!-- Clean Classic Footer -->
   <footer class="site-footer">
     <div class="container footer-container">
-      <span class="footer-copy">&copy; 2026 Thoutam Rajashekar. Modern 3D Hardware Engineering Portfolio.</span>
-      <div class="footer-links">
-        <a href="#hero">Top &uarr;</a>
-        <a href="https://www.linkedin.com/in/thoutam-rajashekar-02579633b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <span class="footer-copy">&copy; 2026 Thoutam Rajashekar • Hardware &amp; Embedded Systems</span>
+      <div class="footer-nav">
+        <a href="#hero">Back to top &uarr;</a>
         <a href="https://github.com/rajashekarthoutam" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://huggingface.co/rajashekar8899" target="_blank" rel="noopener noreferrer">Hugging Face</a>
-        <a href="https://www.instagram.com/raja_shekar_thoutam/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.linkedin.com/in/thoutam-rajashekar-02579633b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
     </div>
   </footer>
 
-  <script src="index.js?v=2.1"></script>
+  <script src="index.js?v=3.0"></script>
 </body>
 </html>
