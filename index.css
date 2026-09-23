@@ -676,6 +676,179 @@ h1, h2, h3, h4 {
   color: var(--cyan-400);
 }
 
+/* --- INTERACTIVE ENHANCEMENTS --- */
+/* Scroll Progress */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--cyan-400), var(--emerald-400));
+  box-shadow: 0 0 10px var(--cyan-glow);
+  z-index: 999;
+  pointer-events: none;
+  transition: width 0.08s ease-out;
+}
+
+/* Ambient Circuit Canvas */
+.ambient-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* Live IST Clock Chip */
+.live-clock {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  padding: 0.15rem 0.5rem;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--cyan-400);
+  letter-spacing: 0.03em;
+  font-weight: 500;
+}
+
+/* Architecture Spec Drawer Button */
+.btn-drawer-toggle {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--transition);
+}
+
+.btn-drawer-toggle:hover {
+  background: rgba(0, 240, 255, 0.08);
+  border-color: var(--cyan-400);
+  color: var(--cyan-400);
+  box-shadow: 0 0 14px rgba(0, 240, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+.btn-drawer-toggle[aria-expanded="true"] {
+  background: rgba(0, 240, 255, 0.12);
+  border-color: var(--cyan-400);
+  color: #fff;
+}
+
+.btn-drawer-toggle .chevron-icon {
+  font-size: 0.7rem;
+  transition: transform 0.25s ease;
+}
+
+.btn-drawer-toggle[aria-expanded="true"] .chevron-icon {
+  transform: rotate(180deg);
+}
+
+/* Project Drawer Container */
+.project-drawer {
+  margin-top: 1.25rem;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+.project-drawer[hidden] {
+  display: none;
+}
+
+.drawer-inner {
+  background: rgba(7, 11, 20, 0.85);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.2rem;
+  backdrop-filter: blur(16px);
+  box-shadow: inset 0 0 20px rgba(0, 240, 255, 0.04), 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.drawer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.85rem;
+}
+
+.drawer-node {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.drawer-key {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--cyan-400);
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.drawer-val {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Interactive Tag Hover Highlighting */
+.tag {
+  transition: all var(--transition);
+  cursor: pointer;
+}
+
+.tag:hover,
+.tag.active-highlight {
+  background: rgba(0, 240, 255, 0.16);
+  border-color: var(--cyan-400);
+  color: var(--cyan-400);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Smooth Tilt Specular Glare */
+.card-glare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.06),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.tilt-card:hover .card-glare {
+  opacity: 1;
+}
+
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
   .hero-section {
@@ -688,8 +861,17 @@ h1, h2, h3, h4 {
     gap: 1rem;
   }
 
+  .live-clock {
+    margin-left: 0;
+    margin-top: 0.35rem;
+  }
+
   .nav-links {
     gap: 0.9rem;
+  }
+
+  .drawer-grid {
+    grid-template-columns: 1fr;
   }
 
   .footer-container {

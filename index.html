@@ -31,7 +31,11 @@
 </head>
 <body class="theme-3d">
 
-  <!-- Ambient 3D Glow Lights -->
+  <!-- Interactive Scroll Progress Bar -->
+  <div class="scroll-progress-bar" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Ambient Interactive Canvas & Glow Lights -->
+  <canvas id="circuit-canvas" class="ambient-canvas" aria-hidden="true"></canvas>
   <div class="ambient-glow glow-cyan" aria-hidden="true"></div>
   <div class="ambient-glow glow-emerald" aria-hidden="true"></div>
 
@@ -72,7 +76,7 @@
             </div>
             <div class="status-indicator">
               <span class="pulse-dot"></span>
-              <span>Available for roles &amp; engineering collaborations • Hyderabad, India</span>
+              <span>Available for roles &amp; engineering collaborations • Hyderabad, India <span class="live-clock" id="live-clock" title="Indian Standard Time">IST --:--:--</span></span>
             </div>
           </div>
 
@@ -141,6 +145,33 @@
                 <a href="https://github.com/rajashekarthoutam/secure-lock-system" target="_blank" rel="noopener noreferrer" class="link-btn btn-3d-sm">
                   <i class="fa-brands fa-github"></i> github.com/rajashekarthoutam/secure-lock-system &rarr;
                 </a>
+                <button type="button" class="btn-drawer-toggle btn-3d-sm" data-target="drawer-lock-system" aria-expanded="false">
+                  <i class="fa-solid fa-microchip"></i> <span class="toggle-txt">Architecture Specs</span> <i class="fa-solid fa-chevron-down chevron-icon"></i>
+                </button>
+              </div>
+
+              <!-- Interactive Spec Drawer -->
+              <div class="project-drawer" id="drawer-lock-system" hidden>
+                <div class="drawer-inner">
+                  <div class="drawer-grid">
+                    <div class="drawer-node">
+                      <span class="drawer-key"><i class="fa-solid fa-microchip"></i> HARDWARE ROOT</span>
+                      <span class="drawer-val">Tang Nano 20K (Gowin GW2AR-18C)</span>
+                    </div>
+                    <div class="drawer-node">
+                      <span class="drawer-key"><i class="fa-solid fa-code"></i> RTL PRIMITIVE</span>
+                      <span class="drawer-val">16-bit Galois LFSR (65,535 cycle OTP)</span>
+                    </div>
+                    <div class="drawer-node">
+                      <span class="drawer-key"><i class="fa-solid fa-shield-halved"></i> AIR-GAP ISOLATION</span>
+                      <span class="drawer-val">Simplex Optical UART (Fiber Optic)</span>
+                    </div>
+                    <div class="drawer-node">
+                      <span class="drawer-key"><i class="fa-solid fa-wifi"></i> RF SUITE</span>
+                      <span class="drawer-val">ESP32 ESP-NOW (Routerless Unicast)</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </article>
@@ -175,6 +206,33 @@
                 <a href="https://github.com/rajashekarthoutam/smart-sic-sscb" target="_blank" rel="noopener noreferrer" class="link-btn btn-3d-sm">
                   <i class="fa-brands fa-github"></i> github.com/rajashekarthoutam/smart-sic-sscb &rarr;
                 </a>
+                <button type="button" class="btn-drawer-toggle btn-3d-sm" data-target="drawer-sic-sscb" aria-expanded="false">
+                  <i class="fa-solid fa-bolt"></i> <span class="toggle-txt">Architecture Specs</span> <i class="fa-solid fa-chevron-down chevron-icon"></i>
+                </button>
+              </div>
+
+              <!-- Interactive Spec Drawer -->
+              <div class="project-drawer" id="drawer-sic-sscb" hidden>
+                <div class="drawer-inner">
+                  <div class="drawer-grid">
+                    <div class="drawer-node">
+                      <span class="drawer-key"><i class="fa-solid fa-bolt"></i> POWER STAGE</span>
+                      <span class="drawer-val">4x Wolfspeed C3M0075120K (1200V SiC)</span>
+                    </div>
+                    <div class="drawer-node">
+                      <span class="drawer-key"><i class="fa-solid fa-stopwatch"></i> TRIP LATENCY</span>
+                      <span class="drawer-val">Sub-Microsecond (&lt;650ns Analog AWD)</span>
+                    </div>
+                    <div class="drawer-node">
+                      <span class="drawer-key"><i class="fa-solid fa-brain"></i> PROCESSOR</span>
+                      <span class="drawer-val">STM32G431KB Cortex-M4F @ 170MHz</span>
+                    </div>
+                    <div class="drawer-node">
+                      <span class="drawer-key"><i class="fa-solid fa-satellite-dish"></i> TELEMETRY</span>
+                      <span class="drawer-val">Opto-Isolated MQTT via ESP32 FreeRTOS</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </article>
