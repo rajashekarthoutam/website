@@ -425,28 +425,17 @@ h1, h2, h3, h4 {
   border-radius: var(--radius-lg);
   padding: 2.2rem;
   box-shadow: var(--shadow-3d-card);
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
   overflow: hidden;
 }
 
 .tilt-card:hover {
   border-color: rgba(0, 240, 255, 0.4);
-  box-shadow: var(--shadow-3d-hover);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 240, 255, 0.12);
 }
 
 .card-glare {
-  position: absolute;
-  inset: 0;
-  pointer-events: none !important;
-  background: radial-gradient(circle 350px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.08), transparent 70%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: inherit;
-  z-index: 1;
-}
-
-.tilt-card:hover .card-glare {
-  opacity: 1;
+  display: none;
 }
 
 .card-3d-content {

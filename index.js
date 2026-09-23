@@ -153,35 +153,7 @@
   updateClock();
   setInterval(updateClock, 1000);
 
-  // --- 4. SMOOTH CLICK-SAFE 3D PERSPECTIVE CARD TILT ---
-  const tiltCards = document.querySelectorAll('.tilt-card');
-  tiltCards.forEach((card) => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
 
-      card.style.setProperty('--mouse-x', `${((x / rect.width) * 100).toFixed(1)}%`);
-      card.style.setProperty('--mouse-y', `${((y / rect.height) * 100).toFixed(1)}%`);
-
-      // If cursor is over an interactive link or button, keep card stable so clicks never miss
-      if (e.target.closest('a, button')) {
-        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(-2px)';
-        return;
-      }
-
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = (((y - centerY) / centerY) * -4).toFixed(2);
-      const rotateY = (((x - centerX) / centerX) * 4).toFixed(2);
-
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
-    });
-  });
 
   // --- 5. INTERACTIVE ARCHITECTURE SPEC DRAWERS ---
   const drawerButtons = document.querySelectorAll('.btn-drawer-toggle');
