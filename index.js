@@ -153,55 +153,33 @@
   updateClock();
   setInterval(updateClock, 1000);
 
-  // --- 4. SMOOTH LERP 3D PERSPECTIVE CARD TILT ---
+  // --- 4. SMOOTH CLICK-SAFE 3D PERSPECTIVE CARD TILT ---
   const tiltCards = document.querySelectorAll('.tilt-card');
   tiltCards.forEach((card) => {
-    let targetX = 0;
-    let targetY = 0;
-    let currentX = 0;
-    let currentY = 0;
-    let isHovering = false;
-    let animId = null;
-
-    function renderTilt() {
-      if (!isHovering && Math.abs(currentX) < 0.05 && Math.abs(currentY) < 0.05) {
-        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
-        animId = null;
-        return;
-      }
-      currentX += (targetX - currentX) * 0.12;
-      currentY += (targetY - currentY) * 0.12;
-
-      card.style.transform = `perspective(1000px) rotateX(${currentX.toFixed(2)}deg) rotateY(${currentY.toFixed(2)}deg) translateY(${isHovering ? '-4px' : '0px'})`;
-      animId = requestAnimationFrame(renderTilt);
-    }
-
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
 
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      // Subtle, refined tilt angle (max 5.5 deg)
-      targetX = ((y - centerY) / centerY) * -5.5;
-      targetY = ((x - centerX) / centerX) * 5.5;
-
       card.style.setProperty('--mouse-x', `${((x / rect.width) * 100).toFixed(1)}%`);
       card.style.setProperty('--mouse-y', `${((y / rect.height) * 100).toFixed(1)}%`);
 
-      if (!isHovering) {
-        isHovering = true;
-        if (!animId) animId = requestAnimationFrame(renderTilt);
+      // If cursor is over an interactive link or button, keep card stable so clicks never miss
+      if (e.target.closest('a, button')) {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(-2px)';
+        return;
       }
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = (((y - centerY) / centerY) * -4).toFixed(2);
+      const rotateY = (((x - centerX) / centerX) * 4).toFixed(2);
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
     });
 
     card.addEventListener('mouseleave', () => {
-      isHovering = false;
-      targetX = 0;
-      targetY = 0;
-      if (!animId) animId = requestAnimationFrame(renderTilt);
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
     });
   });
 

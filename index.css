@@ -425,8 +425,7 @@ h1, h2, h3, h4 {
   border-radius: var(--radius-lg);
   padding: 2.2rem;
   box-shadow: var(--shadow-3d-card);
-  transform-style: preserve-3d;
-  transition: transform 0.15s ease-out, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
   overflow: hidden;
 }
 
@@ -438,11 +437,12 @@ h1, h2, h3, h4 {
 .card-glare {
   position: absolute;
   inset: 0;
-  pointer-events: none;
+  pointer-events: none !important;
   background: radial-gradient(circle 350px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.08), transparent 70%);
   opacity: 0;
   transition: opacity 0.3s ease;
   border-radius: inherit;
+  z-index: 1;
 }
 
 .tilt-card:hover .card-glare {
@@ -450,8 +450,9 @@ h1, h2, h3, h4 {
 }
 
 .card-3d-content {
-  transform: translateZ(25px);
-  transform-style: preserve-3d;
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
 }
 
 .project-header {
@@ -529,6 +530,9 @@ h1, h2, h3, h4 {
 .project-links {
   display: flex;
   gap: 1rem;
+  position: relative;
+  z-index: 15;
+  pointer-events: auto !important;
 }
 
 .link-btn {
@@ -540,6 +544,10 @@ h1, h2, h3, h4 {
   align-items: center;
   gap: 0.5rem;
   transition: all var(--transition);
+  position: relative;
+  z-index: 20;
+  pointer-events: auto !important;
+  cursor: pointer;
 }
 
 .link-btn:hover {
@@ -630,6 +638,16 @@ h1, h2, h3, h4 {
   justify-content: center;
   gap: 0.9rem;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 15;
+  pointer-events: auto !important;
+}
+
+.contact-buttons .btn {
+  position: relative;
+  z-index: 20;
+  pointer-events: auto !important;
+  cursor: pointer;
 }
 
 .toast-message {
@@ -826,28 +844,7 @@ h1, h2, h3, h4 {
   transform: translateY(-2px);
 }
 
-/* Smooth Tilt Specular Glare */
-.card-glare {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  border-radius: inherit;
-  background: radial-gradient(
-    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(255, 255, 255, 0.06),
-    transparent 60%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 2;
-}
 
-.tilt-card:hover .card-glare {
-  opacity: 1;
-}
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
