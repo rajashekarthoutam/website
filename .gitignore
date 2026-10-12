@@ -1,0 +1,4 @@
+# Isolated test tooling
+/mirofish/
+*.log
+.env
